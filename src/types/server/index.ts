@@ -55,4 +55,5 @@ type ServerMessage = {
   sent_at: string;
 };
 
+export { ChannelType };
 export type { Server, ServerChannel, ServerMember, ServerMessage };
