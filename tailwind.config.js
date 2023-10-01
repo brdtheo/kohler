@@ -13,7 +13,7 @@ module.exports = {
         "server-sidebar": "#2b2d31",
         "server-chat": "#313338",
         input: "#383a40",
-        "input-icon": "#b5bac1",
+        "icon": "#b5bac1",
       },
     },
   },
