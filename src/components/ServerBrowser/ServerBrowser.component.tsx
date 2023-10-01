@@ -5,10 +5,11 @@ import {
   ServerBrowserListItem,
 } from "./";
 
-import { type UserRegisteredServer, IconName } from "@/types/common";
+import { type Server } from "@/types/server";
+import { IconName } from "@/types/common";
 
 type Props = {
-  serverList: UserRegisteredServer[];
+  serverList: Server[];
 };
 
 const ServerBrowser: React.FC<Props> = ({ serverList }) => (
