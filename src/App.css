@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: "gg sans Regular";
+}
+
+/* Font family utils */
+.gg-regular {
+  font-family: "gg sans Regular";
+}
+.gg-medium {
+  font-family: "gg sans Medium";
+}
+.gg-semibold {
+  font-family: "gg sans SemiBold";
+}
+.gg-bold {
+  font-family: "gg sans Bold";
+}
+
+@font-face {
+  font-family: "gg sans Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("gg sans Regular"),
+    url("../public/fonts/gg-sans/regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "gg sans Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("gg sans Medium"),
+    url("../public/fonts/gg-sans/medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "gg sans SemiBold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("gg sans SemiBold"),
+    url("../public/fonts/gg-sans/semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "gg sans Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("gg sans"), url("../public/fonts/gg-sans/bold.woff") format("woff");
+}
