@@ -1,6 +1,7 @@
 import ServerBrowser from "@components/ServerBrowser";
+import AppBar from "@components/AppBar";
 
-import { Server } from "@/types/server";
+import { Server, ServerChannel, ChannelType } from "@/types/server";
 
 const _TEMP_SERVER_LIST: Server[] = [
   {
@@ -13,10 +14,19 @@ const _TEMP_SERVER_LIST: Server[] = [
   },
 ];
 
+const _TEMP_SERVER_CHANNEL: ServerChannel = {
+  id: 1,
+  name: "general",
+  type: ChannelType.TEXT,
+};
+
 export default function App() {
   return (
-    <div className="grid grid-cols-auto w-full h-screen bg-server-chat">
+    <div className="flex w-full h-screen">
       <ServerBrowser serverList={_TEMP_SERVER_LIST} />
+      <div className="flex-1 bg-gray-700">
+        <AppBar title={_TEMP_SERVER_CHANNEL.name} />
+      </div>
     </div>
   );
 }
