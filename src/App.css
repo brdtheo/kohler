@@ -25,15 +25,14 @@ html {
   font-style: normal;
   font-weight: normal;
   src: local("gg sans Regular"),
-    url("../public/fonts/gg-sans/regular.woff") format("woff");
+    url("/fonts/gg-sans/regular.woff") format("woff");
 }
 
 @font-face {
   font-family: "gg sans Medium";
   font-style: normal;
   font-weight: normal;
-  src: local("gg sans Medium"),
-    url("../public/fonts/gg-sans/medium.woff") format("woff");
+  src: local("gg sans Medium"), url("/fonts/gg-sans/medium.woff") format("woff");
 }
 
 @font-face {
@@ -41,12 +40,12 @@ html {
   font-style: normal;
   font-weight: normal;
   src: local("gg sans SemiBold"),
-    url("../public/fonts/gg-sans/semibold.woff") format("woff");
+    url("/fonts/gg-sans/semibold.woff") format("woff");
 }
 
 @font-face {
   font-family: "gg sans Bold";
   font-style: normal;
   font-weight: normal;
-  src: local("gg sans"), url("../public/fonts/gg-sans/bold.woff") format("woff");
+  src: local("gg sans"), url("/fonts/gg-sans/bold.woff") format("woff");
 }
