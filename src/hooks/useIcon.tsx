@@ -1,5 +1,6 @@
 import { IconName } from "@/types/common";
 
+/** Returns an SVG element associated to the icon name passed in params */
 export default function useIcon(name: IconName) {
   switch (name) {
     case IconName.LOGO:
