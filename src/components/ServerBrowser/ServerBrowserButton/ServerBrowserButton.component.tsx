@@ -1,3 +1,5 @@
+import { ReferenceType } from "@floating-ui/react";
+
 export type Props = {
   /** Background image picture URL, appears as fully scaled to button size. Cannot be used along with an icon */
   thumbnail?: string;
@@ -7,8 +9,8 @@ export type Props = {
   children?: React.ReactElement;
   /** An additional action all users will have displayed in green */
   isExtraAction?: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
+  tooltipReference?: ((node: ReferenceType | null) => void) &
+    ((node: ReferenceType | null) => void);
 };
 
 const ServerBrowserButton: React.FC<Props> = ({
@@ -16,17 +18,15 @@ const ServerBrowserButton: React.FC<Props> = ({
   title,
   children,
   isExtraAction,
-  onMouseEnter,
-  onMouseLeave,
+  tooltipReference,
 }) => {
   return (
     <button
+      ref={tooltipReference}
       type="button"
       className={`flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-server-chat ${
         isExtraAction ? "hover:bg-active-extra" : "hover:bg-active"
       }`}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       <>
         {thumbnail && (
