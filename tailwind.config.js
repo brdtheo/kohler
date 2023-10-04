@@ -14,6 +14,7 @@ module.exports = {
         "server-chat": "#313338",
         input: "#383a40",
         "icon": "#b5bac1",
+        "contextual": "#111214",
       },
     },
   },
