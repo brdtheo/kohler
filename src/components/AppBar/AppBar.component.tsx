@@ -1,5 +1,5 @@
 import Icon from "@components/Icon";
-import { AppBarSearch } from ".";
+import { AppBarSearch, AppBarButton } from ".";
 
 import { IconName } from "@/types/common";
 
@@ -17,45 +17,24 @@ const AppBar: React.FC<Props> = ({ title }) => {
         </div>
 
         <div className="flex items-center text-icon">
-          <button
-            className="hover:text-smoke transition-colors duration-100 ease-in-out"
-            type="button"
-          >
-            <Icon name={IconName.HASHTAG_CHAT_BUBBLE} className="mx-2" />
-          </button>
-          <button
-            className="hover:text-smoke transition-colors duration-100 ease-in-out"
-            type="button"
-          >
-            <Icon name={IconName.NOTIFICATION} className="mx-2" />
-          </button>
-          <button
-            className="hover:text-smoke transition-colors duration-100 ease-in-out"
-            type="button"
-          >
-            <Icon name={IconName.PIN} className="mx-2" />
-          </button>
-          <button
-            className="hover:text-smoke transition-colors duration-100 ease-in-out"
-            type="button"
-          >
-            <Icon name={IconName.MEMBERS} className="mx-2" />
-          </button>
+          <AppBarButton
+            iconName={IconName.HASHTAG_CHAT_BUBBLE}
+            tooltipText="Threads"
+          />
+          <AppBarButton
+            iconName={IconName.NOTIFICATION}
+            tooltipText="Notification Settings"
+          />
+          <AppBarButton iconName={IconName.PIN} tooltipText="Pinned Mesages" />
+          <AppBarButton
+            iconName={IconName.MEMBERS}
+            tooltipText="Members List"
+          />
 
           <AppBarSearch value="" onSearch={() => {}} />
 
-          <button
-            className="hover:text-smoke transition-colors duration-100 ease-in-out"
-            type="button"
-          >
-            <Icon name={IconName.INBOX} className="mx-2" />
-          </button>
-          <button
-            className="hover:text-smoke transition-colors duration-100 ease-in-out"
-            type="button"
-          >
-            <Icon name={IconName.HELP} className="mx-2" />
-          </button>
+          <AppBarButton iconName={IconName.INBOX} tooltipText="Inbox" />
+          <AppBarButton iconName={IconName.HELP} tooltipText="Help" />
         </div>
       </section>
     </div>
