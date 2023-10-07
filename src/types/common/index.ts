@@ -11,4 +11,9 @@ enum IconName {
   HELP = "help",
 }
 
-export { IconName };
+enum AvatarSize {
+  SMALL = "small",
+  LARGE = "large",
+}
+
+export { IconName, AvatarSize };
