@@ -13,7 +13,7 @@ type Props = {
 };
 
 const ServerBrowser: React.FC<Props> = ({ serverList }) => (
-  <div className="bg-server-browser w-[72px] h-full flex flex-col gap-3">
+  <div className="bg-shark w-18 h-full flex flex-col gap-3">
     <ServerBrowserList>
       <>
         <ServerBrowserListItem title="Direct Messages">

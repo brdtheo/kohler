@@ -17,7 +17,7 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
 
   return (
     <div
-      className={`transition-all ease-in duration-200 rounded bg-server-browser overflow-hidden mx-2 h-6 ${
+      className={`transition-all ease-in duration-200 rounded bg-shark overflow-hidden mx-2 h-6 ${
         isInputFocused ? "w-60" : "w-36"
       }`}
     >
@@ -32,14 +32,14 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
           <Icon
             name={IconName.SEARCH}
             className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-              value ? "text-icon" : "text-server-browser-icon"
+              value ? "text-crestline" : "text-iron"
             }`}
           />
         ) : (
           <Icon
             name={IconName.SEARCH}
             className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-              value ? "text-icon" : "text-server-browser-icon"
+              value ? "text-crestline" : "text-iron"
             }`}
           />
         )}

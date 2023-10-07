@@ -24,8 +24,8 @@ const ServerBrowserButton: React.FC<Props> = ({
     <button
       ref={tooltipReference}
       type="button"
-      className={`flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-server-chat ${
-        isExtraAction ? "hover:bg-active-extra" : "hover:bg-active"
+      className={`flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony ${
+        isExtraAction ? "hover:bg-eucalyptus" : "hover:bg-cornflower"
       }`}
     >
       <>
@@ -42,9 +42,9 @@ const ServerBrowserButton: React.FC<Props> = ({
           <div
             className={`${
               isExtraAction
-                ? "text-active-extra hover:text-server-browser-icon"
-                : "text-server-browser-icon"
-            } text-server-browser-icon w-12 h-12 flex justify-center items-center`}
+                ? "text-eucalyptus hover:text-iron"
+                : "text-iron"
+            } w-12 h-12 flex justify-center items-center`}
           >
             {children}
           </div>
