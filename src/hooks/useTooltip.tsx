@@ -66,7 +66,7 @@ export const useTooltip = ({
 
   const tooltipNode = (
     <div
-      className="w-max flex items-center px-3 rounded h-10 bg-contextual text-sm font-medium text-smoke relative gg-semibold"
+      className="w-max flex items-center px-3 rounded h-10 bg-woodsmoke text-sm font-medium text-smoke relative gg-semibold"
       ref={refs.setFloating}
       style={floatingStyles}
       {...getFloatingProps()}
@@ -74,7 +74,7 @@ export const useTooltip = ({
       <FloatingArrow
         ref={arrowRef}
         context={context}
-        className="fill-contextual"
+        className="fill-woodsmoke"
         width={10}
         height={4}
       />
