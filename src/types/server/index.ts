@@ -1,3 +1,5 @@
+import { User } from "@/types/user";
+
 type Server = {
   /** Server ID */
   id: number;
@@ -13,7 +15,7 @@ type Server = {
   invite_code: string;
 };
 
-type ServerMember = {
+type ServerMember = Pick<User, "status" | "thumbnail" | "username"> & {
   /** Member ID */
   id: number;
   /** ID of the server the User is in */
