@@ -5,15 +5,16 @@ import { IconName } from "@/types/common";
 
 type Props = {
   title: string;
+  onShowMembersList: () => void;
 };
 
-const AppBar: React.FC<Props> = ({ title }) => {
+const AppBar: React.FC<Props> = ({ title, onShowMembersList }) => {
   return (
     <div className="bg-ebony p-2">
       <section className="flex items-center h-8">
         <div className="flex items-center text-crestline select-none flex-1">
           <Icon name={IconName.HASHTAG} className="mx-2" />
-          <span className="text-smoke font-medium gg-semibold">{title}</span>
+          <h1 className="text-smoke font-medium gg-semibold">{title}</h1>
         </div>
 
         <div className="flex items-center text-crestline">
@@ -29,6 +30,7 @@ const AppBar: React.FC<Props> = ({ title }) => {
           <AppBarButton
             iconName={IconName.MEMBERS}
             tooltipText="Members List"
+            onClick={onShowMembersList}
           />
 
           <AppBarSearch value="" onSearch={() => {}} />

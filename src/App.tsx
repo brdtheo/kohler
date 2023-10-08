@@ -1,5 +1,8 @@
+import { useCallback, useState } from "react";
+
 import ServerBrowser from "@components/ServerBrowser";
 import AppBar from "@components/AppBar";
+import ServerMembersList from "@components/ServerMembersList";
 
 import { Server, ServerChannel, ChannelType } from "@/types/server";
 
@@ -20,11 +23,25 @@ const _TEMP_SERVER_CHANNEL: ServerChannel = {
 };
 
 export default function App() {
+  const [isMembersListOpen, setIsMembersListOpen] = useState(true);
+
+  const toggleMemberList = useCallback(
+    () => setIsMembersListOpen((state) => !state),
+    []
+  );
+
   return (
     <div className="flex w-full h-screen">
       <ServerBrowser serverList={_TEMP_SERVER_LIST} />
-      <div className="flex-1 bg-gray-700">
-        <AppBar title={_TEMP_SERVER_CHANNEL.name} />
+      <div className="flex-1 bg-gray-700 overflow-hidden">
+        <AppBar
+          title={_TEMP_SERVER_CHANNEL.name}
+          onShowMembersList={toggleMemberList}
+        />
+        <div className="flex flex-1 h-full-app-bar">
+          <div className="flex flex-1" />
+          <ServerMembersList isOpen={isMembersListOpen} members={[]} />
+        </div>
       </div>
     </div>
   );
