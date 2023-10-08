@@ -10,9 +10,10 @@ type Props = {
   iconName: IconName;
   /** Content to display inside an optional tooltip element */
   tooltipText?: string;
+  onClick?: () => void;
 };
 
-const AppBarButton: React.FC<Props> = ({ iconName, tooltipText }) => {
+const AppBarButton: React.FC<Props> = ({ iconName, tooltipText, onClick }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const { refs, tooltipNode, getReferenceProps } = useTooltip({
@@ -30,6 +31,7 @@ const AppBarButton: React.FC<Props> = ({ iconName, tooltipText }) => {
         {...getReferenceProps()}
         className="hover:text-smoke transition-colors duration-100 ease-in-out"
         type="button"
+        onClick={onClick}
       >
         <Icon name={iconName} className="mx-2" />
       </button>
