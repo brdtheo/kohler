@@ -6,19 +6,19 @@ html {
   font-family: "gg sans Regular";
 }
 
-/* Scrollbars utils */
+/* Scrollbar utils */
 .scrollbar-thin::-webkit-scrollbar {
   width: 5px;
-  height: 8px;
+  height: theme("spacing.2");
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background-color: theme("colors.gluon-grey");
-  border-radius: 8px;
+  border-radius: theme("spacing.2");
 }
 
 .h-full-app-bar {
-  height: calc(100% - 48px);
+  height: calc(100% - theme("spacing.12"));
 }
 
 /* Font family utils */
