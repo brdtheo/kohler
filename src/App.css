@@ -2,39 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-family: "gg sans Regular";
-}
-
-/* Scrollbar utils */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 5px;
-  height: theme("spacing.2");
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: theme("colors.gluon-grey");
-  border-radius: theme("spacing.2");
-}
-
-.h-full-app-bar {
-  height: calc(100% - theme("spacing.12"));
-}
-
-/* Font family utils */
-.gg-regular {
-  font-family: "gg sans Regular";
-}
-.gg-medium {
-  font-family: "gg sans Medium";
-}
-.gg-semibold {
-  font-family: "gg sans SemiBold";
-}
-.gg-bold {
-  font-family: "gg sans Bold";
-}
-
 @font-face {
   font-family: "gg sans Regular";
   font-style: normal;
@@ -63,4 +30,82 @@ html {
   font-style: normal;
   font-weight: normal;
   src: local("gg sans"), url("/fonts/gg-sans/bold.woff") format("woff");
+}
+
+@keyframes typingFade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+html {
+  font-family: "gg sans Regular";
+}
+
+/* Scrollbar utils */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: theme("colors.scrolltrack");
+  border-radius: theme("spacing.2");
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  border: theme("spacing.1") solid transparent;
+  border-width: initial;
+  margin: theme("spacing.1") 0;
+}
+
+.scrollbar-thin::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.h-full-app-bar {
+  height: calc(100% - theme("spacing.12"));
+}
+
+/* Font family utils */
+.gg-regular {
+  font-family: "gg sans Regular";
+}
+.gg-medium {
+  font-family: "gg sans Medium";
+}
+.gg-semibold {
+  font-family: "gg sans SemiBold";
+}
+.gg-bold {
+  font-family: "gg sans Bold";
+}
+
+/* Text utils */
+.word-break {
+  word-break: break-word;
+}
+
+/* Animation utils */
+.typing-dot {
+  opacity: 0;
+  animation: typingFade 1s infinite;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
