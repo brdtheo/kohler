@@ -23,6 +23,9 @@ module.exports = {
         grass: "#23a55a",
         cheesy: "#f0b232",
         flamingo: "#f23f43",
+        // target specific colors
+        scrolltrack: "#202226",
+        placeholder: "#6d6f78",
       },
     },
   },
