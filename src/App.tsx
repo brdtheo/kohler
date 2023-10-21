@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import ServerBrowser from "@components/ServerBrowser";
 import AppBar from "@components/AppBar";
 import ServerMembersList from "@components/ServerMembersList";
+import ServerActivity from "@components/ServerActivity";
 
 import { Server, ServerChannel, ChannelType } from "@/types/server";
 
@@ -39,7 +40,7 @@ export default function App() {
           onShowMembersList={toggleMemberList}
         />
         <div className="flex flex-1 h-full-app-bar">
-          <div className="flex flex-1" />
+          <ServerActivity channelName={_TEMP_SERVER_CHANNEL.name} />
           <ServerMembersList isOpen={isMembersListOpen} members={[]} />
         </div>
       </div>
