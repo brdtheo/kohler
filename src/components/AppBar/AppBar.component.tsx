@@ -10,7 +10,7 @@ type Props = {
 
 const AppBar: React.FC<Props> = ({ title, onShowMembersList }) => {
   return (
-    <div className="bg-ebony p-2">
+    <div className="bg-ebony p-2 shadow-sm relative shadow-shark">
       <section className="flex items-center h-8">
         <div className="flex items-center text-crestline select-none flex-1">
           <Icon name={IconName.HASHTAG} className="mx-2" />
