@@ -1,6 +1,6 @@
-import Avatar from "@components/Avatar";
+import Avatar from '@components/Avatar';
 
-import { UserStatus } from "@/types/user";
+import { UserStatus } from '@/types/user';
 
 type Props = {
   memberStatus: UserStatus;
@@ -17,7 +17,7 @@ const ServerMemberListItem: React.FC<Props> = ({
 }) => (
   <li
     className={`text-crestline flex h-11${
-      memberStatus === UserStatus.OFFLINE ? " opacity-30" : ""
+      memberStatus === UserStatus.OFFLINE ? ' opacity-30' : ''
     }`}
   >
     <button

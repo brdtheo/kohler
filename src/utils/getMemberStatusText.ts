@@ -1,4 +1,4 @@
-import { UserStatus } from "@/types/user";
+import { UserStatus } from '@/types/user';
 
 /**
  * Retrieve the tooltip text from a Member status
@@ -10,13 +10,13 @@ import { UserStatus } from "@/types/user";
  * });
  */
 export default function getMemberStatusText(status?: UserStatus) {
-  if (!status) return "";
+  if (!status) return '';
   switch (status) {
     case UserStatus.ONLINE:
-      return "Online";
+      return 'Online';
     case UserStatus.IDLE:
-      return "Idle";
+      return 'Idle';
     case UserStatus.DO_NOT_DISTURB:
-      return "Do Not Disturb";
+      return 'Do Not Disturb';
   }
 }

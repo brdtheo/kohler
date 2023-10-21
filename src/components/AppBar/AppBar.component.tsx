@@ -1,7 +1,7 @@
-import Icon from "@components/Icon";
-import { AppBarSearch, AppBarButton } from ".";
+import Icon from '@components/Icon';
+import { AppBarSearch, AppBarButton } from '.';
 
-import { IconName } from "@/types/common";
+import { IconName } from '@/types/common';
 
 type Props = {
   title: string;

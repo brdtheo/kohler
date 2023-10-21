@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { ServerBrowserButton, type ServerBrowserButtonProps } from "..";
-import { useTooltip } from "@hooks/useTooltip";
+import { ServerBrowserButton, type ServerBrowserButtonProps } from '..';
+import { useTooltip } from '@hooks/useTooltip';
 
-type Props = Omit<ServerBrowserButtonProps, "tooltipReference">;
+type Props = Omit<ServerBrowserButtonProps, 'tooltipReference'>;
 
 const ServerBrowserListItem: React.FC<Props> = ({
   thumbnail,
@@ -14,9 +14,9 @@ const ServerBrowserListItem: React.FC<Props> = ({
   const [showActiveElements, setShowActiveElements] = useState(false);
 
   const { refs, tooltipNode, getReferenceProps } = useTooltip({
-    placement: "right",
+    placement: 'right',
     open: showActiveElements,
-    content: title ?? "",
+    content: title ?? '',
     mainAxisOffset: 20,
     onOpenChange: setShowActiveElements,
   });

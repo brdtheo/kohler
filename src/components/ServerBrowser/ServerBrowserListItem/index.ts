@@ -1,3 +1,3 @@
-import ServerBrowserListItem from "./ServerBrowserListItem.component";
+import ServerBrowserListItem from './ServerBrowserListItem.component';
 
 export default ServerBrowserListItem;

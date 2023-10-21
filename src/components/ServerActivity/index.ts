@@ -1,3 +1,3 @@
-import ServerActivity from "./ServerActivity.component";
+import ServerActivity from './ServerActivity.component';
 
-export default ServerActivity
+export default ServerActivity;

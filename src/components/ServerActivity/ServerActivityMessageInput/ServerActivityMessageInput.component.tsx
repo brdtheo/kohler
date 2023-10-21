@@ -1,9 +1,9 @@
-import { FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useState } from 'react';
 
-import Icon from "@components/Icon";
-import getBoardEmojiBackgroundPosition from "@utils/getBoardEmojiBackgroundPosition";
+import Icon from '@components/Icon';
+import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
 
-import { IconName } from "@/types/common";
+import { IconName } from '@/types/common';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
@@ -22,26 +22,26 @@ const ServerActivityMessageInput: React.FC<Props> = ({
   channelName,
   typingMemberNames,
 }) => {
-  const [message, setMessage] = useState<string>("");
+  const [message, setMessage] = useState<string>('');
   const [emojiBackgroundPosition, setEmojiBackgroundPosition] =
-    useState<string>("");
+    useState<string>('');
 
   const handleChangeEmojiPlaceholder = useCallback(() => {
     const emojiSize = 22;
     const maxColumns = 10;
     const maxRows = 3;
     setEmojiBackgroundPosition(
-      getBoardEmojiBackgroundPosition(maxColumns, maxRows, emojiSize)
+      getBoardEmojiBackgroundPosition(maxColumns, maxRows, emojiSize),
     );
   }, []);
 
   const handleMessageInput = useCallback(
     (event: EventTargetWithTextContent) => {
-      if (typeof event?.target?.textContent === "string") {
+      if (typeof event?.target?.textContent === 'string') {
         setMessage(event.target.textContent);
       }
     },
-    []
+    [],
   );
 
   return (
@@ -90,7 +90,7 @@ const ServerActivityMessageInput: React.FC<Props> = ({
 
       <div
         className={`h-6 text-smoke flex items-center ${
-          !typingMemberNames?.length && "invisible"
+          !typingMemberNames?.length && 'invisible'
         }`}
       >
         <span className="ml-2">
@@ -101,12 +101,12 @@ const ServerActivityMessageInput: React.FC<Props> = ({
             {typingMemberNames?.map((memberName, index) => (
               <span key={memberName + index}>
                 {memberName}
-                {index !== typingMemberNames?.length - 1 && ", "}
+                {index !== typingMemberNames?.length - 1 && ', '}
               </span>
             ))}
-          </strong>{" "}
+          </strong>{' '}
           <span>
-            {typingMemberNames?.length ?? 0 > 1 ? "are" : "is"} typing...
+            {typingMemberNames?.length ?? 0 > 1 ? 'are' : 'is'} typing...
           </span>
         </span>
       </div>

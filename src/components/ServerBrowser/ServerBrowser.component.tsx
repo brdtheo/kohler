@@ -1,12 +1,12 @@
-import Icon from "@components/Icon";
+import Icon from '@components/Icon';
 import {
   ServerBrowserDivider,
   ServerBrowserList,
   ServerBrowserListItem,
-} from "./";
+} from './';
 
-import { type Server } from "@/types/server";
-import { IconName } from "@/types/common";
+import { type Server } from '@/types/server';
+import { IconName } from '@/types/common';
 
 type Props = {
   serverList: Server[];

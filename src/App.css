@@ -3,33 +3,39 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "gg sans Regular";
+  font-family: 'gg sans Regular';
   font-style: normal;
   font-weight: normal;
-  src: local("gg sans Regular"),
-    url("/fonts/gg-sans/regular.woff") format("woff");
+  src:
+    local('gg sans Regular'),
+    url('/fonts/gg-sans/regular.woff') format('woff');
 }
 
 @font-face {
-  font-family: "gg sans Medium";
+  font-family: 'gg sans Medium';
   font-style: normal;
   font-weight: normal;
-  src: local("gg sans Medium"), url("/fonts/gg-sans/medium.woff") format("woff");
+  src:
+    local('gg sans Medium'),
+    url('/fonts/gg-sans/medium.woff') format('woff');
 }
 
 @font-face {
-  font-family: "gg sans SemiBold";
+  font-family: 'gg sans SemiBold';
   font-style: normal;
   font-weight: normal;
-  src: local("gg sans SemiBold"),
-    url("/fonts/gg-sans/semibold.woff") format("woff");
+  src:
+    local('gg sans SemiBold'),
+    url('/fonts/gg-sans/semibold.woff') format('woff');
 }
 
 @font-face {
-  font-family: "gg sans Bold";
+  font-family: 'gg sans Bold';
   font-style: normal;
   font-weight: normal;
-  src: local("gg sans"), url("/fonts/gg-sans/bold.woff") format("woff");
+  src:
+    local('gg sans'),
+    url('/fonts/gg-sans/bold.woff') format('woff');
 }
 
 @keyframes typingFade {
@@ -45,7 +51,7 @@
 }
 
 html {
-  font-family: "gg sans Regular";
+  font-family: 'gg sans Regular';
 }
 
 /* Scrollbar utils */
@@ -54,15 +60,15 @@ html {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: theme("colors.scrolltrack");
-  border-radius: theme("spacing.2");
+  background-color: theme('colors.scrolltrack');
+  border-radius: theme('spacing.2');
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
   background-clip: padding-box;
-  border: theme("spacing.1") solid transparent;
+  border: theme('spacing.1') solid transparent;
   border-width: initial;
-  margin: theme("spacing.1") 0;
+  margin: theme('spacing.1') 0;
 }
 
 .scrollbar-thin::-webkit-scrollbar-corner {
@@ -70,21 +76,21 @@ html {
 }
 
 .h-full-app-bar {
-  height: calc(100% - theme("spacing.12"));
+  height: calc(100% - theme('spacing.12'));
 }
 
 /* Font family utils */
 .gg-regular {
-  font-family: "gg sans Regular";
+  font-family: 'gg sans Regular';
 }
 .gg-medium {
-  font-family: "gg sans Medium";
+  font-family: 'gg sans Medium';
 }
 .gg-semibold {
-  font-family: "gg sans SemiBold";
+  font-family: 'gg sans SemiBold';
 }
 .gg-bold {
-  font-family: "gg sans Bold";
+  font-family: 'gg sans Bold';
 }
 
 /* Text utils */

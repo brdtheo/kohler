@@ -9,7 +9,7 @@
 export default function getBoardEmojiBackgroundPosition(
   maxCols: number,
   maxRows: number,
-  emojiSize: number
+  emojiSize: number,
 ) {
   const randomX = emojiSize * Math.floor(Math.random() * maxCols);
   const randomY = emojiSize * Math.floor(Math.random() * maxRows);

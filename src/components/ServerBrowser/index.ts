@@ -1,10 +1,10 @@
-import ServerBrowser from "./ServerBrowser.component";
+import ServerBrowser from './ServerBrowser.component';
 import ServerBrowserButton, {
   Props as ServerBrowserButtonProps,
-} from "./ServerBrowserButton";
-import ServerBrowserDivider from "./ServerBrowserDivider";
-import ServerBrowserList from "./ServerBrowserList";
-import ServerBrowserListItem from "./ServerBrowserListItem";
+} from './ServerBrowserButton';
+import ServerBrowserDivider from './ServerBrowserDivider';
+import ServerBrowserList from './ServerBrowserList';
+import ServerBrowserListItem from './ServerBrowserListItem';
 
 export {
   ServerBrowserButton,

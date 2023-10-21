@@ -1,3 +1,3 @@
-import ServerBrowserList from "./ServerBrowserList";
+import ServerBrowserList from './ServerBrowserList';
 
 export default ServerBrowserList;

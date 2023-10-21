@@ -1,3 +1,3 @@
-import ServerMemberListItem from "./ServerMemberListItem.component";
+import ServerMemberListItem from './ServerMemberListItem.component';
 
 export default ServerMemberListItem;
