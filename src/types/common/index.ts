@@ -9,6 +9,11 @@ enum IconName {
   SEARCH = "search",
   INBOX = "inbox",
   HELP = "help",
+  ATTACH = "attach",
+  GIFT = "gift",
+  GIF = "gif",
+  STICKER = "sticker",
+  TYPING_DOTS = "typingDots",
 }
 
 enum AvatarSize {
