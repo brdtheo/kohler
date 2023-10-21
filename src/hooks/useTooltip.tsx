@@ -66,7 +66,7 @@ export const useTooltip = ({
 
   const tooltipNode = (
     <div
-      className="w-max flex items-center px-3 rounded h-10 bg-woodsmoke text-sm font-medium text-smoke relative gg-semibold"
+      className="w-max flex items-center px-3 rounded h-10 bg-woodsmoke text-sm font-medium text-smoke relative gg-semibold z-50"
       ref={refs.setFloating}
       style={floatingStyles}
       {...getFloatingProps()}
