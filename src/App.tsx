@@ -1,25 +1,25 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import ServerBrowser from "@components/ServerBrowser";
-import AppBar from "@components/AppBar";
-import ServerMembersList from "@components/ServerMembersList";
-import ServerActivity from "@components/ServerActivity";
+import ServerBrowser from '@components/ServerBrowser';
+import AppBar from '@components/AppBar';
+import ServerMembersList from '@components/ServerMembersList';
+import ServerActivity from '@components/ServerActivity';
 
-import { Server, ServerChannel, ChannelType } from "@/types/server";
+import { Server, ServerChannel, ChannelType } from '@/types/server';
 
 const _TEMP_SERVER_LIST: Server[] = [
   {
     id: 1,
-    name: "CS2",
-    thumbnail: "https://i.redd.it/jfr58wvzl5db1.jpg",
-    created_at: "",
-    invite_code: "",
+    name: 'CS2',
+    thumbnail: 'https://i.redd.it/jfr58wvzl5db1.jpg',
+    created_at: '',
+    invite_code: '',
   },
 ];
 
 const _TEMP_SERVER_CHANNEL: ServerChannel = {
   id: 1,
-  name: "general",
+  name: 'general',
   type: ChannelType.TEXT,
 };
 
@@ -28,7 +28,7 @@ export default function App() {
 
   const toggleMemberList = useCallback(
     () => setIsMembersListOpen((state) => !state),
-    []
+    [],
   );
 
   return (

@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import Icon from "@components/Icon";
+import Icon from '@components/Icon';
 
-import { IconName } from "@/types/common";
+import { IconName } from '@/types/common';
 
 type Props = {
   value: string;
@@ -18,7 +18,7 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
   return (
     <div
       className={`transition-all ease-in duration-200 rounded bg-shark overflow-hidden mx-2 h-6 ${
-        isInputFocused ? "w-60" : "w-36"
+        isInputFocused ? 'w-60' : 'w-36'
       }`}
     >
       <div className="relative">
@@ -32,14 +32,14 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
           <Icon
             name={IconName.SEARCH}
             className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-              value ? "text-crestline" : "text-iron"
+              value ? 'text-crestline' : 'text-iron'
             }`}
           />
         ) : (
           <Icon
             name={IconName.SEARCH}
             className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-              value ? "text-crestline" : "text-iron"
+              value ? 'text-crestline' : 'text-iron'
             }`}
           />
         )}

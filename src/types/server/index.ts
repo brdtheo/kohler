@@ -1,4 +1,4 @@
-import { User } from "@/types/user";
+import { User } from '@/types/user';
 
 type Server = {
   /** Server ID */
@@ -15,7 +15,7 @@ type Server = {
   invite_code: string;
 };
 
-type ServerMember = Pick<User, "status" | "thumbnail" | "username"> & {
+type ServerMember = Pick<User, 'status' | 'thumbnail' | 'username'> & {
   /** Member ID */
   id: number;
   /** ID of the server the User is in */
@@ -30,9 +30,9 @@ type ServerMember = Pick<User, "status" | "thumbnail" | "username"> & {
 
 enum ChannelType {
   /** A text-based channel */
-  TEXT = "text",
+  TEXT = 'text',
   /** An audio-based channel (WebRTC) */
-  AUDIO = "audio",
+  AUDIO = 'audio',
 }
 
 type ServerChannel = {

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Icon from "@components/Icon";
-import { useTooltip } from "@hooks/useTooltip";
+import Icon from '@components/Icon';
+import { useTooltip } from '@hooks/useTooltip';
 
-import { IconName } from "@/types/common";
+import { IconName } from '@/types/common';
 
 type Props = {
   /** Name of the icon within the button */
@@ -17,9 +17,9 @@ const AppBarButton: React.FC<Props> = ({ iconName, tooltipText, onClick }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const { refs, tooltipNode, getReferenceProps } = useTooltip({
-    placement: "bottom",
+    placement: 'bottom',
     open: isTooltipOpen,
-    content: tooltipText ?? "",
+    content: tooltipText ?? '',
     mainAxisOffset: 10,
     onOpenChange: setIsTooltipOpen,
   });

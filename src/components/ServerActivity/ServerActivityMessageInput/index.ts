@@ -1,3 +1,3 @@
-import ServerActivityMessageInput from "./ServerActivityMessageInput.component";
+import ServerActivityMessageInput from './ServerActivityMessageInput.component';
 
 export default ServerActivityMessageInput;

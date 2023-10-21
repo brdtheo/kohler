@@ -1,4 +1,4 @@
-import { ReferenceType } from "@floating-ui/react";
+import { ReferenceType } from '@floating-ui/react';
 
 export type Props = {
   /** Background image picture URL, appears as fully scaled to button size. Cannot be used along with an icon */
@@ -25,7 +25,7 @@ const ServerBrowserButton: React.FC<Props> = ({
       ref={tooltipReference}
       type="button"
       className={`flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony ${
-        isExtraAction ? "hover:bg-eucalyptus" : "hover:bg-cornflower"
+        isExtraAction ? 'hover:bg-eucalyptus' : 'hover:bg-cornflower'
       }`}
     >
       <>
@@ -41,9 +41,7 @@ const ServerBrowserButton: React.FC<Props> = ({
         {!thumbnail && children && (
           <div
             className={`${
-              isExtraAction
-                ? "text-eucalyptus hover:text-iron"
-                : "text-iron"
+              isExtraAction ? 'text-eucalyptus hover:text-iron' : 'text-iron'
             } w-12 h-12 flex justify-center items-center`}
           >
             {children}

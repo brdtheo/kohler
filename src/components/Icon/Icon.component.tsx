@@ -1,6 +1,6 @@
-import useIcon from "@hooks/useIcon";
+import useIcon from '@hooks/useIcon';
 
-import type { IconName } from "@/types/common";
+import type { IconName } from '@/types/common';
 
 type Props = {
   name: IconName;

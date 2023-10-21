@@ -1,4 +1,4 @@
-import { UserStatus } from "@/types/user";
+import { UserStatus } from '@/types/user';
 
 /**
  * Retrieve the color name matching a given Member status
@@ -6,13 +6,13 @@ import { UserStatus } from "@/types/user";
  * <div className={getStatusColor(memberStatus)} />
  */
 export default function getMemberStatusColor(status?: UserStatus) {
-  if (!status) return "";
+  if (!status) return '';
   switch (status) {
     case UserStatus.ONLINE:
-      return "bg-grass";
+      return 'bg-grass';
     case UserStatus.IDLE:
-      return "bg-cheesy";
+      return 'bg-cheesy';
     case UserStatus.DO_NOT_DISTURB:
-      return "bg-flamingo";
+      return 'bg-flamingo';
   }
 }

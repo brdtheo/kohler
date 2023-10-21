@@ -1,3 +1,3 @@
-import AppBarSearch from "./AppBarSearch.component";
+import AppBarSearch from './AppBarSearch.component';
 
 export default AppBarSearch;
