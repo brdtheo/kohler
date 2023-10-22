@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
 
-import ServerBrowser from '@components/ServerBrowser';
+import ServerBrowser from '@libs/server/ServerBrowser';
 import AppBar from '@components/AppBar';
-import ServerMembersList from '@components/ServerMembersList';
-import ServerActivity from '@components/ServerActivity';
+import ServerMembersList from '@libs/member/MembersList';
+import ServerActivity from '@libs/server/ServerActivity';
 
 import { Server, ServerChannel, ChannelType } from '@/types/server';
 

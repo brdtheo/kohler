@@ -18,7 +18,7 @@ type EventTargetWithTextContent = FormEvent<HTMLDivElement> & {
   };
 };
 
-const ServerActivityMessageInput: React.FC<Props> = ({
+const MessageInput: React.FC<Props> = ({
   channelName,
   typingMemberNames,
 }) => {
@@ -114,4 +114,4 @@ const ServerActivityMessageInput: React.FC<Props> = ({
   );
 };
 
-export default ServerActivityMessageInput;
+export default MessageInput;

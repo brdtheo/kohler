@@ -3,7 +3,7 @@ import {
   ServerBrowserDivider,
   ServerBrowserList,
   ServerBrowserListItem,
-} from './';
+} from '.';
 
 import { type Server } from '@/types/server';
 import { IconName } from '@/types/common';

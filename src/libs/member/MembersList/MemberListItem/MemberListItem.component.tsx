@@ -9,7 +9,7 @@ type Props = {
   avatarThumbnail?: string;
 };
 
-const ServerMemberListItem: React.FC<Props> = ({
+const MemberListItem: React.FC<Props> = ({
   memberStatus,
   memberName,
   memberBio,
@@ -40,4 +40,4 @@ const ServerMemberListItem: React.FC<Props> = ({
   </li>
 );
 
-export default ServerMemberListItem;
+export default MemberListItem;
