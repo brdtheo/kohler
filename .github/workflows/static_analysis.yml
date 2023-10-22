@@ -1,0 +1,17 @@
+name: Static analysis
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Checking TypeScript errors
+        run: yarn tsc --noEmit
+      - name: Checking ESLint errors
+        run: yarn lint
+      - name: Checking formatting errors
+        run: yarn pretty
