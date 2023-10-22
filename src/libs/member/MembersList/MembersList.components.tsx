@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import ServerMemberListItem from './ServerMemberListItem';
+import ServerMemberListItem from './MemberListItem';
 
 import { UserStatus } from '@/types/user';
 import { ServerMember } from '@/types/server';
@@ -10,7 +10,7 @@ type Props = {
   members: ServerMember[];
 };
 
-const ServerMembersList: React.FC<Props> = ({ isOpen, members }) => {
+const MembersList: React.FC<Props> = ({ isOpen, members }) => {
   const onlineMembers = useMemo(
     () => members.filter((member) => member.status !== UserStatus.OFFLINE),
     [members],
@@ -58,4 +58,4 @@ const ServerMembersList: React.FC<Props> = ({ isOpen, members }) => {
   );
 };
 
-export default ServerMembersList;
+export default MembersList;

@@ -1,4 +1,4 @@
-import ServerActivityMessageInput from './ServerActivityMessageInput';
+import ServerActivityMessageInput from '../../message/MessageInput';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
