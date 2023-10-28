@@ -1,26 +1,25 @@
-import { FormEvent, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import Icon from '@components/Icon';
 import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
 
 import { IconName } from '@/types/common';
+import { MessageType, SentMessage } from '@/types/message';
+import { faker } from '@faker-js/faker';
+import dayjs from 'dayjs';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
   channelName: string;
   /** The member names that are currently typing */
   typingMemberNames?: string[];
-};
-
-type EventTargetWithTextContent = FormEvent<HTMLDivElement> & {
-  target: {
-    textContent: string;
-  };
+  onSendMessage: (message: SentMessage) => void;
 };
 
 const MessageInput: React.FC<Props> = ({
   channelName,
   typingMemberNames,
+  onSendMessage,
 }) => {
   const [message, setMessage] = useState<string>('');
   const [emojiBackgroundPosition, setEmojiBackgroundPosition] =
@@ -35,13 +34,29 @@ const MessageInput: React.FC<Props> = ({
     );
   }, []);
 
-  const handleMessageInput = useCallback(
-    (event: EventTargetWithTextContent) => {
-      if (typeof event?.target?.textContent === 'string') {
-        setMessage(event.target.textContent);
+  const handleOnInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) =>
+      setMessage(event.target.value.trim()),
+    [],
+  );
+
+  const handleSendMessage = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+        onSendMessage({
+          id: faker.number.int(),
+          content: message,
+          type: MessageType.TEXT,
+          author: 12345,
+          sent_at: dayjs().toISOString(),
+          username: 'brdtheo',
+          thumbnail:
+            'https://cdn.discordapp.com/avatars/338044684423397376/3af412869d429758cb9782b7789c8d06.webp',
+        });
+        setMessage('');
       }
     },
-    [],
+    [message, onSendMessage],
   );
 
   return (
@@ -57,11 +72,12 @@ const MessageInput: React.FC<Props> = ({
           </div>
         )}
 
-        <div
-          className="flex-1 py-2.5 pr-2.5 bg-transparent overflow-hidden relative break-words outline-none h-fit word-break text-smoke"
-          spellCheck={false}
-          contentEditable
-          onInput={handleMessageInput}
+        <input
+          value={message}
+          onChange={handleOnInputChange}
+          type="text"
+          className="flex-1 py-2.5 pr-2.5 bg-transparent overflow-hidden relative break-words outline-none h-fit word-break text-smoke gg-regular"
+          onKeyDown={handleSendMessage}
         />
 
         <div className="flex h-fit sticky top-0 left-0">
