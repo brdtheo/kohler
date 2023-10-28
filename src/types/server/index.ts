@@ -46,16 +46,5 @@ type ServerChannel = {
   type: ChannelType;
 };
 
-type ServerMessage = {
-  /** Message ID */
-  id: number;
-  /** Content of the Message: text can be used as well as images files */
-  content: string;
-  /** ID of the User who sent the Message */
-  author: number;
-  /** Date when the Member sent the Message */
-  sent_at: string;
-};
-
 export { ChannelType };
-export type { Server, ServerChannel, ServerMember, ServerMessage };
+export type { Server, ServerChannel, ServerMember };
