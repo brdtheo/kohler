@@ -24,7 +24,11 @@ const MemberListItem: React.FC<Props> = ({
       type="button"
       className="w-full flex items-center pl-2 mr-2 rounded hover:bg-metalise"
     >
-      <Avatar thumbnail={avatarThumbnail} status={memberStatus} />
+      <Avatar
+        thumbnail={avatarThumbnail}
+        status={memberStatus}
+        classes={{ container: 'mr-3' }}
+      />
 
       <div className="overflow-hidden flex flex-col">
         <span className="leading-5 text-base gg-medium text-crestline flex-1 text-left whitespace-nowrap overflow-hidden text-ellipsis">

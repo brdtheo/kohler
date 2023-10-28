@@ -13,11 +13,15 @@ type Props = {
   size?: AvatarSize;
   /** Picture used within the avatar container. Fallback to the logo icon if not provided */
   thumbnail?: string;
-  /** Status used to set the avatar indicator color */
-  status: UserStatus;
+  /** Status used to set the avatar indicator color. Optional as not required for messages */
+  status?: UserStatus;
+  /** Optional classNames for children */
+  classes?: {
+    container?: string;
+  };
 };
 
-const Avatar: React.FC<Props> = ({ size, thumbnail, status }) => {
+const Avatar: React.FC<Props> = ({ size, thumbnail, status, classes }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const { refs, tooltipNode, getReferenceProps } = useTooltip({
@@ -42,22 +46,31 @@ const Avatar: React.FC<Props> = ({ size, thumbnail, status }) => {
   const avatarThumbnailClass = thumbnail ? ` bg-[url('${thumbnail}')]` : '';
 
   return (
-    <div className={`${getWidthHeight()} rounded-full mr-3 relative`}>
+    <div
+      className={`${getWidthHeight()} rounded-full relative ${
+        classes?.container ?? ''
+      }`}
+    >
       {thumbnail && (
         <div
-          className={`w-8 h-8 rounded-full${avatarThumbnailClass}`}
-          style={{ ...(thumbnail && { backgroundImage: `url(${thumbnail})` }) }}
+          className={`${getWidthHeight()} rounded-full${avatarThumbnailClass}`}
+          style={{
+            ...(thumbnail && {
+              backgroundImage: `url(${thumbnail})`,
+              backgroundSize: 'cover',
+            }),
+          }}
         />
       )}
       {!thumbnail && (
         <div
-          className={`w-8 h-8 p-1.5 bg-cornflower rounded-full text-iron flex justify-center items-center`}
+          className={`${getWidthHeight()} p-1.5 bg-cornflower rounded-full text-iron flex justify-center items-center`}
         >
           <Icon name={IconName.LOGO} />
         </div>
       )}
 
-      {status !== UserStatus.OFFLINE && (
+      {status != (UserStatus.OFFLINE || undefined) && (
         <>
           <div
             ref={refs.setReference}
