@@ -54,25 +54,42 @@ html {
   font-family: 'gg sans Regular';
 }
 
+/* Message utils */
+.message-list-height {
+  min-height: calc(100% - theme('spacing.6'));
+}
+
 /* Scrollbar utils */
 .scrollbar-thin::-webkit-scrollbar {
   width: 5px;
 }
 
-.scrollbar-thin::-webkit-scrollbar-thumb {
+.scrollbar-thin::-webkit-scrollbar-thumb,
+.scrollbar-large::-webkit-scrollbar-thumb {
   background-color: theme('colors.scrolltrack');
   border-radius: theme('spacing.2');
 }
 
-.scrollbar-thin::-webkit-scrollbar-track {
+.scrollbar-thin::-webkit-scrollbar-track,
+.scrollbar-large::-webkit-scrollbar-track {
   background-clip: padding-box;
   border: theme('spacing.1') solid transparent;
   border-width: initial;
   margin: theme('spacing.1') 0;
 }
 
-.scrollbar-thin::-webkit-scrollbar-corner {
+.scrollbar-thin::-webkit-scrollbar-corner,
+.scrollbar-large::-webkit-scrollbar-corner {
   background-color: transparent;
+}
+
+.scrollbar-large::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-large::-webkit-scrollbar-track {
+  background: theme('colors.caviar');
+  border-radius: theme('spacing.2');
 }
 
 .h-full-app-bar {
