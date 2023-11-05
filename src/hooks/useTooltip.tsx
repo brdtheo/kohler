@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-
 import {
   FloatingArrow,
   Placement,
@@ -9,6 +8,7 @@ import {
   useFloating,
   useHover,
   useInteractions,
+  size,
 } from '@floating-ui/react';
 
 /**
@@ -29,6 +29,7 @@ export const useTooltip = ({
   content,
   open,
   mainAxisOffset,
+  maxWidth,
   onOpenChange,
 }: {
   /** Where the child element should be positioned */
@@ -39,6 +40,8 @@ export const useTooltip = ({
   open: boolean;
   /** Main axis offset in px */
   mainAxisOffset?: number;
+  /** The tooltip max width in pixels. If set, multiple lines will be set on text overlap */
+  maxWidth?: number;
   /** Set state action to change the boolean */
   onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
@@ -55,6 +58,14 @@ export const useTooltip = ({
       arrow({
         element: arrowRef,
       }),
+
+      size({
+        apply({ elements }) {
+          Object.assign(elements.floating.style, {
+            maxWidth: maxWidth && `${maxWidth}px`,
+          });
+        },
+      }),
     ],
     whileElementsMounted: autoUpdate,
   });
@@ -66,7 +77,7 @@ export const useTooltip = ({
 
   const tooltipNode = (
     <div
-      className="w-max flex items-center px-3 rounded h-10 bg-woodsmoke text-sm font-medium text-smoke relative gg-semibold z-50"
+      className="w-max h-fit flex items-center px-3 py-2 rounded bg-woodsmoke text-sm font-medium text-smoke relative gg-semibold z-50"
       ref={refs.setFloating}
       style={floatingStyles}
       {...getFloatingProps()}
