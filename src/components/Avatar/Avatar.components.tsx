@@ -15,13 +15,21 @@ type Props = {
   thumbnail?: string;
   /** Status used to set the avatar indicator color. Optional as not required for messages */
   status?: UserStatus;
+  /** Optional boolean to prevent the tooltip to appear on status hover */
+  isPreventTooltip?: boolean;
   /** Optional classNames for children */
   classes?: {
     container?: string;
   };
 };
 
-const Avatar: React.FC<Props> = ({ size, thumbnail, status, classes }) => {
+const Avatar: React.FC<Props> = ({
+  size,
+  thumbnail,
+  status,
+  isPreventTooltip,
+  classes,
+}) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const { refs, tooltipNode, getReferenceProps } = useTooltip({
@@ -79,7 +87,7 @@ const Avatar: React.FC<Props> = ({ size, thumbnail, status, classes }) => {
               status,
             )} rounded-full`}
           />
-          {isTooltipOpen && tooltipNode}
+          {!isPreventTooltip && isTooltipOpen && tooltipNode}
         </>
       )}
     </div>
