@@ -24,7 +24,8 @@ module.exports = {
         cheesy: '#f0b232',
         flamingo: '#f23f43',
         charcoal: '#2e3035',
-        // target specific colors
+        gunmetal: '#232428',
+        // element specific colors
         scrolltrack: '#202226',
         placeholder: '#6d6f78',
       },
