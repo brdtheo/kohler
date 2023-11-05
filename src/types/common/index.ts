@@ -14,6 +14,11 @@ enum IconName {
   GIF = 'gif',
   STICKER = 'sticker',
   TYPING_DOTS = 'typingDots',
+  MICROPHONE = 'microphone',
+  MICROPHONE_MUTED = 'microphone_muted',
+  HEADSET = 'headset',
+  HEADSET_DEAFEN = 'headset_deafen',
+  SETTINGS = 'settings',
 }
 
 enum AvatarSize {
