@@ -18,6 +18,7 @@ const ServerBrowserListItem: React.FC<Props> = ({
     open: showActiveElements,
     content: title ?? '',
     mainAxisOffset: 20,
+    maxWidth: 196,
     onOpenChange: setShowActiveElements,
   });
 
