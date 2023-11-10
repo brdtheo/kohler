@@ -25,6 +25,8 @@ module.exports = {
         flamingo: '#f23f43',
         charcoal: '#2e3035',
         gunmetal: '#232428',
+        shamrock: '#2DC770',
+        fuel: '#f0b132',
         // element specific colors
         scrolltrack: '#202226',
         placeholder: '#6d6f78',
