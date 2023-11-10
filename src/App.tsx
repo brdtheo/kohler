@@ -107,7 +107,12 @@ export default function App() {
     <div className="flex w-full h-screen">
       <ServerBrowser serverList={_TEMP_SERVER_LIST} />
 
-      <Sidebar userStatus={_TEMP_USER.status} userName={_TEMP_USER.username} />
+      <Sidebar
+        userStatus={_TEMP_USER.status}
+        userName={_TEMP_USER.username}
+        channelName={_TEMP_SERVER_CHANNEL.name}
+        serverName={_TEMP_SERVER_LIST[1].name}
+      />
 
       <div className="flex-1 bg-gray-700 overflow-hidden">
         <AppBar
