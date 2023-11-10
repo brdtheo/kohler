@@ -19,6 +19,9 @@ enum IconName {
   HEADSET = 'headset',
   HEADSET_DEAFEN = 'headset_deafen',
   SETTINGS = 'settings',
+  DISCONNECT = 'disconnect',
+  AUDIO_WAVE = 'audio_wave',
+  NETWORK = 'network',
 }
 
 enum AvatarSize {
