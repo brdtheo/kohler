@@ -63,10 +63,12 @@ const UserActionsManager: React.FC<Props> = ({
 
             <div className="flex">
               <UserActionsManagerButton
+                tooltipText="Noise Suppression powered by Krisp"
                 iconName={IconName.AUDIO_WAVE}
                 onClick={() => {}}
               />
               <UserActionsManagerButton
+                tooltipText="Disconnect"
                 iconName={IconName.DISCONNECT}
                 onClick={() => {}}
               />
@@ -97,14 +99,17 @@ const UserActionsManager: React.FC<Props> = ({
 
         <div className="flex">
           <UserActionsManagerButton
+            tooltipText={isMuted ? 'Unmute' : 'Mute'}
             iconName={isMuted ? IconName.MICROPHONE_MUTED : IconName.MICROPHONE}
             onClick={handleToggleMute}
           />
           <UserActionsManagerButton
+            tooltipText={isDeafen ? 'Undeafen' : 'Deafen'}
             iconName={isDeafen ? IconName.HEADSET_DEAFEN : IconName.HEADSET}
             onClick={handleToggleDeafen}
           />
           <UserActionsManagerButton
+            tooltipText="Settings"
             iconName={IconName.SETTINGS}
             onClick={() => {}}
           />
