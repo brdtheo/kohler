@@ -1,13 +1,10 @@
 import { useState } from 'react';
 
-import Icon from '@components/Icon';
 import { useTooltip } from '@hooks/useTooltip';
-
-import { IconName } from '@/types/common';
 
 type Props = {
   /** The name of the icon element displayed in the button */
-  iconName: IconName;
+  icon: React.ReactNode;
   /** The text displayed in the tooltip on button hover */
   tooltipText: string;
   /** The button click handler */
@@ -15,7 +12,7 @@ type Props = {
 };
 
 const UserActionsManagerButton: React.FC<Props> = ({
-  iconName,
+  icon,
   tooltipText,
   onClick,
 }) => {
@@ -39,7 +36,7 @@ const UserActionsManagerButton: React.FC<Props> = ({
         ref={refs.setReference}
         {...getReferenceProps()}
       >
-        <Icon name={iconName} />
+        {icon}
       </button>
 
       {showTooltip && <span className="text-center">{tooltipNode}</span>}

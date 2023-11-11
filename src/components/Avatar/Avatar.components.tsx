@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react';
 
-import Icon from '@components/Icon';
+import Logo from '@icons/Logo';
 import getMemberStatusColor from '@utils/getMemberStatusColor';
 import getMemberStatusText from '@utils/getMemberStatusText';
 import { useTooltip } from '@hooks/useTooltip';
 
-import { AvatarSize, IconName } from '@/types/common';
+import { AvatarSize } from '@/types/common';
 import { UserStatus } from '@/types/user';
 
 type Props = {
@@ -74,7 +74,7 @@ const Avatar: React.FC<Props> = ({
         <div
           className={`${getWidthHeight()} p-1.5 bg-cornflower rounded-full text-iron flex justify-center items-center`}
         >
-          <Icon name={IconName.LOGO} />
+          <Logo />
         </div>
       )}
 

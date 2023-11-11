@@ -1,4 +1,6 @@
-import Icon from '@components/Icon';
+import Add from '@icons/Add';
+import Logo from '@icons/Logo';
+
 import {
   ServerBrowserDivider,
   ServerBrowserList,
@@ -6,7 +8,6 @@ import {
 } from '.';
 
 import { type Server } from '@/types/server';
-import { IconName } from '@/types/common';
 
 type Props = {
   serverList: Server[];
@@ -17,7 +18,7 @@ const ServerBrowser: React.FC<Props> = ({ serverList }) => (
     <ServerBrowserList>
       <>
         <ServerBrowserListItem title="Direct Messages">
-          <Icon name={IconName.LOGO} />
+          <Logo />
         </ServerBrowserListItem>
 
         {serverList && (
@@ -36,7 +37,7 @@ const ServerBrowser: React.FC<Props> = ({ serverList }) => (
         <ServerBrowserDivider />
 
         <ServerBrowserListItem title="Add a server" isExtraAction>
-          <Icon name={IconName.ADD} />
+          <Add />
         </ServerBrowserListItem>
       </>
     </ServerBrowserList>
