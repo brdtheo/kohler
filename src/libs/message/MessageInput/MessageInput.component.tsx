@@ -1,18 +1,22 @@
 import { useCallback, useState } from 'react';
-
-import Icon from '@components/Icon';
-import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
-
-import { IconName } from '@/types/common';
-import { MessageType, SentMessage } from '@/types/message';
 import { faker } from '@faker-js/faker';
 import dayjs from 'dayjs';
+
+import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
+import Attach from '@icons/Attach';
+import Gift from '@icons/Gift';
+import Gif from '@icons/Gif';
+import Sticker from '@icons/Sticker';
+import TypingDots from '@icons/TypingDots';
+
+import { MessageType, SentMessage } from '@/types/message';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
   channelName: string;
   /** The member names that are currently typing */
   typingMemberNames?: string[];
+  /** Function to trigger on send event */
   onSendMessage: (message: SentMessage) => void;
 };
 
@@ -63,7 +67,7 @@ const MessageInput: React.FC<Props> = ({
     <div className="px-4">
       <div className="flex bg-onyx flex-1 rounded-lg text-crestline max-h-[50vh] overflow-y-auto relative scrollbar-thin border-r-4 border-transparent">
         <button className="px-4 py-2.5 hover:text-smoke transition-colors duration-100 ease-in-out h-fit sticky top-0 left-0">
-          <Icon name={IconName.ATTACH} />
+          <Attach />
         </button>
 
         {!message && (
@@ -82,13 +86,13 @@ const MessageInput: React.FC<Props> = ({
 
         <div className="flex h-fit sticky top-0 left-0">
           <button className="mx-1 flex justify-center items-center w-8 h-11 hover:text-smoke transition-colors duration-100 ease-in-out">
-            <Icon name={IconName.GIFT} />
+            <Gift />
           </button>
           <button className="mx-1 flex justify-center items-center w-8 h-11 hover:text-smoke transition-colors duration-100 ease-in-out">
-            <Icon name={IconName.GIF} />
+            <Gif />
           </button>
           <button className="mx-1 flex justify-center items-center w-8 h-11 hover:text-smoke transition-colors duration-100 ease-in-out">
-            <Icon name={IconName.STICKER} />
+            <Sticker />
           </button>
           <div className="mx-1 flex justify-center items-center w-8 h-11">
             <button
@@ -110,7 +114,7 @@ const MessageInput: React.FC<Props> = ({
         }`}
       >
         <span className="ml-2">
-          <Icon name={IconName.TYPING_DOTS} />
+          <TypingDots />
         </span>
         <span className="text-sm ml-1">
           <strong>

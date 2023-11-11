@@ -1,8 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import Icon from '@components/Icon';
-
-import { IconName } from '@/types/common';
+import Search from '@icons/Search';
 
 type Props = {
   value: string;
@@ -28,21 +26,13 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
           className="bg-inherit outline-none h-6 text-sm gg-medium text-smoke pl-2 w-full pr-6"
           placeholder="Search"
         />
-        {value ? (
-          <Icon
-            name={IconName.SEARCH}
-            className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-              value ? 'text-crestline' : 'text-iron'
-            }`}
-          />
-        ) : (
-          <Icon
-            name={IconName.SEARCH}
-            className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-              value ? 'text-crestline' : 'text-iron'
-            }`}
-          />
-        )}
+        <div
+          className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
+            value ? 'text-crestline' : 'text-iron'
+          }`}
+        >
+          <Search />
+        </div>
       </div>
     </div>
   );

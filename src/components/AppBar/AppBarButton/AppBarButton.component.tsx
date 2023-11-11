@@ -1,19 +1,16 @@
 import { useState } from 'react';
 
-import Icon from '@components/Icon';
 import { useTooltip } from '@hooks/useTooltip';
 
-import { IconName } from '@/types/common';
-
 type Props = {
-  /** Name of the icon within the button */
-  iconName: IconName;
+  /** Icon element within the button */
+  icon: React.ReactNode;
   /** Content to display inside an optional tooltip element */
   tooltipText?: string;
   onClick?: () => void;
 };
 
-const AppBarButton: React.FC<Props> = ({ iconName, tooltipText, onClick }) => {
+const AppBarButton: React.FC<Props> = ({ icon, tooltipText, onClick }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const { refs, tooltipNode, getReferenceProps } = useTooltip({
@@ -29,11 +26,11 @@ const AppBarButton: React.FC<Props> = ({ iconName, tooltipText, onClick }) => {
       <button
         ref={refs.setReference}
         {...getReferenceProps()}
-        className="hover:text-smoke transition-colors duration-100 ease-in-out"
+        className="hover:text-smoke transition-colors duration-100 ease-in-out mx-2"
         type="button"
         onClick={onClick}
       >
-        <Icon name={iconName} className="mx-2" />
+        {icon}
       </button>
 
       {tooltipText && isTooltipOpen && tooltipNode}

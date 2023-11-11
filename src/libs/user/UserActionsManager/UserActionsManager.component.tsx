@@ -4,8 +4,14 @@ import Avatar from '@components/Avatar';
 import UserActionsManagerButton from '@libs/user/UserActionsManagerButton';
 import getMemberStatusText from '@utils/getMemberStatusText';
 import ConnectionStatus from '@libs/connection/ConnectionStatus';
+import Microphone from '@icons/Microphone';
+import MicrophoneMuted from '@icons/MicrophoneMuted';
+import Headset from '@icons/Headset';
+import HeadsetDeafened from '@icons/HeadsetDeafened';
+import Settings from '@icons/Settings';
+import Disconnect from '@icons/Disconnect';
+import AudioWave from '@icons/AudioWave';
 
-import { IconName } from '@/types/common';
 import { UserStatus } from '@/types/user';
 
 type Props = {
@@ -64,12 +70,12 @@ const UserActionsManager: React.FC<Props> = ({
             <div className="flex">
               <UserActionsManagerButton
                 tooltipText="Noise Suppression powered by Krisp"
-                iconName={IconName.AUDIO_WAVE}
+                icon={<AudioWave />}
                 onClick={() => {}}
               />
               <UserActionsManagerButton
                 tooltipText="Disconnect"
-                iconName={IconName.DISCONNECT}
+                icon={<Disconnect />}
                 onClick={() => {}}
               />
             </div>
@@ -100,17 +106,17 @@ const UserActionsManager: React.FC<Props> = ({
         <div className="flex">
           <UserActionsManagerButton
             tooltipText={isMuted ? 'Unmute' : 'Mute'}
-            iconName={isMuted ? IconName.MICROPHONE_MUTED : IconName.MICROPHONE}
+            icon={isMuted ? <MicrophoneMuted /> : <Microphone />}
             onClick={handleToggleMute}
           />
           <UserActionsManagerButton
             tooltipText={isDeafen ? 'Undeafen' : 'Deafen'}
-            iconName={isDeafen ? IconName.HEADSET_DEAFEN : IconName.HEADSET}
+            icon={isDeafen ? <HeadsetDeafened /> : <Headset />}
             onClick={handleToggleDeafen}
           />
           <UserActionsManagerButton
             tooltipText="Settings"
-            iconName={IconName.SETTINGS}
+            icon={<Settings />}
             onClick={() => {}}
           />
         </div>
