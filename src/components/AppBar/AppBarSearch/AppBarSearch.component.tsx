@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import clsx from 'clsx';
 
 import Search from '@icons/Search';
 
@@ -15,9 +16,11 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
 
   return (
     <div
-      className={`transition-all ease-in duration-200 rounded bg-shark overflow-hidden mx-2 h-6 ${
-        isInputFocused ? 'w-60' : 'w-36'
-      }`}
+      className={clsx(
+        'transition-all ease-in duration-200 rounded bg-shark overflow-hidden mx-2 h-6',
+        isInputFocused && 'w-60',
+        !isInputFocused && 'w-36',
+      )}
     >
       <div className="relative">
         <input
@@ -27,9 +30,11 @@ const AppBarSearch: React.FC<Props> = ({ value }) => {
           placeholder="Search"
         />
         <div
-          className={`w-6 h-6 p-1 box-border absolute right-0 top-0 ${
-            value ? 'text-crestline' : 'text-iron'
-          }`}
+          className={clsx(
+            'w-6 h-6 p-1 box-border absolute right-0 top-0',
+            value && 'text-crestline',
+            !value && 'text-iron',
+          )}
         >
           <Search />
         </div>

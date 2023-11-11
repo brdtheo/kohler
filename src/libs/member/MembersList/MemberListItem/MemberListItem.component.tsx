@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import Avatar from '@components/Avatar';
 
 import { UserStatus } from '@/types/user';
@@ -16,9 +18,9 @@ const MemberListItem: React.FC<Props> = ({
   avatarThumbnail,
 }) => (
   <li
-    className={`text-crestline flex h-11${
-      memberStatus === UserStatus.OFFLINE ? ' opacity-30' : ''
-    }`}
+    className={clsx('text-crestline flex h-11', {
+      'opacity-30': memberStatus === UserStatus.OFFLINE,
+    })}
   >
     <button
       type="button"

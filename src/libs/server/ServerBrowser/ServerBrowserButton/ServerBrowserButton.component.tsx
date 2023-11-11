@@ -1,4 +1,5 @@
 import { ReferenceType } from '@floating-ui/react';
+import clsx from 'clsx';
 
 export type Props = {
   /** Background image picture URL, appears as fully scaled to button size. Cannot be used along with an icon */
@@ -24,9 +25,11 @@ const ServerBrowserButton: React.FC<Props> = ({
     <button
       ref={tooltipReference}
       type="button"
-      className={`flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony ${
-        isExtraAction ? 'hover:bg-eucalyptus' : 'hover:bg-cornflower'
-      }`}
+      className={clsx(
+        'flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony',
+        isExtraAction && 'hover:bg-eucalyptus',
+        !isExtraAction && 'hover:bg-cornflower',
+      )}
     >
       <>
         {thumbnail && (
