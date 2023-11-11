@@ -77,7 +77,7 @@ const _TEMP_MESSAGES_LIST: SentMessage[] = new Array(20).fill(0).map(() => ({
   author: faker.number.int(1000),
   sent_at: dayjs(faker.date.recent()).toISOString(),
   username: faker.internet.userName(),
-  thumbnail: faker.internet.avatar(),
+  thumbnail: faker.helpers.arrayElement([faker.internet.avatar(), undefined]),
 }));
 
 const _TEMP_USER: User = {
