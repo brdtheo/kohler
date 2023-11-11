@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 import Logo from '@icons/Logo';
 import getMemberStatusColor from '@utils/getMemberStatusColor';
@@ -23,6 +24,11 @@ type Props = {
   };
 };
 
+const avatarSizeClassNameMap = {
+  [AvatarSize.SMALL]: 'w-6 h-6',
+  [AvatarSize.LARGE]: 'w-10 h-10',
+};
+
 const Avatar: React.FC<Props> = ({
   size,
   thumbnail,
@@ -40,28 +46,24 @@ const Avatar: React.FC<Props> = ({
     onOpenChange: setIsTooltipOpen,
   });
 
-  const getWidthHeight = useCallback(() => {
-    switch (size) {
-      case AvatarSize.SMALL:
-        return 'w-6 h-6';
-      case AvatarSize.LARGE:
-        return 'w-10 h-10';
-      default:
-        return 'w-8 h-8';
-    }
-  }, [size]);
-
-  const avatarThumbnailClass = thumbnail ? ` bg-[url('${thumbnail}')]` : '';
+  const avatarSizeClassName =
+    (size && avatarSizeClassNameMap[size]) ?? 'w-8 h-8';
 
   return (
     <div
-      className={`${getWidthHeight()} rounded-full relative ${
-        classes?.container ?? ''
-      }`}
+      className={clsx(
+        'rounded-full relative',
+        avatarSizeClassName,
+        classes?.container,
+      )}
     >
       {thumbnail && (
         <div
-          className={`${getWidthHeight()} rounded-full${avatarThumbnailClass}`}
+          className={clsx(
+            'rounded-full',
+            avatarSizeClassName,
+            thumbnail && `bg-[url('${thumbnail}')]`,
+          )}
           style={{
             ...(thumbnail && {
               backgroundImage: `url(${thumbnail})`,
@@ -72,7 +74,10 @@ const Avatar: React.FC<Props> = ({
       )}
       {!thumbnail && (
         <div
-          className={`${getWidthHeight()} p-1.5 bg-cornflower rounded-full text-iron flex justify-center items-center`}
+          className={clsx(
+            'p-1.5 bg-cornflower rounded-full text-iron flex justify-center items-center',
+            avatarSizeClassName,
+          )}
         >
           <Logo />
         </div>
@@ -81,11 +86,12 @@ const Avatar: React.FC<Props> = ({
       {status != (UserStatus.OFFLINE || undefined) && (
         <>
           <div
+            className={clsx(
+              'box-content border-solid border-[3px] border-caviar w-2.5 h-2.5 absolute bottom-[-3px] right-[-3px] rounded-full',
+              getMemberStatusColor(status),
+            )}
             ref={refs.setReference}
             {...getReferenceProps()}
-            className={`box-content border-solid border-[3px] border-caviar w-2.5 h-2.5 absolute bottom-[-3px] right-[-3px] ${getMemberStatusColor(
-              status,
-            )} rounded-full`}
           />
           {!isPreventTooltip && isTooltipOpen && tooltipNode}
         </>

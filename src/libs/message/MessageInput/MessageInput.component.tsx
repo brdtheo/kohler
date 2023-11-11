@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { faker } from '@faker-js/faker';
 import dayjs from 'dayjs';
+import clsx from 'clsx';
 
 import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
 import Attach from '@icons/Attach';
@@ -109,9 +110,9 @@ const MessageInput: React.FC<Props> = ({
       </div>
 
       <div
-        className={`h-6 text-smoke flex items-center ${
-          !typingMemberNames?.length && 'invisible'
-        }`}
+        className={clsx('h-6 text-smoke flex items-center', {
+          invisible: !typingMemberNames?.length,
+        })}
       >
         <span className="ml-2">
           <TypingDots />
