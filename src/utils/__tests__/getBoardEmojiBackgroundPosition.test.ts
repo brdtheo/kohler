@@ -1,5 +1,5 @@
-import { test, describe, expect } from '@jest/globals';
 import { faker } from '@faker-js/faker';
+import { describe, expect, test } from '@jest/globals';
 
 import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
 

@@ -8,8 +8,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install",
-    "pretty": "prettier . --check --cache",
-    "pretty-fix": "prettier . --write --cache",
+    "pretty": "prettier ./src --check --cache",
+    "pretty-fix": "prettier ./src --write --cache",
     "test": "jest --verbose --runInBand"
   },
   "dependencies": {

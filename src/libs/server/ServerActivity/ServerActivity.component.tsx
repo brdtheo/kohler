@@ -1,5 +1,5 @@
-import MessageList from '@libs/message/MessageList';
 import MessageInput from '@libs/message/MessageInput';
+import MessageList from '@libs/message/MessageList';
 
 import { SentMessage } from '@/types/message';
 

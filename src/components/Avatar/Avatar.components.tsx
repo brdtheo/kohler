@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import clsx from 'clsx';
+import { useState } from 'react';
 
-import Logo from '@icons/Logo';
 import getMemberStatusColor from '@utils/getMemberStatusColor';
 import getMemberStatusText from '@utils/getMemberStatusText';
+
 import { useTooltip } from '@hooks/useTooltip';
+
+import Logo from '@icons/Logo';
 
 import { AvatarSize } from '@/types/common';
 import { UserStatus } from '@/types/user';

@@ -1,16 +1,19 @@
 import { useCallback, useState } from 'react';
 
-import Avatar from '@components/Avatar';
-import UserActionsManagerButton from '@libs/user/UserActionsManagerButton';
 import getMemberStatusText from '@utils/getMemberStatusText';
-import ConnectionStatus from '@libs/connection/ConnectionStatus';
-import Microphone from '@icons/Microphone';
-import MicrophoneMuted from '@icons/MicrophoneMuted';
+
+import AudioWave from '@icons/AudioWave';
+import Disconnect from '@icons/Disconnect';
 import Headset from '@icons/Headset';
 import HeadsetDeafened from '@icons/HeadsetDeafened';
+import Microphone from '@icons/Microphone';
+import MicrophoneMuted from '@icons/MicrophoneMuted';
 import Settings from '@icons/Settings';
-import Disconnect from '@icons/Disconnect';
-import AudioWave from '@icons/AudioWave';
+
+import Avatar from '@components/Avatar';
+
+import ConnectionStatus from '@libs/connection/ConnectionStatus';
+import UserActionsManagerButton from '@libs/user/UserActionsManagerButton';
 
 import { UserStatus } from '@/types/user';
 

@@ -1,15 +1,15 @@
-import { useRef } from 'react';
 import {
   FloatingArrow,
   Placement,
   arrow,
   autoUpdate,
   offset,
+  size,
   useFloating,
   useHover,
   useInteractions,
-  size,
 } from '@floating-ui/react';
+import { useRef } from 'react';
 
 /**
  * Returns all of the required props for tooltip used in server browser button

@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
 import clsx from 'clsx';
+import { useCallback, useState } from 'react';
 
 import Search from '@icons/Search';
 

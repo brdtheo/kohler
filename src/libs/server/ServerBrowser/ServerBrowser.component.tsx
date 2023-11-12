@@ -1,13 +1,13 @@
 import Add from '@icons/Add';
 import Logo from '@icons/Logo';
 
+import { type Server } from '@/types/server';
+
 import {
   ServerBrowserDivider,
   ServerBrowserList,
   ServerBrowserListItem,
 } from '.';
-
-import { type Server } from '@/types/server';
 
 type Props = {
   serverList: Server[];

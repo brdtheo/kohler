@@ -1,4 +1,4 @@
-import { test, describe, expect } from '@jest/globals';
+import { describe, expect, test } from '@jest/globals';
 
 import getMemberStatusColor from '@utils/getMemberStatusColor';
 

@@ -1,5 +1,5 @@
-import { User } from '@/types/user';
 import { Member } from '@/types/member';
+import { User } from '@/types/user';
 
 enum MessageType {
   TEXT = 'text',
