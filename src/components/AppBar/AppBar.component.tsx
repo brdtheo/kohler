@@ -1,11 +1,12 @@
 import Hashtag from '@icons/Hashtag';
 import HashtagChatBubble from '@icons/HashtagChatBubble';
+import Help from '@icons/Help';
+import Inbox from '@icons/Inbox';
+import Members from '@icons/Members';
 import Notification from '@icons/Notification';
 import Pin from '@icons/Pin';
-import Members from '@icons/Members';
-import Inbox from '@icons/Inbox';
-import Help from '@icons/Help';
-import { AppBarSearch, AppBarButton } from '.';
+
+import { AppBarButton, AppBarSearch } from '.';
 
 type Props = {
   title: string;

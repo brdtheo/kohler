@@ -1,12 +1,13 @@
-import { useCallback, useState } from 'react';
 import { faker } from '@faker-js/faker';
-import dayjs from 'dayjs';
 import clsx from 'clsx';
+import dayjs from 'dayjs';
+import { useCallback, useState } from 'react';
 
 import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
+
 import Attach from '@icons/Attach';
-import Gift from '@icons/Gift';
 import Gif from '@icons/Gif';
+import Gift from '@icons/Gift';
 import Sticker from '@icons/Sticker';
 import TypingDots from '@icons/TypingDots';
 

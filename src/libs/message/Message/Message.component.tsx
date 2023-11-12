@@ -1,8 +1,9 @@
-import Avatar from '@components/Avatar';
 import useMessageDateTime from '@hooks/useMesageTime';
 
-import type { SentMessage } from '@/types/message';
+import Avatar from '@components/Avatar';
+
 import { AvatarSize } from '@/types/common';
+import type { SentMessage } from '@/types/message';
 
 type Props = {
   message: SentMessage;

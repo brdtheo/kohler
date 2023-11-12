@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { ServerBrowserButton, type ServerBrowserButtonProps } from '..';
 import { useTooltip } from '@hooks/useTooltip';
+
+import { ServerBrowserButton, type ServerBrowserButtonProps } from '..';
 
 type Props = Omit<ServerBrowserButtonProps, 'tooltipReference'>;
 

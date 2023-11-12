@@ -1,20 +1,21 @@
-import { useCallback, useState } from 'react';
-import dayjs from 'dayjs';
 import { faker } from '@faker-js/faker';
+import dayjs from 'dayjs';
+import { useCallback, useState } from 'react';
 
-import ServerBrowser from '@libs/server/ServerBrowser';
 import AppBar from '@components/AppBar';
-import ServerMembersList from '@libs/member/MembersList';
-import ServerActivity from '@libs/server/ServerActivity';
 import Sidebar from '@components/Sidebar';
 
+import ServerMembersList from '@libs/member/MembersList';
+import ServerActivity from '@libs/server/ServerActivity';
+import ServerBrowser from '@libs/server/ServerBrowser';
+
+import { MessageType, SentMessage } from '@/types/message';
 import {
+  ChannelType,
   Server,
   ServerChannel,
-  ChannelType,
   ServerMember,
 } from '@/types/server';
-import { MessageType, SentMessage } from '@/types/message';
 import { User, UserStatus } from '@/types/user';
 
 const _TEMP_SERVER_LIST: Server[] = [

@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 
-import ServerMemberListItem from './MemberListItem';
-
-import { UserStatus } from '@/types/user';
 import { ServerMember } from '@/types/server';
+import { UserStatus } from '@/types/user';
+
+import ServerMemberListItem from './MemberListItem';
 
 type Props = {
   isOpen: boolean;
