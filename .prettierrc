@@ -3,5 +3,17 @@
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "importOrder": [
+    "^@utils/(.*)$",
+    "^@hooks/(.*)$",
+    "^@icons/(.*)$",
+    "^@components/(.*)$",
+    "^@libs/(.*)$",
+    "^@/types/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
