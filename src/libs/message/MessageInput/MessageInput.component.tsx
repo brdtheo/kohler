@@ -11,6 +11,8 @@ import Gift from '@icons/Gift';
 import Sticker from '@icons/Sticker';
 import TypingDots from '@icons/TypingDots';
 
+import MessageInputButton from '@libs/message/MessageInputButton';
+
 import { MessageType, SentMessage } from '@/types/message';
 
 type Props = {
@@ -87,15 +89,9 @@ const MessageInput: React.FC<Props> = ({
         />
 
         <div className="flex h-fit sticky top-0 left-0">
-          <button className="mx-1 flex justify-center items-center w-8 h-11 hover:text-smoke transition-colors duration-100 ease-in-out">
-            <Gift />
-          </button>
-          <button className="mx-1 flex justify-center items-center w-8 h-11 hover:text-smoke transition-colors duration-100 ease-in-out">
-            <Gif />
-          </button>
-          <button className="mx-1 flex justify-center items-center w-8 h-11 hover:text-smoke transition-colors duration-100 ease-in-out">
-            <Sticker />
-          </button>
+          <MessageInputButton icon={<Gift />} />
+          <MessageInputButton icon={<Gif />} />
+          <MessageInputButton icon={<Sticker />} />
           <div className="mx-1 flex justify-center items-center w-8 h-11">
             <button
               className="h-fit p-1"
