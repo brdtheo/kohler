@@ -13,7 +13,7 @@ import TypingDots from '@icons/TypingDots';
 
 import MessageInputButton from '@libs/message/MessageInputButton';
 
-import { MessageType, SentMessage } from '@/types/message';
+import { SentMessage } from '@/types/message';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
@@ -54,7 +54,7 @@ const MessageInput: React.FC<Props> = ({
         onSendMessage({
           id: faker.number.int(),
           content: message,
-          type: MessageType.TEXT,
+          type: 'text',
           author: 12345,
           sent_at: dayjs().toISOString(),
           username: 'brdtheo',
