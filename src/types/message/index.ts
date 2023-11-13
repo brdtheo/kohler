@@ -2,9 +2,13 @@ import { Member } from '@/types/member';
 import { User } from '@/types/user';
 
 enum MessageType {
+  /** A text messsage */
   TEXT = 'text',
+  /** A messsage containing any file */
   FILE = 'file',
+  /** A messsage containing a sticker */
   STICKER = 'sticker',
+  /** A messsage integrating a GIF from Tenor */
   GIF = 'gif',
 }
 
@@ -14,7 +18,7 @@ type Message = {
   /** Content of the Message: text can be used as well as images files */
   content: string;
   /** Type of the messagge of the Message: text can be used as well as images files */
-  type: MessageType;
+  type: `${MessageType}`;
   /** ID of the User who sent the Message */
   author: number;
   /** Date when the Member sent the Message */
@@ -28,7 +32,7 @@ type SentMessage = Pick<User, 'thumbnail' | 'username'> &
     /** Content of the Message: text can be used as well as images files */
     content: string;
     /** Type of the messagge of the Message: text can be used as well as images files */
-    type: MessageType;
+    type: `${MessageType}`;
     /** ID of the User who sent the Message */
     author: number;
     /** Date when the Member sent the Message */

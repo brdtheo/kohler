@@ -43,7 +43,7 @@ type ServerChannel = {
   /** Channel description */
   description?: string;
   /** Channel type which is one of `ChannelType`: 'text' or 'audio'  */
-  type: ChannelType;
+  type: `${ChannelType}`;
 };
 
 export { ChannelType };

@@ -2,7 +2,6 @@ import useMessageDateTime from '@hooks/useMesageTime';
 
 import Avatar from '@components/Avatar';
 
-import { AvatarSize } from '@/types/common';
 import type { SentMessage } from '@/types/message';
 
 type Props = {
@@ -16,7 +15,7 @@ const Message: React.FC<Props> = ({ message }) => {
     <li className="w-full relative">
       <div className="pl-18 pr-12 py-1 mt-3.5 flex relative hover:bg-charcoal">
         <button className="absolute top-1 left-4 cursor-pointer">
-          <Avatar thumbnail={message.thumbnail} size={AvatarSize.LARGE} />
+          <Avatar thumbnail={message.thumbnail} size="large" />
         </button>
 
         <div>

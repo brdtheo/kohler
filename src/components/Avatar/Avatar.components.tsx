@@ -13,7 +13,7 @@ import { UserStatus } from '@/types/user';
 
 type Props = {
   /** Default size is 32x32. Can be small (24x24) or large (40x40) */
-  size?: AvatarSize;
+  size?: `${AvatarSize}`;
   /** Picture used within the avatar container. Fallback to the logo icon if not provided */
   thumbnail?: string;
   /** Status used to set the avatar indicator color. Optional as not required for messages */

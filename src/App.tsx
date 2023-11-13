@@ -9,13 +9,8 @@ import ServerMembersList from '@libs/member/MembersList';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
-import { MessageType, SentMessage } from '@/types/message';
-import {
-  ChannelType,
-  Server,
-  ServerChannel,
-  ServerMember,
-} from '@/types/server';
+import { SentMessage } from '@/types/message';
+import { Server, ServerChannel, ServerMember } from '@/types/server';
 import { User, UserStatus } from '@/types/user';
 
 const _TEMP_SERVER_LIST: Server[] = [
@@ -46,7 +41,7 @@ const _TEMP_SERVER_LIST: Server[] = [
 const _TEMP_SERVER_CHANNEL: ServerChannel = {
   id: 1,
   name: 'general',
-  type: ChannelType.TEXT,
+  type: 'text',
 };
 
 const _TEMP_MEMBERS_LIST: ServerMember[] = [
@@ -74,7 +69,7 @@ const _TEMP_MEMBERS_LIST: ServerMember[] = [
 const _TEMP_MESSAGES_LIST: SentMessage[] = new Array(20).fill(0).map(() => ({
   id: faker.number.int(1000),
   content: faker.lorem.words({ min: 6, max: 50 }),
-  type: MessageType.TEXT,
+  type: 'text',
   author: faker.number.int(1000),
   sent_at: dayjs(faker.date.recent()).toISOString(),
   username: faker.internet.userName(),
