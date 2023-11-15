@@ -118,7 +118,7 @@ const UserActionsManager: React.FC<Props> = ({
             onClick={handleToggleDeafen}
           />
           <UserActionsManagerButton
-            tooltipText="Settings"
+            tooltipText="User Settings"
             icon={<Settings />}
             onClick={() => {}}
           />
