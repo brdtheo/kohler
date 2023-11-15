@@ -9,6 +9,7 @@ import {
   useHover,
   useInteractions,
 } from '@floating-ui/react';
+import clsx from 'clsx';
 import { useRef } from 'react';
 
 /**
@@ -30,6 +31,7 @@ export const useTooltip = ({
   open,
   mainAxisOffset,
   maxWidth,
+  classNames,
   onOpenChange,
 }: {
   /** Where the child element should be positioned */
@@ -42,6 +44,8 @@ export const useTooltip = ({
   mainAxisOffset?: number;
   /** The tooltip max width in pixels. If set, multiple lines will be set on text overlap */
   maxWidth?: number;
+  /** Optional CSS class names */
+  classNames?: string;
   /** Set state action to change the boolean */
   onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
@@ -77,7 +81,10 @@ export const useTooltip = ({
 
   const tooltipNode = (
     <div
-      className="w-max h-fit flex items-center px-3 py-2 rounded bg-woodsmoke text-sm font-medium text-smoke relative gg-semibold z-50"
+      className={clsx(
+        'w-max h-fit flex items-center px-3 py-2 rounded bg-woodsmoke text-sm font-medium text-smoke relative gg-regular z-50',
+        classNames,
+      )}
       ref={refs.setFloating}
       style={floatingStyles}
       {...getFloatingProps()}

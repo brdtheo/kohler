@@ -44,7 +44,7 @@ const MessageInput: React.FC<Props> = ({
 
   const handleOnInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) =>
-      setMessage(event.target.value.trim()),
+      setMessage(event.target.value),
     [],
   );
 
@@ -53,7 +53,7 @@ const MessageInput: React.FC<Props> = ({
       if (event.key === 'Enter') {
         onSendMessage({
           id: faker.number.int(),
-          content: message,
+          content: message.trim(),
           type: 'text',
           author: 12345,
           sent_at: dayjs().toISOString(),
@@ -69,7 +69,7 @@ const MessageInput: React.FC<Props> = ({
 
   return (
     <div className="px-4">
-      <div className="flex bg-onyx flex-1 rounded-lg text-crestline max-h-[50vh] overflow-y-auto relative scrollbar-thin border-r-4 border-transparent">
+      <div className="overflow-visible flex bg-onyx flex-1 rounded-lg text-crestline max-h-[50vh] relative scrollbar-thin border-r-4 border-transparent">
         <button className="px-4 py-2.5 hover:text-smoke transition-colors duration-100 ease-in-out h-fit sticky top-0 left-0">
           <Attach />
         </button>
@@ -89,9 +89,13 @@ const MessageInput: React.FC<Props> = ({
         />
 
         <div className="flex h-fit sticky top-0 left-0">
-          <MessageInputButton icon={<Gift />} />
-          <MessageInputButton icon={<Gif />} />
-          <MessageInputButton icon={<Sticker />} />
+          <MessageInputButton
+            icon={<Gift />}
+            tooltipText="Upgrade your friends! Gift them awesome chat perks with Nitro."
+            onClick={() => {}}
+          />
+          <MessageInputButton icon={<Gif />} onClick={() => {}} />
+          <MessageInputButton icon={<Sticker />} onClick={() => {}} />
           <div className="mx-1 flex justify-center items-center w-8 h-11">
             <button
               className="h-fit p-1"

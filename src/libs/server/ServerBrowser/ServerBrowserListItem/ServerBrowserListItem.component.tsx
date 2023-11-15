@@ -20,6 +20,7 @@ const ServerBrowserListItem: React.FC<Props> = ({
     content: title ?? '',
     mainAxisOffset: 20,
     maxWidth: 196,
+    classNames: 'gg-semibold',
     onOpenChange: setShowActiveElements,
   });
 
