@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react';
 import AppBar from '@components/AppBar';
 import Sidebar from '@components/Sidebar';
 
-import ServerMembersList from '@libs/member/MembersList';
+import MembersList from '@libs/member/MembersList';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
@@ -121,7 +121,7 @@ export default function App() {
             messagesList={messages}
             onSendMessage={handleSendMessage}
           />
-          <ServerMembersList
+          <MembersList
             isOpen={isMembersListOpen}
             members={_TEMP_MEMBERS_LIST}
           />

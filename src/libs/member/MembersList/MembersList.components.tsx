@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { ServerMember } from '@/types/server';
 import { UserStatus } from '@/types/user';
 
-import ServerMemberListItem from './MemberListItem';
+import MemberListItem from './MemberListItem';
 
 type Props = {
   isOpen: boolean;
@@ -30,7 +30,7 @@ const MembersList: React.FC<Props> = ({ isOpen, members }) => {
           </h3>
           <ul className="ml-2">
             {onlineMembers.map((member) => (
-              <ServerMemberListItem
+              <MemberListItem
                 key={member.id}
                 memberStatus={member.status}
                 memberName={member.username}
@@ -44,7 +44,7 @@ const MembersList: React.FC<Props> = ({ isOpen, members }) => {
           </h3>
           <ul className="ml-2">
             {offlineMembers.map((member) => (
-              <ServerMemberListItem
+              <MemberListItem
                 key={member.id}
                 memberStatus={UserStatus.OFFLINE}
                 memberName={member.username}
