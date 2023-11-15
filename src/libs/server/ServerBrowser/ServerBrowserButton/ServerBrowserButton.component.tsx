@@ -20,39 +20,37 @@ const ServerBrowserButton: React.FC<Props> = ({
   children,
   isExtraAction,
   tooltipReference,
-}) => {
-  return (
-    <button
-      ref={tooltipReference}
-      type="button"
-      className={clsx(
-        'flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony',
-        isExtraAction && 'hover:bg-eucalyptus',
-        !isExtraAction && 'hover:bg-cornflower',
+}) => (
+  <button
+    ref={tooltipReference}
+    type="button"
+    className={clsx(
+      'flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony',
+      isExtraAction && 'hover:bg-eucalyptus',
+      !isExtraAction && 'hover:bg-cornflower',
+    )}
+  >
+    <>
+      {thumbnail && (
+        <img
+          src={thumbnail}
+          alt={title}
+          className="w-full h-full rounded-full hover:rounded-lg"
+        />
       )}
-    >
-      <>
-        {thumbnail && (
-          <img
-            src={thumbnail}
-            alt={title}
-            className="w-full h-full rounded-full hover:rounded-lg"
-          />
-        )}
-      </>
-      <>
-        {!thumbnail && children && (
-          <div
-            className={`${
-              isExtraAction ? 'text-eucalyptus hover:text-iron' : 'text-iron'
-            } w-12 h-12 flex justify-center items-center`}
-          >
-            {children}
-          </div>
-        )}
-      </>
-    </button>
-  );
-};
+    </>
+    <>
+      {!thumbnail && children && (
+        <div
+          className={`${
+            isExtraAction ? 'text-eucalyptus hover:text-iron' : 'text-iron'
+          } w-12 h-12 flex justify-center items-center`}
+        >
+          {children}
+        </div>
+      )}
+    </>
+  </button>
+);
 
 export default ServerBrowserButton;
