@@ -5,9 +5,11 @@
   "singleQuote": true,
   "bracketSpacing": true,
   "importOrder": [
+    "^@routes",
     "^@utils/(.*)$",
     "^@hooks/(.*)$",
     "^@icons/(.*)$",
+    "^@pages/(.*)$",
     "^@components/(.*)$",
     "^@libs/(.*)$",
     "^@/types/(.*)$",
