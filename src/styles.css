@@ -4,38 +4,46 @@
 
 @font-face {
   font-family: 'gg sans Regular';
+  font-display: swap;
   font-style: normal;
   font-weight: normal;
   src:
     local('gg sans Regular'),
-    url('/fonts/gg-sans/regular.woff') format('woff');
+    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-regular.woff')
+      format('woff');
 }
 
 @font-face {
   font-family: 'gg sans Medium';
+  font-display: swap;
   font-style: normal;
   font-weight: normal;
   src:
     local('gg sans Medium'),
-    url('/fonts/gg-sans/medium.woff') format('woff');
+    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-regular.woff')
+      format('woff');
 }
 
 @font-face {
   font-family: 'gg sans SemiBold';
+  font-display: swap;
   font-style: normal;
   font-weight: normal;
   src:
     local('gg sans SemiBold'),
-    url('/fonts/gg-sans/semibold.woff') format('woff');
+    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-regular.woff')
+      format('woff');
 }
 
 @font-face {
   font-family: 'gg sans Bold';
+  font-display: swap;
   font-style: normal;
   font-weight: normal;
   src:
     local('gg sans'),
-    url('/fonts/gg-sans/bold.woff') format('woff');
+    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-bold.woff')
+      format('woff');
 }
 
 @keyframes typingFade {
