@@ -102,8 +102,12 @@ const MessageInput: React.FC<Props> = ({
               onMouseEnter={handleChangeEmojiPlaceholder}
             >
               <div
-                style={{ backgroundPosition: emojiBackgroundPosition }}
-                className="bg-[url('img/emoji_board.png')] bg-no-repeat bg-[length:242px_110px] w-[22px] h-[22px] grayscale hover:grayscale-0 hover:scale-125 transition duration-100 ease-in-out"
+                style={{
+                  backgroundPosition: emojiBackgroundPosition,
+                  backgroundImage:
+                    "url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/img/emoji_board.png')",
+                }}
+                className="bg-no-repeat bg-[length:242px_110px] w-[22px] h-[22px] grayscale hover:grayscale-0 hover:scale-125 transition duration-100 ease-in-out"
               />
             </button>
           </div>
