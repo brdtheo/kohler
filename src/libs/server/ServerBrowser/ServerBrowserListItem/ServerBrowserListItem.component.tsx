@@ -7,10 +7,12 @@ import { ServerBrowserButton, type ServerBrowserButtonProps } from '..';
 type Props = Omit<ServerBrowserButtonProps, 'tooltipReference'>;
 
 const ServerBrowserListItem: React.FC<Props> = ({
+  serverLink,
   thumbnail,
   title,
   children,
   isExtraAction,
+  onClick,
 }) => {
   const [showActiveElements, setShowActiveElements] = useState(false);
 
@@ -31,11 +33,13 @@ const ServerBrowserListItem: React.FC<Props> = ({
       )}
 
       <ServerBrowserButton
-        tooltipReference={refs.setReference}
-        {...getReferenceProps()}
+        serverLink={serverLink}
         title={title}
         thumbnail={thumbnail}
         isExtraAction={isExtraAction}
+        onClick={onClick}
+        tooltipReference={refs.setReference}
+        {...getReferenceProps()}
       >
         {children}
       </ServerBrowserButton>

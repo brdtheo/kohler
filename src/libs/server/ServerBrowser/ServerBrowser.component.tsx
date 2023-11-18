@@ -1,7 +1,7 @@
 import Add from '@icons/Add';
 import Logo from '@icons/Logo';
 
-import { type Server } from '@/types/server';
+import { Server } from '@/types/server';
 
 import {
   ServerBrowserDivider,
@@ -17,11 +17,14 @@ const ServerBrowser: React.FC<Props> = ({ serverList }) => (
   <div className="bg-shark w-18 h-full flex flex-col gap-3">
     <ServerBrowserList>
       <>
-        <ServerBrowserListItem title="Direct Messages">
+        <ServerBrowserListItem
+          title="Direct Messages"
+          serverLink="/channels/@me"
+        >
           <Logo />
         </ServerBrowserListItem>
 
-        {serverList && (
+        {serverList?.length > 0 && (
           <>
             <ServerBrowserDivider />
             {serverList.map((server) => (
@@ -29,6 +32,7 @@ const ServerBrowser: React.FC<Props> = ({ serverList }) => (
                 key={server.id}
                 title={server.name}
                 thumbnail={server.thumbnail}
+                serverLink={`/channels/${server.id}/1`}
               />
             ))}
           </>
