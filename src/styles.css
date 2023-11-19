@@ -20,7 +20,7 @@
   font-weight: normal;
   src:
     local('gg sans Medium'),
-    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-regular.woff')
+    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-medium.woff')
       format('woff');
 }
 
@@ -31,7 +31,7 @@
   font-weight: normal;
   src:
     local('gg sans SemiBold'),
-    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-regular.woff')
+    url('https://nlgotvxbscfflhsnpitn.supabase.co/storage/v1/object/public/assets/fonts/gg-sans-semibold.woff')
       format('woff');
 }
 
