@@ -27,9 +27,11 @@ module.exports = {
         gunmetal: '#232428',
         shamrock: '#2DC770',
         fuel: '#f0b132',
+        begonia: '#fa777c',
         // element specific colors
         scrolltrack: '#202226',
         placeholder: '#6d6f78',
+        link: '#00a8fc',
       },
     },
   },
