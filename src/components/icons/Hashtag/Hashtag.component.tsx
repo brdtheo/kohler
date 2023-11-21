@@ -1,5 +1,15 @@
-const Hashtag: React.FC = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" x="0" y="0" role="img">
+import { SVGComponentProps } from '@icons/types';
+
+const Hashtag: React.FC<SVGComponentProps> = ({ className }) => (
+  <svg
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    x="0"
+    y="0"
+    role="img"
+  >
     <path
       fill="currentColor"
       fillRule="evenodd"
