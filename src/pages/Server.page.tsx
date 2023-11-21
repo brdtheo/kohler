@@ -44,9 +44,37 @@ const _TEMP_SERVER_CHANNEL: ServerChannel = {
   type: 'text',
 };
 
+const _TEMP_SERVER_CHANNEL_LIST: ServerChannel[] = [
+  {
+    id: faker.number.int(1000),
+    name: 'general',
+    type: 'text',
+  },
+  {
+    id: faker.number.int(1000),
+    name: 'infos',
+    type: 'text',
+  },
+  {
+    id: faker.number.int(1000),
+    name: 'rules',
+    type: 'text',
+  },
+  {
+    id: faker.number.int(1000),
+    name: 'small-talk',
+    type: 'audio',
+  },
+  {
+    id: faker.number.int(1000),
+    name: 'homework',
+    type: 'audio',
+  },
+];
+
 const _TEMP_MEMBERS_LIST: ServerMember[] = [
   {
-    id: 111,
+    id: faker.number.int(1000),
     server_id: 12345,
     user_id: 14,
     joined_at: new Date().toISOString(),
@@ -56,7 +84,7 @@ const _TEMP_MEMBERS_LIST: ServerMember[] = [
       'https://cdn.discordapp.com/avatars/338044684423397376/3af412869d429758cb9782b7789c8d06.webp',
   },
   {
-    id: 222,
+    id: faker.number.int(1000),
     server_id: 12345,
     user_id: 15,
     joined_at: faker.date.recent().toDateString(),
@@ -106,10 +134,13 @@ const ServerPage: React.FC = () => {
       <ServerBrowser serverList={_TEMP_SERVER_LIST} />
 
       <Sidebar
+        serverId={_TEMP_SERVER_LIST[1].id}
         userStatus={_TEMP_USER.status}
         userName={_TEMP_USER.username}
-        channelName={_TEMP_SERVER_CHANNEL.name}
+        channelName={_TEMP_SERVER_CHANNEL_LIST[0].name}
         serverName={_TEMP_SERVER_LIST[1].name}
+        serverChannels={_TEMP_SERVER_CHANNEL_LIST}
+        selectedChannel={_TEMP_SERVER_CHANNEL_LIST[0].id}
       />
 
       <div className="flex-1 bg-gray-700 overflow-hidden">
