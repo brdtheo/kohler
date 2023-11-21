@@ -1,5 +1,14 @@
-const Settings: React.FC = () => (
-  <svg aria-hidden="true" role="img" width="20" height="20" viewBox="0 0 24 24">
+import { SVGComponentProps } from '@icons/types';
+
+const Settings: React.FC<SVGComponentProps> = ({ className }) => (
+  <svg
+    className={className}
+    aria-hidden="true"
+    role="img"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+  >
     <path
       fill="currentColor"
       fillRule="evenodd"
