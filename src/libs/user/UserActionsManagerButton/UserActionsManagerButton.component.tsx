@@ -30,7 +30,7 @@ const UserActionsManagerButton: React.FC<Props> = ({
   return (
     <>
       <button
-        className="text-crestline w-8 h-8 flex justify-center items-center hover:bg-smoke hover:text-smoke hover:text-opacity-90 hover:bg-opacity-10 rounded"
+        className="text-crestline w-8 h-8 flex justify-center items-center hover:bg-smoke hover:text-smoke hover:text-opacity-80 hover:bg-opacity-10 rounded"
         type="button"
         onClick={onClick}
         ref={refs.setReference}
