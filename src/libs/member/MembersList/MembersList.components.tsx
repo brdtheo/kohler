@@ -25,7 +25,7 @@ const MembersList: React.FC<Props> = ({ isOpen, members }) => {
     isOpen && (
       <aside className="bg-caviar w-60 h-full">
         <div className="overflow-y-auto pb-5 pr-2 h-full scrollbar-thin">
-          <h3 className="pt-6 pr-2 pl-4 uppercase gg-semibold text-xs text-crestline">
+          <h3 className="pt-6 pr-2 pl-4 uppercase gg-semibold text-xs text-crestline text-opacity-80">
             online — {onlineMembers.length}
           </h3>
           <ul className="ml-2">
@@ -39,7 +39,7 @@ const MembersList: React.FC<Props> = ({ isOpen, members }) => {
             ))}
           </ul>
 
-          <h3 className="pt-6 pr-2 pl-4 uppercase gg-semibold text-xs text-crestline">
+          <h3 className="pt-6 pr-2 pl-4 uppercase gg-semibold text-xs text-crestline text-opacity-80">
             offline — {offlineMembers.length}
           </h3>
           <ul className="ml-2">
