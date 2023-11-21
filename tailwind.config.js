@@ -28,6 +28,7 @@ module.exports = {
         shamrock: '#2DC770',
         fuel: '#f0b132',
         begonia: '#fa777c',
+        oslo: '#80848e',
         // element specific colors
         scrolltrack: '#202226',
         placeholder: '#6d6f78',
