@@ -10,10 +10,15 @@ import VolumeFull from '@components/icons/VolumeFull';
 import { ChannelType } from '@/types/server';
 
 type Props = {
+  /** ID of the channel */
   channelId: number;
+  /** ID of the current server */
   serverId: number;
+  /** Name of the channel */
   channelName: string;
+  /** Type of the channel (audio or text) */
   channelType: `${ChannelType}`;
+  /** Whether the channel is selected or not */
   isSelected?: boolean;
 };
 

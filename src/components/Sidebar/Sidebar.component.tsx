@@ -1,6 +1,6 @@
 import SidebarHeader from '@components/SidebarHeader';
 
-import ChannelBrowser from '@libs/channel/ChannelBrowser/ChannelBrowser.component';
+import ChannelBrowser from '@libs/channel/ChannelBrowser';
 import UserActionsManager from '@libs/user/UserActionsManager';
 
 import { ServerChannel } from '@/types/server';
@@ -19,6 +19,7 @@ type Props = {
   userName: string;
   /** The name of the channel, displayed when active RTC */
   channelName: string;
+  /** ID of the current selected channel */
   selectedChannel: number;
 };
 
