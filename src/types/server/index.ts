@@ -1,5 +1,3 @@
-import { User } from '@/types/user';
-
 type Server = {
   /** Server ID */
   id: number;
@@ -13,19 +11,6 @@ type Server = {
   updated_at?: string;
   /** The server unique invite code */
   invite_code: string;
-};
-
-type ServerMember = Pick<User, 'status' | 'thumbnail' | 'username'> & {
-  /** Member ID */
-  id: number;
-  /** ID of the server the User is in */
-  server_id: number;
-  /** User ID related to this member */
-  user_id: number;
-  /** The optional custom username of the Member in the server */
-  display_name?: string;
-  /** Date when the member first joined the server */
-  joined_at: string;
 };
 
 enum ChannelType {
@@ -47,4 +32,4 @@ type ServerChannel = {
 };
 
 export { ChannelType };
-export type { Server, ServerChannel, ServerMember };
+export type { Server, ServerChannel };

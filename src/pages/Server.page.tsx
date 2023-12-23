@@ -9,8 +9,9 @@ import MembersList from '@libs/member/MembersList';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
+import { Member } from '@/types/member';
 import { SentMessage } from '@/types/message';
-import { Server, ServerChannel, ServerMember } from '@/types/server';
+import { Server, ServerChannel } from '@/types/server';
 import { User, UserStatus } from '@/types/user';
 
 const _TEMP_SERVER_LIST: Server[] = [
@@ -72,7 +73,7 @@ const _TEMP_SERVER_CHANNEL_LIST: ServerChannel[] = [
   },
 ];
 
-const _TEMP_MEMBERS_LIST: ServerMember[] = [
+const _TEMP_MEMBERS_LIST: Member[] = [
   {
     id: faker.number.int(1000),
     server_id: 12345,
