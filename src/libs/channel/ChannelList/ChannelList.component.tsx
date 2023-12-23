@@ -5,8 +5,11 @@ import ChannelListCategory from '@libs/channel/ChannelCategory';
 import { ChannelType, ServerChannel } from '@/types/server';
 
 type Props = {
+  /** ID of the current server */
   serverId: number;
+  /** All of the available channels for the current member */
   serverChannels: ServerChannel[];
+  /** ID of the current selected channel */
   selectedChannel: number;
 };
 

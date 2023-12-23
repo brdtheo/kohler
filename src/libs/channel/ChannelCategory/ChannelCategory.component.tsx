@@ -11,9 +11,13 @@ import ChannelListItem from '@libs/channel/ChannelListItem';
 import { ServerChannel } from '@/types/server';
 
 type Props = {
+  /** Name of the category */
   categoryName: string;
+  /** Category channels (all types) */
   categoryChannels: ServerChannel[];
+  /** ID of the current selected server */
   serverId: number;
+  /** ID of the current selected channel */
   selectedChannel: number;
 };
 
