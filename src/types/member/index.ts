@@ -1,4 +1,6 @@
-type Member = {
+import { User } from "@/types/user";
+
+type Member = Pick<User, 'status' | 'thumbnail' | 'username'> & {
   /** Member ID */
   id: number;
   /** ID of the server the User is in */

@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
-import { ServerMember } from '@/types/server';
+import { Member } from '@/types/member';
 import { UserStatus } from '@/types/user';
 
 import MemberListItem from './MemberListItem';
 
 type Props = {
   isOpen: boolean;
-  members: ServerMember[];
+  members: Member[];
 };
 
 const MembersList: React.FC<Props> = ({ isOpen, members }) => {
