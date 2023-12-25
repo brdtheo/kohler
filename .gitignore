@@ -15,6 +15,10 @@ release
 *.local
 .yarn
 
+# Envs files
+.env
+.env.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
