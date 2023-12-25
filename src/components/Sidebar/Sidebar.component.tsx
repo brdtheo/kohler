@@ -31,27 +31,23 @@ const Sidebar: React.FC<Props> = ({
   serverChannels,
   channelName,
   selectedChannel,
-}) => {
-  console.log(location);
+}) => (
+  <nav className="bg-caviar w-60 flex flex-col">
+    <SidebarHeader serverName={serverName} />
 
-  return (
-    <nav className="bg-caviar w-60 flex flex-col">
-      <SidebarHeader serverName={serverName} />
+    <ChannelBrowser
+      serverId={serverId}
+      serverChannels={serverChannels}
+      selectedChannel={selectedChannel}
+    />
 
-      <ChannelBrowser
-        serverId={serverId}
-        serverChannels={serverChannels}
-        selectedChannel={selectedChannel}
-      />
-
-      <UserActionsManager
-        userStatus={userStatus}
-        userName={userName}
-        serverName={serverName}
-        channelName={channelName}
-      />
-    </nav>
-  );
-};
+    <UserActionsManager
+      userStatus={userStatus}
+      userName={userName}
+      serverName={serverName}
+      channelName={channelName}
+    />
+  </nav>
+);
 
 export default Sidebar;
