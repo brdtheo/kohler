@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { useTooltip } from '@hooks/useTooltip';
 
@@ -41,13 +41,17 @@ const ChannelCategory: React.FC<Props> = ({
 
   const chevronClassNames = 'absolute top-[6px] left-[2px] w-3 h-3';
 
+  const handleCollapseCategory = useCallback(
+    () => setIsCollapsed((state) => !state),
+    [],
+  );
+
   return (
     <>
       <li className="pt-4">
-        <button
-          type="button"
-          className="flex w-full text-left items-center pl-4 pr-2 h-6 relative text-oslo hover:text-smoke"
-          onClick={() => setIsCollapsed((state) => !state)}
+        <div
+          className="cursor-pointer flex w-full text-left items-center pl-4 pr-2 h-6 relative text-oslo hover:text-smoke"
+          onClick={handleCollapseCategory}
         >
           {isCollapsed ? (
             <ChevronRight className={chevronClassNames} />
@@ -67,7 +71,7 @@ const ChannelCategory: React.FC<Props> = ({
           </button>
 
           {isTooltipOpen && tooltipNode}
-        </button>
+        </div>
       </li>
 
       {categoryChannels
