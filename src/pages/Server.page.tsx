@@ -1,6 +1,8 @@
 import { faker } from '@faker-js/faker';
+import { RootState } from '@store';
 import dayjs from 'dayjs';
 import { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import AppBar from '@components/AppBar';
 import Sidebar from '@components/Sidebar';
@@ -11,33 +13,8 @@ import ServerBrowser from '@libs/server/ServerBrowser';
 
 import { Member } from '@/types/member';
 import { SentMessage } from '@/types/message';
-import { Server, ServerChannel } from '@/types/server';
+import { ServerChannel } from '@/types/server';
 import { User, UserStatus } from '@/types/user';
-
-const _TEMP_SERVER_LIST: Server[] = [
-  {
-    id: 1,
-    name: 'Counter-Strike 2',
-    thumbnail: 'https://i.redd.it/jfr58wvzl5db1.jpg',
-    created_at: dayjs(faker.date.recent()).toISOString(),
-    invite_code: faker.string.alphanumeric({ length: 6 }),
-  },
-  {
-    id: 2,
-    name: 'Wumpus and friends',
-    thumbnail: 'https://i.redd.it/pptk3al4l0j71.jpg',
-    created_at: dayjs(faker.date.recent()).toISOString(),
-    invite_code: faker.string.alphanumeric({ length: 6 }),
-  },
-  {
-    id: 3,
-    name: 'Duolingo',
-    thumbnail:
-      'https://static.wixstatic.com/media/24bb9b_bac9c76ca749476bb314752df0970ac2~mv2.png/v1/fill/w_1000,h_1000,al_c,q_90,usm_0.66_1.00_0.01/24bb9b_bac9c76ca749476bb314752df0970ac2~mv2.png',
-    created_at: dayjs(faker.date.recent()).toISOString(),
-    invite_code: faker.string.alphanumeric({ length: 6 }),
-  },
-];
 
 const _TEMP_SERVER_CHANNEL: ServerChannel = {
   id: 1,
@@ -119,6 +96,9 @@ const _TEMP_USER: User = {
 const ServerPage: React.FC = () => {
   const [isMembersListOpen, setIsMembersListOpen] = useState(true);
   const [messages, setMessages] = useState<SentMessage[]>(_TEMP_MESSAGES_LIST);
+  const selectedServer = useSelector(
+    (state: RootState) => state.server.selectedServer,
+  );
 
   const toggleMemberList = useCallback(
     () => setIsMembersListOpen((state) => !state),
@@ -132,35 +112,39 @@ const ServerPage: React.FC = () => {
 
   return (
     <div className="flex w-full h-screen">
-      <ServerBrowser serverList={_TEMP_SERVER_LIST} />
+      <ServerBrowser />
 
-      <Sidebar
-        serverId={_TEMP_SERVER_LIST[1].id}
-        userStatus={_TEMP_USER.status}
-        userName={_TEMP_USER.username}
-        channelName={_TEMP_SERVER_CHANNEL_LIST[0].name}
-        serverName={_TEMP_SERVER_LIST[1].name}
-        serverChannels={_TEMP_SERVER_CHANNEL_LIST}
-        selectedChannel={_TEMP_SERVER_CHANNEL_LIST[0].id}
-      />
+      {selectedServer && (
+        <>
+          <Sidebar
+            serverId={selectedServer.id}
+            userStatus={_TEMP_USER.status}
+            userName={_TEMP_USER.username}
+            channelName={_TEMP_SERVER_CHANNEL_LIST[0].name}
+            serverName={selectedServer.name}
+            serverChannels={_TEMP_SERVER_CHANNEL_LIST}
+            selectedChannel={_TEMP_SERVER_CHANNEL_LIST[0].id}
+          />
 
-      <div className="flex-1 bg-gray-700 overflow-hidden">
-        <AppBar
-          title={_TEMP_SERVER_CHANNEL.name}
-          onShowMembersList={toggleMemberList}
-        />
-        <div className="flex flex-1 h-full-app-bar">
-          <ServerActivity
-            channelName={_TEMP_SERVER_CHANNEL.name}
-            messagesList={messages}
-            onSendMessage={handleSendMessage}
-          />
-          <MembersList
-            isOpen={isMembersListOpen}
-            members={_TEMP_MEMBERS_LIST}
-          />
-        </div>
-      </div>
+          <div className="flex-1 bg-gray-700 overflow-hidden">
+            <AppBar
+              title={_TEMP_SERVER_CHANNEL.name}
+              onShowMembersList={toggleMemberList}
+            />
+            <div className="flex flex-1 h-full-app-bar">
+              <ServerActivity
+                channelName={_TEMP_SERVER_CHANNEL.name}
+                messagesList={messages}
+                onSendMessage={handleSendMessage}
+              />
+              <MembersList
+                isOpen={isMembersListOpen}
+                members={_TEMP_MEMBERS_LIST}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
