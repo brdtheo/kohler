@@ -1,6 +1,12 @@
+type ServerRootState = {
+  /** If the user clicked on a button from the nav, the selected index will be stored */
+  serverBrowserIndex: number;
+  selectedServer: Server | null;
+};
+
 type Server = {
   /** Server ID */
-  id: number;
+  id: string;
   /** Name of the Server. Can be updated anytime*/
   name: string;
   /** The optional Server thumbnail shown in the server browser */
@@ -32,4 +38,4 @@ type ServerChannel = {
 };
 
 export { ChannelType };
-export type { Server, ServerChannel };
+export type { ServerRootState, Server, ServerChannel };
