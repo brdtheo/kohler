@@ -10,7 +10,6 @@ type Props = Omit<ServerBrowserButtonProps, 'tooltipReference'> & {
 };
 
 const ServerBrowserListItem: React.FC<Props> = ({
-  serverLink,
   thumbnail,
   title,
   children,
@@ -53,7 +52,6 @@ const ServerBrowserListItem: React.FC<Props> = ({
       )}
 
       <ServerBrowserButton
-        serverLink={serverLink}
         isSelected={isButtonFocused}
         title={title}
         thumbnail={thumbnail}
