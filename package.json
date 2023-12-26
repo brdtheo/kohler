@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "pretty": "prettier ./src --check --cache",
     "pretty-fix": "prettier ./src --write --cache",
-    "test": "jest --verbose --runInBand"
+    "test": "jest --verbose --maxWorkers=1"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.0",
