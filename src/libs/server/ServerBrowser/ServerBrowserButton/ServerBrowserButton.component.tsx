@@ -13,19 +13,33 @@ export type Props = {
   children?: React.ReactElement;
   /** An additional action all users will have displayed in green */
   isExtraAction?: boolean;
+  /** Used to set the border radius property dynamically */
+  isSelected?: boolean;
   tooltipReference?: ((node: ReferenceType | null) => void) &
     ((node: ReferenceType | null) => void);
   /** Action to perform once server button is clicked */
   onClick?: () => void;
+  /** Action to perform once server button is clicked */
+  onMouseEnter?: () => void;
+  /** Action to perform once server button is clicked */
+  onMouseLeave?: () => void;
 };
 
 const ServerBrowserButtonContent: React.FC<
   Omit<Props, 'serverLink' | 'onClick'>
-> = ({ thumbnail, title, children, isExtraAction, tooltipReference }) => (
+> = ({
+  thumbnail,
+  title,
+  children,
+  isExtraAction,
+  isSelected,
+  tooltipReference,
+}) => (
   <div
     ref={tooltipReference}
     className={clsx(
-      'flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 rounded-full hover:rounded-xl w-12 h-12 bg-ebony',
+      'flex justify-center items-center overflow-hidden transition-colors ease-in-out duration-300 w-12 h-12 bg-ebony',
+      isSelected ? 'rounded-xl' : 'rounded-full hover:rounded-xl',
       isExtraAction && 'hover:bg-eucalyptus',
       !isExtraAction && 'hover:bg-cornflower',
     )}
@@ -34,15 +48,19 @@ const ServerBrowserButtonContent: React.FC<
       <img
         src={thumbnail}
         alt={title}
-        className="w-full h-full rounded-full hover:rounded-lg"
+        className={clsx(
+          'w-full h-full',
+          isSelected ? 'rounded-xl' : 'rounded-full hover:rounded-xl',
+        )}
       />
     )}
     <>
       {!thumbnail && children && (
         <div
-          className={`${
-            isExtraAction ? 'text-eucalyptus hover:text-iron' : 'text-iron'
-          } w-12 h-12 flex justify-center items-center`}
+          className={clsx(
+            'w-12 h-12 flex justify-center items-center',
+            isExtraAction ? 'text-eucalyptus hover:text-iron' : 'text-iron',
+          )}
         >
           {children}
         </div>
@@ -57,13 +75,21 @@ const ServerBrowserButton: React.FC<Props> = ({
   title,
   children,
   isExtraAction,
+  isSelected,
   tooltipReference,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   if (serverLink) {
     return (
-      <Link to={serverLink}>
+      <Link
+        to={serverLink}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         <ServerBrowserButtonContent
+          isSelected={isSelected}
           title={title}
           thumbnail={thumbnail}
           isExtraAction={isExtraAction}
@@ -76,9 +102,15 @@ const ServerBrowserButton: React.FC<Props> = ({
   }
 
   return (
-    <button type="button" onClick={onClick}>
+    <button
+      type="button"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+    >
       <ServerBrowserButtonContent
         title={title}
+        isSelected={isSelected}
         thumbnail={thumbnail}
         isExtraAction={isExtraAction}
         tooltipReference={tooltipReference}
