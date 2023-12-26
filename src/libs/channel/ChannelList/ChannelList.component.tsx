@@ -6,7 +6,7 @@ import { ChannelType, ServerChannel } from '@/types/server';
 
 type Props = {
   /** ID of the current server */
-  serverId: number;
+  serverId: string;
   /** All of the available channels for the current member */
   serverChannels: ServerChannel[];
   /** ID of the current selected channel */

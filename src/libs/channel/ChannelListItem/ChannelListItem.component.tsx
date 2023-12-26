@@ -13,7 +13,7 @@ type Props = {
   /** ID of the channel */
   channelId: number;
   /** ID of the current server */
-  serverId: number;
+  serverId: string;
   /** Name of the channel */
   channelName: string;
   /** Type of the channel (audio or text) */
