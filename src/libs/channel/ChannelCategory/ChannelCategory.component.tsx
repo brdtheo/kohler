@@ -16,7 +16,7 @@ type Props = {
   /** Category channels (all types) */
   categoryChannels: ServerChannel[];
   /** ID of the current selected server */
-  serverId: number;
+  serverId: string;
   /** ID of the current selected channel */
   selectedChannel: number;
 };

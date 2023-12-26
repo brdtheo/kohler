@@ -10,7 +10,7 @@ type Props = {
   /** The name of the server displayed in the sidebar header and RTC state */
   serverName: string;
   /** The current server id. Used to navigate in channels */
-  serverId: number;
+  serverId: string;
   /** Available server channels */
   serverChannels: ServerChannel[];
   /** The user status; used to display the color within the avatar */
