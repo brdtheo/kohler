@@ -1,10 +1,7 @@
 import { ReferenceType } from '@floating-ui/react';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
 
 export type Props = {
-  /** Optional server link: will redirect to route */
-  serverLink?: string;
   /** Background image picture URL, appears as fully scaled to button size. Cannot be used along with an icon */
   thumbnail?: string;
   /** Text to display in the button tooltip. If thumbnail is missing, 2 first letters are taken as icon */
@@ -25,9 +22,7 @@ export type Props = {
   onMouseLeave?: () => void;
 };
 
-const ServerBrowserButtonContent: React.FC<
-  Omit<Props, 'serverLink' | 'onClick'>
-> = ({
+const ServerBrowserButtonContent: React.FC<Omit<Props, 'onClick'>> = ({
   thumbnail,
   title,
   children,
@@ -70,7 +65,6 @@ const ServerBrowserButtonContent: React.FC<
 );
 
 const ServerBrowserButton: React.FC<Props> = ({
-  serverLink,
   thumbnail,
   title,
   children,
@@ -80,45 +74,23 @@ const ServerBrowserButton: React.FC<Props> = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
-}) => {
-  if (serverLink) {
-    return (
-      <Link
-        to={serverLink}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <ServerBrowserButtonContent
-          isSelected={isSelected}
-          title={title}
-          thumbnail={thumbnail}
-          isExtraAction={isExtraAction}
-          tooltipReference={tooltipReference}
-        >
-          {children}
-        </ServerBrowserButtonContent>
-      </Link>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onClick={onClick}
+}) => (
+  <button
+    type="button"
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    onClick={onClick}
+  >
+    <ServerBrowserButtonContent
+      title={title}
+      isSelected={isSelected}
+      thumbnail={thumbnail}
+      isExtraAction={isExtraAction}
+      tooltipReference={tooltipReference}
     >
-      <ServerBrowserButtonContent
-        title={title}
-        isSelected={isSelected}
-        thumbnail={thumbnail}
-        isExtraAction={isExtraAction}
-        tooltipReference={tooltipReference}
-      >
-        {children}
-      </ServerBrowserButtonContent>
-    </button>
-  );
-};
+      {children}
+    </ServerBrowserButtonContent>
+  </button>
+);
 
 export default ServerBrowserButton;
