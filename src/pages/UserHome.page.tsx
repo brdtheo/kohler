@@ -1,5 +1,11 @@
+import ServerBrowser from '@libs/server/ServerBrowser';
+
 const UserHomePage: React.FC = () => {
-  return <p>UserHome</p>;
+  return (
+    <div className="flex w-full h-screen bg-ebony">
+      <ServerBrowser />
+    </div>
+  );
 };
 
 export default UserHomePage;
