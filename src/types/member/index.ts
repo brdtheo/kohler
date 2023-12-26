@@ -1,4 +1,4 @@
-import { User } from "@/types/user";
+import { User } from '@/types/user';
 
 type Member = Pick<User, 'status' | 'thumbnail' | 'username'> & {
   /** Member ID */
