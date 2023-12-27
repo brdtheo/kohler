@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
-import { Member } from '@/types/member';
+import { Member } from '@libs/member/types';
+
 import { UserStatus } from '@/types/user';
 
 import MemberListItem from './MemberListItem';
