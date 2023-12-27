@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker';
 import { describe, expect, test } from '@jest/globals';
 
-import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
+import { BaseApiResponse } from '@api/types';
 
-import { BaseApiResponse } from '@/types/common';
+import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
 
 type FakeNodeObject = {
   node: FakeObject;
