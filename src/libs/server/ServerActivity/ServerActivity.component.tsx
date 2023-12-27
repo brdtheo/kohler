@@ -1,7 +1,7 @@
 import MessageInput from '@libs/message/MessageInput';
 import MessageList from '@libs/message/MessageList';
 
-import { SentMessage } from '@/types/message';
+import { SentMessage } from '@libs/message/types';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */

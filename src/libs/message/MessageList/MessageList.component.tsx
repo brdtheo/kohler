@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import Message from '@libs/message/Message';
 
-import type { SentMessage } from '@/types/message';
+import type { SentMessage } from '@libs/message/types';
 
 type Props = {
   /** The messages list passed for rendering */

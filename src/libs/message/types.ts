@@ -2,18 +2,9 @@ import { Member } from '@libs/member/types';
 
 import { User } from '@/types/user';
 
-enum MessageType {
-  /** A text messsage */
-  TEXT = 'text',
-  /** A messsage containing any file */
-  FILE = 'file',
-  /** A messsage containing a sticker */
-  STICKER = 'sticker',
-  /** A messsage integrating a GIF from Tenor */
-  GIF = 'gif',
-}
+import { MessageType } from './constants';
 
-type Message = {
+export type Message = {
   /** Message ID */
   id: number;
   /** Content of the Message: text can be used as well as images files */
@@ -26,7 +17,7 @@ type Message = {
   sent_at: string;
 };
 
-type SentMessage = Pick<User, 'thumbnail' | 'username'> &
+export type SentMessage = Pick<User, 'thumbnail' | 'username'> &
   Pick<Member, 'display_name'> & {
     /** Message ID */
     id: number;
@@ -39,6 +30,3 @@ type SentMessage = Pick<User, 'thumbnail' | 'username'> &
     /** Date when the Member sent the Message */
     sent_at: string;
   };
-
-export { MessageType };
-export type { Message, SentMessage };

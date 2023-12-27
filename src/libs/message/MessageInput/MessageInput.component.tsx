@@ -13,7 +13,7 @@ import TypingDots from '@icons/TypingDots';
 
 import MessageInputButton from '@libs/message/MessageInputButton';
 
-import { SentMessage } from '@/types/message';
+import { SentMessage } from '@libs/message/types';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
