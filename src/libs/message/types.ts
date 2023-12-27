@@ -1,6 +1,5 @@
 import { Member } from '@libs/member/types';
-
-import { User } from '@/types/user';
+import { User } from '@libs/user/types';
 
 import { MessageType } from './constants';
 

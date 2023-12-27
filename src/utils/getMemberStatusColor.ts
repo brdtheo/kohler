@@ -1,4 +1,4 @@
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 /**
  * Retrieve the color name matching a given Member status

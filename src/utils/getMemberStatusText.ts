@@ -1,4 +1,4 @@
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 /**
  * Retrieve the tooltip text from a Member status

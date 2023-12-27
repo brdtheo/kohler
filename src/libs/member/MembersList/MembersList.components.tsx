@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { Member } from '@libs/member/types';
 
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 import MemberListItem from './MemberListItem';
 

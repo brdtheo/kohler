@@ -1,11 +1,6 @@
-enum UserStatus {
-  OFFLINE = 0,
-  ONLINE = 1,
-  IDLE = 2,
-  DO_NOT_DISTURB = 3,
-}
+import { UserStatus } from './constants';
 
-type User = {
+export type User = {
   /** User ID */
   id: number;
   /** Unique email associated with this User */
@@ -21,6 +16,3 @@ type User = {
   /** Date when the user signed up to Kohler */
   created_at: string;
 };
-
-export { UserStatus };
-export type { User };

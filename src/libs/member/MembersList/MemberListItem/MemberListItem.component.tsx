@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Avatar from '@components/Avatar';
 
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 type Props = {
   memberStatus: UserStatus;
