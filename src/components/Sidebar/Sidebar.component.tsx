@@ -3,7 +3,8 @@ import SidebarHeader from '@components/SidebarHeader';
 import ChannelBrowser from '@libs/channel/ChannelBrowser';
 import UserActionsManager from '@libs/user/UserActionsManager';
 
-import { ServerChannel } from '@/types/server';
+import { ServerChannel } from '@libs/server/types';
+
 import { UserStatus } from '@/types/user';
 
 type Props = {

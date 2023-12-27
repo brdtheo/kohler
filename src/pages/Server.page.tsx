@@ -12,9 +12,9 @@ import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
 import { Member } from '@libs/member/types';
-
 import { SentMessage } from '@libs/message/types';
-import { ServerChannel } from '@/types/server';
+import { ServerChannel } from '@libs/server/types';
+
 import { User, UserStatus } from '@/types/user';
 
 const _TEMP_SERVER_CHANNEL: ServerChannel = {

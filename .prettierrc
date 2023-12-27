@@ -12,8 +12,9 @@
     "^@icons/(.*)$",
     "^@pages/(.*)$",
     "^@components/(.*)$",
-    "^@libs/.*/((?!types).)*$",
+    "^@libs/.*/((?!types|constants).)*$",
     "^@libs/.*/types",
+    "^@libs/.*/constants",
     "^@/(.*)$",
     "^[./]"
   ],

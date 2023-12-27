@@ -1,6 +1,6 @@
 import ChannelList from '@libs/channel/ChannelList';
 
-import { ServerChannel } from '@/types/server';
+import { ServerChannel } from '@libs/server/types';
 
 type Props = {
   /** ID of the current server */

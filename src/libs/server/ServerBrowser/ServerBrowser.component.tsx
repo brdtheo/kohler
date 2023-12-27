@@ -11,8 +11,9 @@ import {
   setSelectedServer,
 } from '@libs/server/serverSlice';
 
+import { Server } from '@libs/server/types';
+
 import { RootState } from '@/store';
-import { Server } from '@/types/server';
 
 import {
   ServerBrowserDivider,
