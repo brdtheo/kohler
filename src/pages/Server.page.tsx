@@ -13,7 +13,7 @@ import ServerBrowser from '@libs/server/ServerBrowser';
 
 import { Member } from '@libs/member/types';
 
-import { SentMessage } from '@/types/message';
+import { SentMessage } from '@libs/message/types';
 import { ServerChannel } from '@/types/server';
 import { User, UserStatus } from '@/types/user';
 
