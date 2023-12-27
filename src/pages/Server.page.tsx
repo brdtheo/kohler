@@ -11,20 +11,20 @@ import MembersList from '@libs/member/MembersList';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
+import { Channel } from '@libs/channel/types';
 import { Member } from '@libs/member/types';
 import { SentMessage } from '@libs/message/types';
-import { ServerChannel } from '@libs/server/types';
 import { User } from '@libs/user/types';
 
 import { UserStatus } from '@libs/user/constants';
 
-const _TEMP_SERVER_CHANNEL: ServerChannel = {
+const _TEMP_SERVER_CHANNEL: Channel = {
   id: 1,
   name: 'general',
   type: 'text',
 };
 
-const _TEMP_SERVER_CHANNEL_LIST: ServerChannel[] = [
+const _TEMP_SERVER_CHANNEL_LIST: Channel[] = [
   {
     id: faker.number.int(1000),
     name: 'general',
