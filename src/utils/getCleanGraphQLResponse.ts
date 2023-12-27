@@ -1,4 +1,4 @@
-import { BaseApiResponse } from '@/types/common';
+import { BaseApiResponse } from '@api/types';
 
 /**
  * Returns a GraphQL response without edges/node fields
