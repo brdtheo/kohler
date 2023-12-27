@@ -1,5 +1,3 @@
-import { ChannelType } from './constants';
-
 export type ServerRootState = {
   /** If the user clicked on a button from the nav, the selected index will be stored */
   serverBrowserIndex: number;
@@ -19,15 +17,4 @@ export type Server = {
   updated_at?: string;
   /** The server unique invite code */
   invite_code: string;
-};
-
-export type ServerChannel = {
-  /** Channel ID */
-  id: number;
-  /** Channel name */
-  name: string;
-  /** Channel description */
-  description?: string;
-  /** Channel type which is one of `ChannelType`: 'text' or 'audio'  */
-  type: `${ChannelType}`;
 };

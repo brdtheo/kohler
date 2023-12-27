@@ -1,12 +1,12 @@
 import ChannelList from '@libs/channel/ChannelList';
 
-import { ServerChannel } from '@libs/server/types';
+import { Channel } from '@libs/channel/types';
 
 type Props = {
   /** ID of the current server */
   serverId: string;
   /** All of the available channels for the current member */
-  serverChannels: ServerChannel[];
+  serverChannels: Channel[];
   /** ID of the current selected channel */
   selectedChannel: number;
 };

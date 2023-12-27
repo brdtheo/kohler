@@ -8,13 +8,13 @@ import ChevronRight from '@components/icons/ChevronRight';
 
 import ChannelListItem from '@libs/channel/ChannelListItem';
 
-import { ServerChannel } from '@libs/server/types';
+import { Channel } from '@libs/channel/types';
 
 type Props = {
   /** Name of the category */
   categoryName: string;
   /** Category channels (all types) */
-  categoryChannels: ServerChannel[];
+  categoryChannels: Channel[];
   /** ID of the current selected server */
   serverId: string;
   /** ID of the current selected channel */
@@ -78,7 +78,7 @@ const ChannelCategory: React.FC<Props> = ({
         .filter((channel) =>
           isCollapsed ? channel.id === selectedChannel : channel,
         )
-        .map((channel: ServerChannel) => (
+        .map((channel: Channel) => (
           <ChannelListItem
             key={channel.id}
             channelId={channel.id}

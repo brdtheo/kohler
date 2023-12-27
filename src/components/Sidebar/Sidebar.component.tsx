@@ -3,7 +3,7 @@ import SidebarHeader from '@components/SidebarHeader';
 import ChannelBrowser from '@libs/channel/ChannelBrowser';
 import UserActionsManager from '@libs/user/UserActionsManager';
 
-import { ServerChannel } from '@libs/server/types';
+import { Channel } from '@libs/channel/types';
 
 import { UserStatus } from '@libs/user/constants';
 
@@ -13,7 +13,7 @@ type Props = {
   /** The current server id. Used to navigate in channels */
   serverId: string;
   /** Available server channels */
-  serverChannels: ServerChannel[];
+  serverChannels: Channel[];
   /** The user status; used to display the color within the avatar */
   userStatus: UserStatus;
   /** User name displayed next to the avatar */
