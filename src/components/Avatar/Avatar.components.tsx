@@ -8,7 +8,7 @@ import { useTooltip } from '@hooks/useTooltip';
 
 import Logo from '@icons/Logo';
 
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 import { AvatarSize } from './constants';
 

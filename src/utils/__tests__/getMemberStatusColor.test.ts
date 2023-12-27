@@ -2,7 +2,7 @@ import { describe, expect, test } from '@jest/globals';
 
 import getMemberStatusColor from '@utils/getMemberStatusColor';
 
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 describe('[hook]: getMemberStatusColor', () => {
   test('is returning an empty string if status not provided', () => {

@@ -15,7 +15,7 @@ import Avatar from '@components/Avatar';
 import ConnectionStatus from '@libs/connection/ConnectionStatus';
 import UserActionsManagerButton from '@libs/user/UserActionsManagerButton';
 
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 type Props = {
   /** The user status; used to display the color within the avatar */

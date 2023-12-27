@@ -14,8 +14,9 @@ import ServerBrowser from '@libs/server/ServerBrowser';
 import { Member } from '@libs/member/types';
 import { SentMessage } from '@libs/message/types';
 import { ServerChannel } from '@libs/server/types';
+import { User } from '@libs/user/types';
 
-import { User, UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 const _TEMP_SERVER_CHANNEL: ServerChannel = {
   id: 1,

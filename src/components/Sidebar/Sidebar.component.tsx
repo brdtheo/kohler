@@ -5,7 +5,7 @@ import UserActionsManager from '@libs/user/UserActionsManager';
 
 import { ServerChannel } from '@libs/server/types';
 
-import { UserStatus } from '@/types/user';
+import { UserStatus } from '@libs/user/constants';
 
 type Props = {
   /** The name of the server displayed in the sidebar header and RTC state */
