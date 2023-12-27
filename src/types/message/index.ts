@@ -1,4 +1,5 @@
-import { Member } from '@/types/member';
+import { Member } from '@libs/member/types';
+
 import { User } from '@/types/user';
 
 enum MessageType {

@@ -11,7 +11,8 @@ import MembersList from '@libs/member/MembersList';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
-import { Member } from '@/types/member';
+import { Member } from '@libs/member/types';
+
 import { SentMessage } from '@/types/message';
 import { ServerChannel } from '@/types/server';
 import { User, UserStatus } from '@/types/user';

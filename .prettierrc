@@ -12,9 +12,9 @@
     "^@icons/(.*)$",
     "^@pages/(.*)$",
     "^@components/(.*)$",
-    "^@libs/(.*)$",
+    "^@libs/.*/((?!types).)*$",
+    "^@libs/.*/types",
     "^@/(.*)$",
-    "^@/types/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

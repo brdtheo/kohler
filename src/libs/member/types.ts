@@ -1,6 +1,6 @@
 import { User } from '@/types/user';
 
-type Member = Pick<User, 'status' | 'thumbnail' | 'username'> & {
+export type Member = Pick<User, 'status' | 'thumbnail' | 'username'> & {
   /** Member ID */
   id: number;
   /** ID of the server the User is in */
@@ -12,5 +12,3 @@ type Member = Pick<User, 'status' | 'thumbnail' | 'username'> & {
   /** Date when the member first joined the server */
   joined_at: string;
 };
-
-export type { Member };
