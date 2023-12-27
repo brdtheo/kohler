@@ -8,10 +8,4 @@ type BaseApiResponse<T> = {
   };
 };
 
-enum AvatarSize {
-  SMALL = 'small',
-  LARGE = 'large',
-}
-
-export { AvatarSize };
 export type { GraphNode, BaseApiResponse };

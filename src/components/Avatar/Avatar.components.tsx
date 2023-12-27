@@ -8,8 +8,9 @@ import { useTooltip } from '@hooks/useTooltip';
 
 import Logo from '@icons/Logo';
 
-import { AvatarSize } from '@/types/common';
 import { UserStatus } from '@/types/user';
+
+import { AvatarSize } from './constants';
 
 type Props = {
   /** Default size is 32x32. Can be small (24x24) or large (40x40) */
