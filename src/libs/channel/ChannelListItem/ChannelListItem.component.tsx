@@ -7,7 +7,7 @@ import PersonAdd from '@components/icons/PersonAdd';
 import Settings from '@components/icons/Settings';
 import VolumeFull from '@components/icons/VolumeFull';
 
-import { ChannelType } from '@/types/server';
+import { ChannelType } from '@libs/server/constants';
 
 type Props = {
   /** ID of the channel */

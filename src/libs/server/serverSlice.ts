@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { Server, ServerRootState } from '@/types/server';
+import { Server, ServerRootState } from '@libs/server/types';
 
 const initialState: ServerRootState = {
   serverBrowserIndex: 0,

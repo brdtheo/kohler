@@ -7,7 +7,7 @@ import { BaseApiResponse } from '@api/types';
 import getApiRequestHeaders from '@utils/getApiRequestHeaders';
 import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
 
-import { Server } from '@/types/server';
+import { Server } from '@libs/server/types';
 
 // Define a service using a base URL and expected endpoints
 export const serverApi = createApi({

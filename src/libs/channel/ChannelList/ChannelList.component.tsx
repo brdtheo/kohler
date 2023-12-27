@@ -2,7 +2,9 @@ import { useMemo } from 'react';
 
 import ChannelListCategory from '@libs/channel/ChannelCategory';
 
-import { ChannelType, ServerChannel } from '@/types/server';
+import { ServerChannel } from '@libs/server/types';
+
+import { ChannelType } from '@libs/server/constants';
 
 type Props = {
   /** ID of the current server */

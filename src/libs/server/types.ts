@@ -1,10 +1,12 @@
-type ServerRootState = {
+import { ChannelType } from './constants';
+
+export type ServerRootState = {
   /** If the user clicked on a button from the nav, the selected index will be stored */
   serverBrowserIndex: number;
   selectedServer: Server | null;
 };
 
-type Server = {
+export type Server = {
   /** Server ID */
   id: string;
   /** Name of the Server. Can be updated anytime*/
@@ -19,14 +21,7 @@ type Server = {
   invite_code: string;
 };
 
-enum ChannelType {
-  /** A text-based channel */
-  TEXT = 'text',
-  /** An audio-based channel (WebRTC) */
-  AUDIO = 'audio',
-}
-
-type ServerChannel = {
+export type ServerChannel = {
   /** Channel ID */
   id: number;
   /** Channel name */
@@ -36,6 +31,3 @@ type ServerChannel = {
   /** Channel type which is one of `ChannelType`: 'text' or 'audio'  */
   type: `${ChannelType}`;
 };
-
-export { ChannelType };
-export type { ServerRootState, Server, ServerChannel };

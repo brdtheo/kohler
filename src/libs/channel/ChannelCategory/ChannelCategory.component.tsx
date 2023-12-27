@@ -8,7 +8,7 @@ import ChevronRight from '@components/icons/ChevronRight';
 
 import ChannelListItem from '@libs/channel/ChannelListItem';
 
-import { ServerChannel } from '@/types/server';
+import { ServerChannel } from '@libs/server/types';
 
 type Props = {
   /** Name of the category */
