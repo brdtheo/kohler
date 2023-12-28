@@ -1,56 +1,23 @@
 import { faker } from '@faker-js/faker';
 import { RootState } from '@store';
 import dayjs from 'dayjs';
-import { useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AppBar from '@components/AppBar';
 import Sidebar from '@components/Sidebar';
 
+import { useGetChannelListQuery } from '@libs/channel/api';
+import { setSelectedChannel } from '@libs/channel/channelSlice';
 import MembersList from '@libs/member/MembersList';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
-import { Channel } from '@libs/channel/types';
 import { Member } from '@libs/member/types';
 import { SentMessage } from '@libs/message/types';
 import { User } from '@libs/user/types';
 
 import { UserStatus } from '@libs/user/constants';
-
-const _TEMP_SERVER_CHANNEL: Channel = {
-  id: 1,
-  name: 'general',
-  type: 'text',
-};
-
-const _TEMP_SERVER_CHANNEL_LIST: Channel[] = [
-  {
-    id: faker.number.int(1000),
-    name: 'general',
-    type: 'text',
-  },
-  {
-    id: faker.number.int(1000),
-    name: 'infos',
-    type: 'text',
-  },
-  {
-    id: faker.number.int(1000),
-    name: 'rules',
-    type: 'text',
-  },
-  {
-    id: faker.number.int(1000),
-    name: 'small-talk',
-    type: 'audio',
-  },
-  {
-    id: faker.number.int(1000),
-    name: 'homework',
-    type: 'audio',
-  },
-];
 
 const _TEMP_MEMBERS_LIST: Member[] = [
   {
@@ -96,12 +63,24 @@ const _TEMP_USER: User = {
 };
 
 const ServerPage: React.FC = () => {
+  const dispatch = useDispatch();
   const [isMembersListOpen, setIsMembersListOpen] = useState(true);
   const [messages, setMessages] = useState<SentMessage[]>(_TEMP_MESSAGES_LIST);
+
+  /* SELECTORS */
   const selectedServer = useSelector(
     (state: RootState) => state.server.selectedServer,
   );
+  const selectedChannel = useSelector(
+    (state: RootState) => state.channel.selectedChannel,
+  );
 
+  /* API QUERIES */
+  const { data: channelList } = useGetChannelListQuery(
+    selectedServer ? parseInt(selectedServer.id, 10) : 0,
+  );
+
+  /* HANDLERS */
   const toggleMemberList = useCallback(
     () => setIsMembersListOpen((state) => !state),
     [],
@@ -112,30 +91,37 @@ const ServerPage: React.FC = () => {
     [messages],
   );
 
+  useEffect(() => {
+    if (channelList && channelList?.length > 0 && !selectedChannel) {
+      dispatch(setSelectedChannel(channelList[0]));
+    }
+  }, [channelList, dispatch, selectedChannel]);
+
   return (
     <div className="flex w-full h-screen">
       <ServerBrowser />
 
       {selectedServer && (
         <>
-          <Sidebar
-            serverId={selectedServer.id}
-            userStatus={_TEMP_USER.status}
-            userName={_TEMP_USER.username}
-            channelName={_TEMP_SERVER_CHANNEL_LIST[0].name}
-            serverName={selectedServer.name}
-            serverChannels={_TEMP_SERVER_CHANNEL_LIST}
-            selectedChannel={_TEMP_SERVER_CHANNEL_LIST[0].id}
-          />
+          {!!channelList && channelList.length > 0 && (
+            <Sidebar
+              userStatus={_TEMP_USER.status}
+              userName={_TEMP_USER.username}
+              channelName={channelList[0].name}
+              serverName={selectedServer.name}
+              serverChannels={channelList}
+              selectedChannel={selectedChannel?.id || 0}
+            />
+          )}
 
           <div className="flex-1 bg-gray-700 overflow-hidden">
             <AppBar
-              title={_TEMP_SERVER_CHANNEL.name}
+              title={selectedChannel?.name || ''}
               onShowMembersList={toggleMemberList}
             />
             <div className="flex flex-1 h-full-app-bar">
               <ServerActivity
-                channelName={_TEMP_SERVER_CHANNEL.name}
+                channelName={selectedChannel?.name || ''}
                 messagesList={messages}
                 onSendMessage={handleSendMessage}
               />

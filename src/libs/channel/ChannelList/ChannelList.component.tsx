@@ -7,19 +7,13 @@ import { Channel } from '@libs/channel/types';
 import { ChannelType } from '@libs/server/constants';
 
 type Props = {
-  /** ID of the current server */
-  serverId: string;
   /** All of the available channels for the current member */
   serverChannels: Channel[];
   /** ID of the current selected channel */
   selectedChannel: number;
 };
 
-const ChannelList: React.FC<Props> = ({
-  serverId,
-  serverChannels,
-  selectedChannel,
-}) => {
+const ChannelList: React.FC<Props> = ({ serverChannels, selectedChannel }) => {
   const textChannels = useMemo(
     () => serverChannels.filter((channel) => channel.type === ChannelType.TEXT),
     [serverChannels],
@@ -37,14 +31,12 @@ const ChannelList: React.FC<Props> = ({
         categoryName="text channels"
         categoryChannels={textChannels}
         selectedChannel={selectedChannel}
-        serverId={serverId}
       />
 
       <ChannelListCategory
         categoryName="voice channels"
         categoryChannels={audioChannels}
         selectedChannel={selectedChannel}
-        serverId={serverId}
       />
     </ul>
   );

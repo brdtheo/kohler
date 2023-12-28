@@ -1,6 +1,6 @@
 export enum ChannelType {
   /** A text-based channel */
-  TEXT = 'text',
+  TEXT = 'TEXT',
   /** An audio-based channel (WebRTC) */
-  AUDIO = 'audio',
+  AUDIO = 'AUDIO',
 }
