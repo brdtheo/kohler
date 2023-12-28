@@ -1,5 +1,10 @@
 import { ChannelType } from '@libs/server/constants';
 
+export type ChannelRootState = {
+  /** When fetching server channels the oldest one is selected */
+  selectedChannel: Channel | null;
+};
+
 export type Channel = {
   /** Channel ID */
   id: number;
