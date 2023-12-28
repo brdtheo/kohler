@@ -15,8 +15,6 @@ type Props = {
   categoryName: string;
   /** Category channels (all types) */
   categoryChannels: Channel[];
-  /** ID of the current selected server */
-  serverId: string;
   /** ID of the current selected channel */
   selectedChannel: number;
 };
@@ -24,7 +22,6 @@ type Props = {
 const ChannelCategory: React.FC<Props> = ({
   categoryName,
   categoryChannels,
-  serverId,
   selectedChannel,
 }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -81,10 +78,7 @@ const ChannelCategory: React.FC<Props> = ({
         .map((channel: Channel) => (
           <ChannelListItem
             key={channel.id}
-            channelId={channel.id}
-            serverId={serverId}
-            channelName={channel.name}
-            channelType={channel.type}
+            channel={channel}
             isSelected={selectedChannel === channel.id}
           />
         ))}

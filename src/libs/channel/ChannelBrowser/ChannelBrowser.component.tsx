@@ -3,8 +3,6 @@ import ChannelList from '@libs/channel/ChannelList';
 import { Channel } from '@libs/channel/types';
 
 type Props = {
-  /** ID of the current server */
-  serverId: string;
   /** All of the available channels for the current member */
   serverChannels: Channel[];
   /** ID of the current selected channel */
@@ -12,13 +10,11 @@ type Props = {
 };
 
 const ChannelBrowser: React.FC<Props> = ({
-  serverId,
   serverChannels,
   selectedChannel,
 }) => (
   <div className="flex-1 pr-2">
     <ChannelList
-      serverId={serverId}
       serverChannels={serverChannels}
       selectedChannel={selectedChannel}
     />
