@@ -117,6 +117,7 @@ const ServerPage: React.FC = () => {
           <div className="flex-1 bg-gray-700 overflow-hidden">
             <AppBar
               title={selectedChannel?.name || ''}
+              subtitle={selectedChannel?.description}
               onShowMembersList={toggleMemberList}
             />
             <div className="flex flex-1 h-full-app-bar">
