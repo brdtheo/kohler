@@ -8,6 +8,7 @@ type Props = {
   channelName: string;
   /** The messages list passed for rendering */
   messagesList: SentMessage[];
+  /** Handler called when enter is pressed in message input */
   onSendMessage: (message: SentMessage) => void;
 };
 
