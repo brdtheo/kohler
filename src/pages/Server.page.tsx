@@ -10,10 +10,14 @@ import { useGetChannelListQuery } from '@libs/channel/api';
 import { setSelectedChannel } from '@libs/channel/channelSlice';
 import MembersList from '@libs/member/MembersList';
 import { useGetMemberListQuery } from '@libs/member/api';
-import { useGetMessageListQuery } from '@libs/message/api';
+import {
+  useCreateMessageMutation,
+  useGetMessageListQuery,
+} from '@libs/message/api';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
+import { MessageInput } from '@libs/message/types';
 import { User } from '@libs/user/types';
 
 import { UserStatus } from '@libs/user/constants';
@@ -52,10 +56,20 @@ const ServerPage: React.FC = () => {
     selectedChannel ? parseInt(selectedChannel.id, 10) : 0,
   );
 
+  /* API MUTATIONS */
+  const [createMessage] = useCreateMessageMutation();
+
+  //   console.log(result);
+
   /* HANDLERS */
   const toggleMemberList = useCallback(
     () => setIsMembersListOpen((state) => !state),
     [],
+  );
+
+  const handleSendMessage = useCallback(
+    (message: MessageInput) => createMessage(message),
+    [createMessage],
   );
 
   useEffect(() => {
@@ -68,7 +82,7 @@ const ServerPage: React.FC = () => {
     <div className="flex w-full h-screen">
       <ServerBrowser />
 
-      {selectedServer && (
+      {!!selectedServer && (
         <>
           {!!channelList && channelList.length > 0 && (
             <Sidebar
@@ -88,13 +102,11 @@ const ServerPage: React.FC = () => {
               onShowMembersList={toggleMemberList}
             />
             <div className="flex flex-1 h-full-app-bar">
-              {messageList && (
-                <ServerActivity
-                  channelName={selectedChannel?.name || ''}
-                  messagesList={messageList}
-                  onSendMessage={() => {}}
-                />
-              )}
+              <ServerActivity
+                channelName={selectedChannel?.name || ''}
+                messagesList={messageList || []}
+                onSendMessage={handleSendMessage}
+              />
               {!!memberList && (
                 <MembersList isOpen={isMembersListOpen} members={memberList} />
               )}
