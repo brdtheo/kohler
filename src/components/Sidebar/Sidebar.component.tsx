@@ -19,7 +19,7 @@ type Props = {
   /** The name of the channel, displayed when active RTC */
   channelName: string;
   /** ID of the current selected channel */
-  selectedChannel: number;
+  selectedChannel: string;
 };
 
 const Sidebar: React.FC<Props> = ({

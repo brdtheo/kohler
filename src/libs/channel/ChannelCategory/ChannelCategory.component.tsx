@@ -16,7 +16,7 @@ type Props = {
   /** Category channels (all types) */
   categoryChannels: Channel[];
   /** ID of the current selected channel */
-  selectedChannel: number;
+  selectedChannel: string;
 };
 
 const ChannelCategory: React.FC<Props> = ({

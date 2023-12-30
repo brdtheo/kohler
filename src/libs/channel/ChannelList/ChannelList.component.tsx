@@ -10,7 +10,7 @@ type Props = {
   /** All of the available channels for the current member */
   serverChannels: Channel[];
   /** ID of the current selected channel */
-  selectedChannel: number;
+  selectedChannel: string;
 };
 
 const ChannelList: React.FC<Props> = ({ serverChannels, selectedChannel }) => {

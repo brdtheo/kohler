@@ -7,7 +7,7 @@ export type ChannelRootState = {
 
 export type Channel = {
   /** Channel ID */
-  id: number;
+  id: string;
   /** Channel name */
   name: string;
   /** Channel description */
