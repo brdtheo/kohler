@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { channelApi } from '@libs/channel/api';
 import channelSlice from '@libs/channel/channelSlice';
 import { memberApi } from '@libs/member/api';
+import { messageApi } from '@libs/message/api';
 import { serverApi } from '@libs/server/api';
 import serverSlice from '@libs/server/serverSlice';
 
@@ -13,12 +14,14 @@ export const store = configureStore({
     [channelApi.reducerPath]: channelApi.reducer,
     channel: channelSlice,
     [memberApi.reducerPath]: memberApi.reducer,
+    [messageApi.reducerPath]: messageApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(serverApi.middleware)
       .concat(channelApi.middleware)
-      .concat(memberApi.middleware),
+      .concat(memberApi.middleware)
+      .concat(messageApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
