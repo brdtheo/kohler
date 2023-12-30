@@ -12,14 +12,10 @@ type Props = {
   onSendMessage: (message: SentMessage) => void;
 };
 
-const ServerActivity: React.FC<Props> = ({
-  channelName,
-  messagesList,
-  onSendMessage,
-}) => (
+const ServerActivity: React.FC<Props> = ({ channelName, messagesList }) => (
   <div className="flex flex-1 bg-ebony flex-col">
     <MessageList messagesList={messagesList} />
-    <MessageInput channelName={channelName} onSendMessage={onSendMessage} />
+    <MessageInput channelName={channelName} />
   </div>
 );
 

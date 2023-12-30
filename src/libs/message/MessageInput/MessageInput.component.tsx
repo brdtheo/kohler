@@ -1,6 +1,4 @@
-import { faker } from '@faker-js/faker';
 import clsx from 'clsx';
-import dayjs from 'dayjs';
 import { useCallback, useState } from 'react';
 
 import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
@@ -13,7 +11,7 @@ import TypingDots from '@icons/TypingDots';
 
 import MessageInputButton from '@libs/message/MessageInputButton';
 
-import { SentMessage } from '@libs/message/types';
+import { Message } from '@libs/message/types';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
@@ -21,14 +19,10 @@ type Props = {
   /** The member names that are currently typing */
   typingMemberNames?: string[];
   /** Function to trigger on send event */
-  onSendMessage: (message: SentMessage) => void;
+  onSendMessage?: (message: Message) => void;
 };
 
-const MessageInput: React.FC<Props> = ({
-  channelName,
-  typingMemberNames,
-  onSendMessage,
-}) => {
+const MessageInput: React.FC<Props> = ({ channelName, typingMemberNames }) => {
   const [message, setMessage] = useState<string>('');
   const [emojiBackgroundPosition, setEmojiBackgroundPosition] =
     useState<string>('');
@@ -51,20 +45,10 @@ const MessageInput: React.FC<Props> = ({
   const handleSendMessage = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
-        onSendMessage({
-          id: faker.number.int(),
-          content: message.trim(),
-          type: 'text',
-          author: 12345,
-          sent_at: dayjs().toISOString(),
-          username: 'brdtheo',
-          thumbnail:
-            'https://cdn.discordapp.com/avatars/338044684423397376/3af412869d429758cb9782b7789c8d06.webp',
-        });
         setMessage('');
       }
     },
-    [message, onSendMessage],
+    [],
   );
 
   return (
