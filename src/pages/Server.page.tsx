@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker';
 import { RootState } from '@store';
-import dayjs from 'dayjs';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,23 +10,13 @@ import { useGetChannelListQuery } from '@libs/channel/api';
 import { setSelectedChannel } from '@libs/channel/channelSlice';
 import MembersList from '@libs/member/MembersList';
 import { useGetMemberListQuery } from '@libs/member/api';
+import { useGetMessageListQuery } from '@libs/message/api';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
-import { SentMessage } from '@libs/message/types';
 import { User } from '@libs/user/types';
 
 import { UserStatus } from '@libs/user/constants';
-
-const _TEMP_MESSAGES_LIST: SentMessage[] = new Array(20).fill(0).map(() => ({
-  id: faker.number.int(1000),
-  content: faker.lorem.words({ min: 6, max: 50 }),
-  type: 'text',
-  author: faker.number.int(1000),
-  sent_at: dayjs(faker.date.recent()).toISOString(),
-  username: faker.internet.userName(),
-  thumbnail: faker.helpers.arrayElement([faker.internet.avatar(), undefined]),
-}));
 
 const _TEMP_USER: User = {
   id: faker.number.int(1000),
@@ -43,7 +32,6 @@ const _TEMP_USER: User = {
 const ServerPage: React.FC = () => {
   const dispatch = useDispatch();
   const [isMembersListOpen, setIsMembersListOpen] = useState(true);
-  const [messages, setMessages] = useState<SentMessage[]>(_TEMP_MESSAGES_LIST);
 
   /* SELECTORS */
   const selectedServer = useSelector(
@@ -60,16 +48,14 @@ const ServerPage: React.FC = () => {
   const { data: memberList } = useGetMemberListQuery(
     selectedServer ? parseInt(selectedServer.id, 10) : 0,
   );
+  const { data: messageList } = useGetMessageListQuery(
+    selectedChannel ? parseInt(selectedChannel.id, 10) : 0,
+  );
 
   /* HANDLERS */
   const toggleMemberList = useCallback(
     () => setIsMembersListOpen((state) => !state),
     [],
-  );
-
-  const handleSendMessage = useCallback(
-    (message: SentMessage) => setMessages([...messages, message]),
-    [messages],
   );
 
   useEffect(() => {
@@ -91,7 +77,7 @@ const ServerPage: React.FC = () => {
               channelName={channelList[0].name}
               serverName={selectedServer.name}
               serverChannels={channelList}
-              selectedChannel={selectedChannel?.id || 0}
+              selectedChannel={selectedChannel?.id || ''}
             />
           )}
 
@@ -102,11 +88,13 @@ const ServerPage: React.FC = () => {
               onShowMembersList={toggleMemberList}
             />
             <div className="flex flex-1 h-full-app-bar">
-              <ServerActivity
-                channelName={selectedChannel?.name || ''}
-                messagesList={messages}
-                onSendMessage={handleSendMessage}
-              />
+              {messageList && (
+                <ServerActivity
+                  channelName={selectedChannel?.name || ''}
+                  messagesList={messageList}
+                  onSendMessage={() => {}}
+                />
+              )}
               {!!memberList && (
                 <MembersList isOpen={isMembersListOpen} members={memberList} />
               )}
