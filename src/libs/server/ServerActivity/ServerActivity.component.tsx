@@ -1,7 +1,10 @@
 import MessageInput from '@libs/message/MessageInput';
 import MessageList from '@libs/message/MessageList';
 
-import { SentMessage } from '@libs/message/types';
+import {
+  MessageInput as MessageInputType,
+  SentMessage,
+} from '@libs/message/types';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
@@ -9,13 +12,17 @@ type Props = {
   /** The messages list passed for rendering */
   messagesList: SentMessage[];
   /** Handler called when enter is pressed in message input */
-  onSendMessage: (message: SentMessage) => void;
+  onSendMessage: (message: MessageInputType) => void;
 };
 
-const ServerActivity: React.FC<Props> = ({ channelName, messagesList }) => (
+const ServerActivity: React.FC<Props> = ({
+  channelName,
+  messagesList,
+  onSendMessage,
+}) => (
   <div className="flex flex-1 bg-ebony flex-col">
     <MessageList messagesList={messagesList} />
-    <MessageInput channelName={channelName} />
+    <MessageInput channelName={channelName} onSendMessage={onSendMessage} />
   </div>
 );
 

@@ -1,5 +1,8 @@
+import { RootState } from '@store';
 import clsx from 'clsx';
+import dayjs from 'dayjs';
 import { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import getBoardEmojiBackgroundPosition from '@utils/getBoardEmojiBackgroundPosition';
 
@@ -11,7 +14,9 @@ import TypingDots from '@icons/TypingDots';
 
 import MessageInputButton from '@libs/message/MessageInputButton';
 
-import { Message } from '@libs/message/types';
+import { MessageInput as MessageInputType } from '@libs/message/types';
+
+import { MessageType } from '@libs/message/constants';
 
 type Props = {
   /** The name of the channel. Used for message input placeholder */
@@ -19,11 +24,18 @@ type Props = {
   /** The member names that are currently typing */
   typingMemberNames?: string[];
   /** Function to trigger on send event */
-  onSendMessage?: (message: Message) => void;
+  onSendMessage?: (message: MessageInputType) => void;
 };
 
-const MessageInput: React.FC<Props> = ({ channelName, typingMemberNames }) => {
-  const [message, setMessage] = useState<string>('');
+const MessageInput: React.FC<Props> = ({
+  channelName,
+  typingMemberNames,
+  onSendMessage,
+}) => {
+  const selectedChannel = useSelector(
+    (state: RootState) => state.channel.selectedChannel,
+  );
+  const [messageText, setMessageText] = useState<string>('');
   const [emojiBackgroundPosition, setEmojiBackgroundPosition] =
     useState<string>('');
 
@@ -38,17 +50,24 @@ const MessageInput: React.FC<Props> = ({ channelName, typingMemberNames }) => {
 
   const handleOnInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) =>
-      setMessage(event.target.value),
+      setMessageText(event.target.value),
     [],
   );
 
   const handleSendMessage = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
-        setMessage('');
+        onSendMessage?.({
+          content: messageText,
+          type: MessageType.TEXT,
+          sent_at: dayjs().format(),
+          author_id: '1', // TEMP
+          channel_id: selectedChannel?.id ?? '',
+        });
+        setMessageText('');
       }
     },
-    [],
+    [onSendMessage, messageText, selectedChannel],
   );
 
   return (
@@ -58,14 +77,14 @@ const MessageInput: React.FC<Props> = ({ channelName, typingMemberNames }) => {
           <Attach />
         </button>
 
-        {!message && (
+        {!messageText && (
           <div className="absolute left-14 top-2.5 text-placeholder">
             Message #{channelName}
           </div>
         )}
 
         <input
-          value={message}
+          value={messageText}
           onChange={handleOnInputChange}
           type="text"
           className="flex-1 py-2.5 pr-2.5 bg-transparent overflow-hidden relative break-words outline-none h-fit word-break text-smoke gg-regular"
