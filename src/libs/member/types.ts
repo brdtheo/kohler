@@ -1,14 +1,16 @@
 import { User } from '@libs/user/types';
 
-export type Member = Pick<User, 'status' | 'thumbnail' | 'username'> & {
+export type Member = {
   /** Member ID */
-  id: number;
+  id: string;
   /** ID of the server the User is in */
-  server_id: number;
+  server_id: string;
   /** User ID related to this member */
-  user_id: number;
+  user_id: string;
   /** The optional custom username of the Member in the server */
   display_name?: string;
   /** Date when the member first joined the server */
   joined_at: string;
+  /** Data took from the Users collection */
+  users: Pick<User, 'id' | 'status' | 'thumbnail' | 'username'>;
 };
