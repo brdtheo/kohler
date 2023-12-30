@@ -21,6 +21,8 @@ type Props = {
   status?: UserStatus;
   /** Optional boolean to prevent the tooltip to appear on status hover */
   isPreventTooltip?: boolean;
+  /** Optional boolean to prevent status indicator to show */
+  isStatusHidden?: boolean;
   /** Optional classNames for children */
   classes?: {
     container?: string;
@@ -37,6 +39,7 @@ const Avatar: React.FC<Props> = ({
   thumbnail,
   status,
   isPreventTooltip,
+  isStatusHidden,
   classes,
 }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -86,7 +89,7 @@ const Avatar: React.FC<Props> = ({
         </div>
       )}
 
-      {status != (UserStatus.OFFLINE || undefined) && (
+      {status != (UserStatus.OFFLINE || undefined) && !isStatusHidden && (
         <>
           <div
             className={clsx(
