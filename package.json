@@ -16,6 +16,7 @@
     "@floating-ui/react": "^0.26.0",
     "@reduxjs/toolkit": "^2.0.1",
     "@rtk-query/graphql-request-base-query": "^2.2.0",
+    "@supabase/realtime-js": "^2.9.1",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.10",
     "graphql": "^16.8.1",
