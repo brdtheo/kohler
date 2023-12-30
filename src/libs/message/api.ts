@@ -7,7 +7,7 @@ import { BaseApiResponse } from '@api/types';
 import getApiRequestHeaders from '@utils/getApiRequestHeaders';
 import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
 
-import { SentMessage } from './types';
+import { MessageInput, SentMessage } from './types';
 
 // Define a service using a base URL and expected endpoints
 export const messageApi = createApi({
@@ -26,7 +26,7 @@ export const messageApi = createApi({
                 node {
                   id
                   content
-                  author
+                  author_id
                   channel_id
                   sent_at
                   updated_at
@@ -44,9 +44,29 @@ export const messageApi = createApi({
       transformResponse: (response: BaseApiResponse<SentMessage>) =>
         getCleanGraphQLResponse(response),
     }),
+    createMessage: builder.mutation<SentMessage, MessageInput>({
+      query: (message) => ({
+        document: gql`
+          mutation createMessage($message: MessagesInsertInput!) {
+            insertIntoMessagesCollection(objects: [$message]) {
+              records {
+                id
+                content
+                author_id
+                sent_at
+                updated_at
+              }
+            }
+          }
+        `,
+        variables: {
+          message,
+        },
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetMessageListQuery } = messageApi;
+export const { useGetMessageListQuery, useCreateMessageMutation } = messageApi;
