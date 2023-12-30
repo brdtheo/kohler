@@ -1,10 +1,10 @@
 export enum MessageType {
   /** A text messsage */
-  TEXT = 'text',
+  TEXT = 'TEXT',
   /** A messsage containing any file */
-  FILE = 'file',
+  FILE = 'FILE',
   /** A messsage containing a sticker */
-  STICKER = 'sticker',
+  STICKER = 'STICKER',
   /** A messsage integrating a GIF from Tenor */
-  GIF = 'gif',
+  GIF = 'GIF',
 }
