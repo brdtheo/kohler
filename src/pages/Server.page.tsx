@@ -10,36 +10,14 @@ import Sidebar from '@components/Sidebar';
 import { useGetChannelListQuery } from '@libs/channel/api';
 import { setSelectedChannel } from '@libs/channel/channelSlice';
 import MembersList from '@libs/member/MembersList';
+import { useGetMemberListQuery } from '@libs/member/api';
 import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
-import { Member } from '@libs/member/types';
 import { SentMessage } from '@libs/message/types';
 import { User } from '@libs/user/types';
 
 import { UserStatus } from '@libs/user/constants';
-
-const _TEMP_MEMBERS_LIST: Member[] = [
-  {
-    id: faker.number.int(1000),
-    server_id: 12345,
-    user_id: 14,
-    joined_at: new Date().toISOString(),
-    status: UserStatus.ONLINE,
-    username: 'brdtheo',
-    thumbnail:
-      'https://cdn.discordapp.com/avatars/338044684423397376/3af412869d429758cb9782b7789c8d06.webp',
-  },
-  {
-    id: faker.number.int(1000),
-    server_id: 12345,
-    user_id: 15,
-    joined_at: faker.date.recent().toDateString(),
-    status: UserStatus.DO_NOT_DISTURB,
-    username: 'wumpus',
-    thumbnail: 'https://cdn3.emoji.gg/emojis/5325-wumpus.png',
-  },
-];
 
 const _TEMP_MESSAGES_LIST: SentMessage[] = new Array(20).fill(0).map(() => ({
   id: faker.number.int(1000),
@@ -77,6 +55,9 @@ const ServerPage: React.FC = () => {
 
   /* API QUERIES */
   const { data: channelList } = useGetChannelListQuery(
+    selectedServer ? parseInt(selectedServer.id, 10) : 0,
+  );
+  const { data: memberList } = useGetMemberListQuery(
     selectedServer ? parseInt(selectedServer.id, 10) : 0,
   );
 
@@ -126,10 +107,9 @@ const ServerPage: React.FC = () => {
                 messagesList={messages}
                 onSendMessage={handleSendMessage}
               />
-              <MembersList
-                isOpen={isMembersListOpen}
-                members={_TEMP_MEMBERS_LIST}
-              />
+              {!!memberList && (
+                <MembersList isOpen={isMembersListOpen} members={memberList} />
+              )}
             </div>
           </div>
         </>
