@@ -86,7 +86,7 @@ const ServerBrowser: React.FC = () => {
             <>
               <ServerBrowserDivider />
               {serverList.map((server, index) => (
-                <ServerListItem server={server} index={index} />
+                <ServerListItem key={server.id} server={server} index={index} />
               ))}
             </>
           )}
