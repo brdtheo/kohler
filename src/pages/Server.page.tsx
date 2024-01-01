@@ -1,7 +1,8 @@
 import { faker } from '@faker-js/faker';
-import { RootState } from '@store';
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import { RootState, useAppDispatch } from '@store';
 
 import AppBar from '@components/AppBar';
 import Sidebar from '@components/Sidebar';
@@ -34,7 +35,7 @@ const _TEMP_USER: User = {
 };
 
 const ServerPage: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isMembersListOpen, setIsMembersListOpen] = useState(true);
 
   /* SELECTORS */
