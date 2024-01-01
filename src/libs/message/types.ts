@@ -8,12 +8,14 @@ export type Message = {
   id: string;
   /** Content of the Message: text can be used as well as images files */
   content: string;
-  /** Type of the messagge of the Message: text can be used as well as images files */
+  /** Type of the Message: text can be used as well as images files */
   type: `${MessageType}`;
   /** ID of the User who sent the Message */
   author_id: string;
-  /** ID of the channel the message has been sent */
+  /** ID of the Channel the message has been sent */
   channel_id: string;
+  /** ID of the Member who sent the Message */
+  member_id: string;
   /** Date when the Member sent the Message */
   sent_at: string;
 };
