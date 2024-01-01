@@ -2,6 +2,8 @@ import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { RootState, useAppDispatch } from '@store';
+
 import Add from '@icons/Add';
 import Logo from '@icons/Logo';
 
