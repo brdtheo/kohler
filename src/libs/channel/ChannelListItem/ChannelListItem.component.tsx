@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
+
+import { useAppDispatch } from '@store';
 
 import Hashtag from '@components/icons/Hashtag';
 import PersonAdd from '@components/icons/PersonAdd';
@@ -22,7 +23,7 @@ type Props = {
 
 const ChannelListItem: React.FC<Props> = ({ channel, isSelected }) => {
   const [isHover, setIsHover] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleMouseEnter = useCallback(() => setIsHover(true), []);
   const handleMouseLeave = useCallback(() => setIsHover(false), []);

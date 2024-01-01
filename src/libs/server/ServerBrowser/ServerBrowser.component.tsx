@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { RootState, useAppDispatch } from '@store';
@@ -15,8 +15,6 @@ import {
 
 import { Server } from '@libs/server/types';
 
-import { RootState } from '@/store';
-
 import {
   ServerBrowserDivider,
   ServerBrowserList,
@@ -30,7 +28,7 @@ type ServerListItemProps = {
 
 const ServerListItem: React.FC<ServerListItemProps> = memo(
   ({ server, index }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const selectedBrowserIndex = useSelector(
       (state: RootState) => state.server.serverBrowserIndex,
@@ -56,7 +54,7 @@ const ServerListItem: React.FC<ServerListItemProps> = memo(
 
 const ServerBrowser: React.FC = () => {
   const { data: serverList, isLoading } = useGetServerListQuery();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const selectedBrowserIndex = useSelector(
     (state: RootState) => state.server.serverBrowserIndex,
