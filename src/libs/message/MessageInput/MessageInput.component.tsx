@@ -64,6 +64,7 @@ const MessageInput: React.FC<Props> = ({
           sent_at: dayjs().format(),
           author_id: '1', // TEMP
           channel_id: selectedChannel?.id ?? '',
+          member_id: '1', // TEMP
         });
         setMessageText('');
       }

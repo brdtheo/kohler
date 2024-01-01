@@ -35,6 +35,9 @@ export const messageApi = createApi({
                     username
                     thumbnail
                   }
+                  members {
+                    display_name
+                  }
                 }
               }
             }
@@ -53,8 +56,17 @@ export const messageApi = createApi({
                 id
                 content
                 author_id
+                channel_id
                 sent_at
                 updated_at
+                users {
+                  id
+                  username
+                  thumbnail
+                }
+                members {
+                  display_name
+                }
               }
             }
           }
