@@ -6,6 +6,7 @@
   "bracketSpacing": true,
   "importOrder": [
     "^@routes",
+    "^@store",
     "^@api/(.*)$",
     "^@utils/(.*)$",
     "^@hooks/(.*)$",
