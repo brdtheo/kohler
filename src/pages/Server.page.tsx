@@ -48,13 +48,11 @@ const ServerPage: React.FC = () => {
 
   /* API QUERIES */
   const { data: channelList } = useGetChannelListQuery(
-    selectedServer ? parseInt(selectedServer.id, 10) : 0,
+    selectedServer?.id ?? '',
   );
-  const { data: memberList } = useGetMemberListQuery(
-    selectedServer ? parseInt(selectedServer.id, 10) : 0,
-  );
+  const { data: memberList } = useGetMemberListQuery(selectedServer?.id ?? '');
   const { data: messageList } = useGetMessageListQuery(
-    selectedChannel ? parseInt(selectedChannel.id, 10) : 0,
+    selectedChannel?.id ?? '',
   );
 
   /* API MUTATIONS */
