@@ -44,11 +44,11 @@ const RealtimeProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     const messagesChannel = realtimeClient.channel('messages');
 
-    /* Watch for INSERT changes in table Messages */
+    /* Watch for INSERT changes in table message */
     if (serverMembers && selectedChannel) {
       messagesChannel.on<Message>(
         'postgres_changes',
-        { event: 'INSERT', schema: 'public', table: 'Messages' },
+        { event: 'INSERT', schema: 'public', table: 'message' },
         (payload) =>
           messageEventHandler(payload, serverMembers, selectedChannel.id),
       );

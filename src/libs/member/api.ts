@@ -21,7 +21,7 @@ export const memberApi = createApi({
       query: (serverId) => ({
         document: gql`
           query getMemberList($page: Int = 1, $per_page: Int = 30) {
-            membersCollection(filter: { server_id: { eq: ${serverId} } }) {
+            memberCollection(filter: { server_id: { eq: ${serverId} } }) {
               edges {
                 node {
                   id
@@ -29,7 +29,7 @@ export const memberApi = createApi({
                   user_id
                   display_name
                   joined_at
-                  users {
+                  user {
                     id
                     status
                     thumbnail

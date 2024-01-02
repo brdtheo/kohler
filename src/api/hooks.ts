@@ -20,7 +20,7 @@ export const useMessageInsertEvent = () => {
     selectedChannelId: string,
   ) => {
     const messageMember = serverMembers.find(
-      (member) => member.users.id === payload.new.author_id.toString(),
+      (member) => member.user.id === payload.new.author_id.toString(),
     );
 
     !!messageMember &&
@@ -31,12 +31,12 @@ export const useMessageInsertEvent = () => {
           (draftMessages) => {
             const newMessage: SentMessage = {
               ...payload.new,
-              users: {
-                id: messageMember.users.id,
-                thumbnail: messageMember.users.thumbnail,
-                username: messageMember.users.username,
+              user: {
+                id: messageMember.user.id,
+                thumbnail: messageMember.user.thumbnail,
+                username: messageMember.user.username,
               },
-              members: {
+              member: {
                 display_name: messageMember.display_name,
               },
             };

@@ -21,7 +21,7 @@ export const messageApi = createApi({
       query: (channelId) => ({
         document: gql`
           query getMessageList($page: Int = 1, $per_page: Int = 30) {
-            messagesCollection(filter: { channel_id: { eq: ${channelId} } }) {
+            messageCollection(filter: { channel_id: { eq: ${channelId} } }) {
               edges {
                 node {
                   id
@@ -30,12 +30,12 @@ export const messageApi = createApi({
                   channel_id
                   sent_at
                   updated_at
-                  users {
+                  user {
                     id
                     username
                     thumbnail
                   }
-                  members {
+                  member {
                     display_name
                   }
                 }
@@ -50,23 +50,10 @@ export const messageApi = createApi({
     createMessage: builder.mutation<SentMessage, MessageInput>({
       query: (message) => ({
         document: gql`
-          mutation createMessage($message: MessagesInsertInput!) {
-            insertIntoMessagesCollection(objects: [$message]) {
+          mutation createMessage($message: messageInsertInput!) {
+            insertIntomessageCollection(objects: [$message]) {
               records {
                 id
-                content
-                author_id
-                channel_id
-                sent_at
-                updated_at
-                users {
-                  id
-                  username
-                  thumbnail
-                }
-                members {
-                  display_name
-                }
               }
             }
           }

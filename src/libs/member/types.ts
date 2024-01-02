@@ -12,5 +12,5 @@ export type Member = {
   /** Date when the member first joined the server */
   joined_at: string;
   /** Data took from the Users collection */
-  users: Pick<User, 'id' | 'status' | 'thumbnail' | 'username'>;
+  user: Pick<User, 'id' | 'status' | 'thumbnail' | 'username'>;
 };

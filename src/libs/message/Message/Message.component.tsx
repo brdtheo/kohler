@@ -17,7 +17,7 @@ const Message: React.FC<Props> = ({ message }) => {
       <div className="pl-18 pr-12 py-1 mt-3.5 flex relative hover:bg-charcoal">
         <button className="absolute top-2 left-4 cursor-pointer">
           <Avatar
-            thumbnail={message.users.thumbnail}
+            thumbnail={message.user.thumbnail}
             size="large"
             isStatusHidden
           />
@@ -26,7 +26,7 @@ const Message: React.FC<Props> = ({ message }) => {
         <div>
           <div className="flex items-center">
             <h3 className="text-smoke gg-medium leading-[22px] mr-1 cursor-pointer hover:underline">
-              {message.users.username}
+              {message.user.username}
             </h3>
             <span className="text-placeholder text-xs ml-1 cursor-default">
               {messageSentDate}

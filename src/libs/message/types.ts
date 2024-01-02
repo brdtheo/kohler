@@ -23,6 +23,6 @@ export type Message = {
 export type MessageInput = Omit<Message, 'id'>;
 
 export type SentMessage = Message & {
-  users: Pick<User, 'id' | 'thumbnail' | 'username'>;
-  members: Pick<Member, 'display_name'>;
+  user: Pick<User, 'id' | 'thumbnail' | 'username'>;
+  member: Pick<Member, 'display_name'>;
 };
