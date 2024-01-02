@@ -13,14 +13,12 @@ type Props = {
 
 const MembersList: React.FC<Props> = ({ isOpen, members }) => {
   const onlineMembers = useMemo(
-    () =>
-      members.filter((member) => member.users.status !== UserStatus.OFFLINE),
+    () => members.filter((member) => member.user.status !== UserStatus.OFFLINE),
     [members],
   );
 
   const offlineMembers = useMemo(
-    () =>
-      members.filter((member) => member.users.status === UserStatus.OFFLINE),
+    () => members.filter((member) => member.user.status === UserStatus.OFFLINE),
     [members],
   );
 
@@ -35,9 +33,9 @@ const MembersList: React.FC<Props> = ({ isOpen, members }) => {
             {onlineMembers.map((member) => (
               <MemberListItem
                 key={member.id}
-                memberStatus={member.users.status}
-                memberName={member.users.username}
-                avatarThumbnail={member.users.thumbnail}
+                memberStatus={member.user.status}
+                memberName={member.user.username}
+                avatarThumbnail={member.user.thumbnail}
               />
             ))}
           </ul>
@@ -50,8 +48,8 @@ const MembersList: React.FC<Props> = ({ isOpen, members }) => {
               <MemberListItem
                 key={member.id}
                 memberStatus={UserStatus.OFFLINE}
-                memberName={member.users.username}
-                avatarThumbnail={member.users.thumbnail}
+                memberName={member.user.username}
+                avatarThumbnail={member.user.thumbnail}
               />
             ))}
           </ul>

@@ -21,7 +21,7 @@ export const serverApi = createApi({
       query: () => ({
         document: gql`
           query getServerList($page: Int = 1, $per_page: Int = 30) {
-            serversCollection {
+            serverCollection {
               edges {
                 node {
                   id
