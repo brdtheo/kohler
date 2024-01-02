@@ -2,7 +2,7 @@ import { UserStatus } from './constants';
 
 export type User = {
   /** User ID */
-  id: number;
+  id: string;
   /** Unique email associated with this User */
   email: string;
   /** Username associated with this User (can be replaced by `display_name` in Server) */
