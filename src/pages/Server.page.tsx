@@ -24,7 +24,7 @@ import { User } from '@libs/user/types';
 import { UserStatus } from '@libs/user/constants';
 
 const _TEMP_USER: User = {
-  id: faker.number.int(1000),
+  id: faker.number.int(1000).toString(),
   email: faker.internet.email(),
   username: 'brdtheo',
   status: UserStatus.DO_NOT_DISTURB,
