@@ -17,8 +17,8 @@ export const messageApi = createApi({
     prepareHeaders: (headers) => getApiRequestHeaders(headers),
   }),
   endpoints: (builder) => ({
-    getMessageList: builder.query<SentMessage[], number>({
-      query: (channelId: number) => ({
+    getMessageList: builder.query<SentMessage[], string>({
+      query: (channelId) => ({
         document: gql`
           query getMessageList($page: Int = 1, $per_page: Int = 30) {
             messagesCollection(filter: { channel_id: { eq: ${channelId} } }) {

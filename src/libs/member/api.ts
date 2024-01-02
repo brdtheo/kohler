@@ -17,8 +17,8 @@ export const memberApi = createApi({
     prepareHeaders: (headers) => getApiRequestHeaders(headers),
   }),
   endpoints: (builder) => ({
-    getMemberList: builder.query<Member[], number>({
-      query: (serverId: number) => ({
+    getMemberList: builder.query<Member[], string>({
+      query: (serverId) => ({
         document: gql`
           query getMemberList($page: Int = 1, $per_page: Int = 30) {
             membersCollection(filter: { server_id: { eq: ${serverId} } }) {

@@ -17,8 +17,8 @@ export const channelApi = createApi({
     prepareHeaders: (headers) => getApiRequestHeaders(headers),
   }),
   endpoints: (builder) => ({
-    getChannelList: builder.query<Channel[], number>({
-      query: (serverId: number) => ({
+    getChannelList: builder.query<Channel[], string>({
+      query: (serverId) => ({
         document: gql`
           query getChannelList($page: Int = 1, $per_page: Int = 30) {
             channelsCollection(filter: { server_id: { eq: ${serverId} } }, orderBy: { created_at: AscNullsLast }) {
