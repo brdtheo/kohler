@@ -1,6 +1,6 @@
 export enum UserStatus {
-  OFFLINE = '0',
-  ONLINE = '1',
-  IDLE = '2',
-  DO_NOT_DISTURB = '3',
+  OFFLINE = 'OFFLINE',
+  ONLINE = 'ONLINE',
+  IDLE = 'IDLE',
+  DO_NOT_DISTURB = 'DO_NOT_DISTURB',
 }
