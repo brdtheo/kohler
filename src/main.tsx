@@ -5,14 +5,18 @@ import { RouterProvider } from 'react-router-dom';
 
 import routes from '@routes';
 
-import { store } from '@/store';
+import { store } from '@store';
+
+import RealtimeProvider from '@api/RealtimeProvider';
 
 import './styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={routes} />
+      <RealtimeProvider>
+        <RouterProvider router={routes} />
+      </RealtimeProvider>
     </Provider>
   </React.StrictMode>,
 );
