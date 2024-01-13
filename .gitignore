@@ -13,7 +13,12 @@ dist-ssr
 dist-electron
 release
 *.local
-.yarn
+
+# Yarn
+.yarn/*.gz
+.yarn/cache/*
+.yarn/releases/*
+!.yarn/releases/yarn-4.0.2.cjs
 
 # Envs files
 .env
@@ -29,3 +34,4 @@ release
 *.njsproj
 *.sln
 *.sw?
+
