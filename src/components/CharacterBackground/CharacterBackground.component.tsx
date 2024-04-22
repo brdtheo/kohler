@@ -37,7 +37,10 @@ const CharacterBackground: React.FC = () => {
           x2="1426.37"
           y1="493.59"
           y2="538.11"
-        ></linearGradient>
+        >
+          <stop offset="0" stopColor="#ffe75c"></stop>
+          <stop offset="1" stopColor="#ffc619"></stop>
+        </linearGradient>
         <linearGradient
           id="linear-gradient-4"
           x1="1170.7"
