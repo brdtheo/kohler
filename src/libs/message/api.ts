@@ -14,7 +14,8 @@ export const messageApi = createApi({
   reducerPath: 'messageApi',
   baseQuery: graphqlRequestBaseQuery({
     url: import.meta.env.VITE_BASE_API_URL,
-    prepareHeaders: (headers) => getApiRequestHeaders(headers),
+    prepareHeaders: (headers, { getState }) =>
+      getApiRequestHeaders(headers, getState().auth.accessToken),
   }),
   endpoints: (builder) => ({
     getMessageList: builder.query<SentMessage[], string>({
