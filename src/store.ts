@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
+import authSlice from '@libs/auth/authSlice';
 import { channelApi } from '@libs/channel/api';
 import channelSlice from '@libs/channel/channelSlice';
 import { memberApi } from '@libs/member/api';
@@ -10,6 +11,7 @@ import serverSlice from '@libs/server/serverSlice';
 
 export const store = configureStore({
   reducer: {
+    auth: authSlice,
     [serverApi.reducerPath]: serverApi.reducer,
     server: serverSlice,
     [channelApi.reducerPath]: channelApi.reducer,
