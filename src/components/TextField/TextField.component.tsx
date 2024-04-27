@@ -10,7 +10,7 @@ type Props = {
   isError?: boolean;
   errorText?: string;
   type?: `${TextFieldType}`;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TextField: React.FC<Props> = ({
@@ -21,6 +21,7 @@ const TextField: React.FC<Props> = ({
   errorText,
   isRequired,
   type = TextFieldType.TEXT,
+  onChange,
 }) => (
   <>
     <label
@@ -50,6 +51,7 @@ const TextField: React.FC<Props> = ({
       type={type}
       className="p-2.5 w-full bg-shark rounded h-10 text-iron outline-none outline-transparent outline-offset-0 outline-4 focus-visible:outline-link"
       required
+      onChange={onChange}
     />
   </>
 );
