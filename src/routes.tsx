@@ -1,5 +1,3 @@
-import { createBrowserRouter } from 'react-router-dom';
-
 import DirectMessagePage from '@pages/DirectMessage.page';
 import LoginPage from '@pages/Login.page';
 import ServerPage from '@pages/Server.page';
@@ -7,7 +5,7 @@ import ShopPage from '@pages/Shop.page';
 import StorePage from '@pages/Store.page';
 import UserHomePage from '@pages/UserHome.page';
 
-const routes = createBrowserRouter([
+const routes = [
   {
     path: '/',
     element: <LoginPage />,
@@ -32,6 +30,6 @@ const routes = createBrowserRouter([
     path: '/store',
     element: <StorePage />,
   },
-]);
+];
 
 export default routes;
