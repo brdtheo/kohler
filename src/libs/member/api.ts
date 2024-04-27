@@ -14,7 +14,8 @@ export const memberApi = createApi({
   reducerPath: 'memberApi',
   baseQuery: graphqlRequestBaseQuery({
     url: import.meta.env.VITE_BASE_API_URL,
-    prepareHeaders: (headers) => getApiRequestHeaders(headers),
+    prepareHeaders: (headers, { getState }) =>
+      getApiRequestHeaders(headers, getState().auth.accessToken),
   }),
   endpoints: (builder) => ({
     getMemberList: builder.query<Member[], string>({

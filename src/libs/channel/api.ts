@@ -14,7 +14,8 @@ export const channelApi = createApi({
   reducerPath: 'channelApi',
   baseQuery: graphqlRequestBaseQuery({
     url: import.meta.env.VITE_BASE_API_URL,
-    prepareHeaders: (headers) => getApiRequestHeaders(headers),
+    prepareHeaders: (headers, { getState }) =>
+      getApiRequestHeaders(headers, getState().auth.accessToken),
   }),
   endpoints: (builder) => ({
     getChannelList: builder.query<Channel[], string>({
