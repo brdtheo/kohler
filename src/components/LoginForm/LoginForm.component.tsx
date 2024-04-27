@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, memo, useCallback, useState } from 'react';
 
 import Button from '@components/Button';
 import Link from '@components/Link';
@@ -7,65 +7,94 @@ import TextField from '@components/TextField';
 type Props = {
   isLoading?: boolean;
   onForgotPasswordClick: () => void;
-  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  onSubmit: (email: string, password: string) => void;
 };
 
-const LoginForm: React.FC<Props> = ({
-  isLoading,
-  onForgotPasswordClick,
-  onSubmit,
-}) => (
-  <form
-    className="bg-ebony p-8 z-10 rounded shadow-lg w-[480px]"
-    onSubmit={onSubmit}
-    noValidate
-  >
-    <div className="flex flex-col">
-      <div className="flex flex-col items-center">
-        <h1 className="text-smoke gg-semibold font-semibold text-2xl leading-8">
-          Welcome back!
-        </h1>
-        <div className="text-crestline">We're so excited to see you again!</div>
-      </div>
+const LoginForm: React.FC<Props> = memo(
+  ({ isLoading, onForgotPasswordClick, onSubmit }) => {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
-      <div className="flex flex-col mt-5">
-        <div className="mb-5 flex flex-col">
-          <TextField
-            type="email"
-            label="email"
-            isRequired
-            name="login-email"
-            id="login-email"
-            onChange={() => {}}
-          />
-        </div>
+    const handleChangeEmail = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = event.target.value;
+        setEmail(newValue);
+      },
+      [],
+    );
+
+    const handleChangePassword = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = event.target.value;
+        setPassword(newValue);
+      },
+      [],
+    );
+
+    const handleSubmit = useCallback(
+      (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        onSubmit(email, password);
+      },
+      [email, onSubmit, password],
+    );
+
+    return (
+      <form
+        className="bg-ebony p-8 z-10 rounded shadow-lg w-[480px]"
+        onSubmit={handleSubmit}
+        noValidate
+      >
         <div className="flex flex-col">
-          <TextField
-            label="password"
-            type="password"
-            isRequired
-            name="login-password"
-            id="login-password"
-            onChange={() => {}}
-          />
-        </div>
-        <Link className="mt-1.5 mb-5" onClick={onForgotPasswordClick}>
-          Forgot your password?
-        </Link>
+          <div className="flex flex-col items-center">
+            <h1 className="text-smoke gg-semibold font-semibold text-2xl leading-8">
+              Welcome back!
+            </h1>
+            <div className="text-crestline">
+              We're so excited to see you again!
+            </div>
+          </div>
 
-        <Button type="submit" isLoading={isLoading}>
-          Log In
-        </Button>
+          <div className="flex flex-col mt-5">
+            <div className="mb-5 flex flex-col">
+              <TextField
+                type="email"
+                label="email"
+                isRequired
+                name="login-email"
+                id="login-email"
+                onChange={handleChangeEmail}
+              />
+            </div>
+            <div className="flex flex-col">
+              <TextField
+                label="password"
+                type="password"
+                isRequired
+                name="login-password"
+                id="login-password"
+                onChange={handleChangePassword}
+              />
+            </div>
+            <Link className="mt-1.5 mb-5" onClick={onForgotPasswordClick}>
+              Forgot your password?
+            </Link>
 
-        <div className="text-crestline text-sm leading-none">
-          <span>Need an account?</span>
-          <Link className="ml-1" to="/register">
-            Register
-          </Link>
+            <Button type="submit" isLoading={isLoading}>
+              Log In
+            </Button>
+
+            <div className="text-crestline text-sm leading-none">
+              <span>Need an account?</span>
+              <Link className="ml-1" to="/register">
+                Register
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </form>
+      </form>
+    );
+  },
 );
 
 export default LoginForm;
