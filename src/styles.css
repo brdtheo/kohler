@@ -106,16 +106,16 @@ html {
 
 /* Font family utils */
 .gg-regular {
-  font-family: 'gg sans Regular';
+  font-family: 'gg sans Regular', system-ui, sans-serif;
 }
 .gg-medium {
-  font-family: 'gg sans Medium';
+  font-family: 'gg sans Medium', system-ui, sans-serif;
 }
 .gg-semibold {
-  font-family: 'gg sans SemiBold';
+  font-family: 'gg sans SemiBold', system-ui, sans-serif;
 }
 .gg-bold {
-  font-family: 'gg sans Bold';
+  font-family: 'gg sans Bold', system-ui, sans-serif;
 }
 
 /* Text utils */
