@@ -10,11 +10,12 @@ import { memberApi } from '@libs/member/api';
 import { messageApi } from '@libs/message/api';
 import { serverApi } from '@libs/server/api';
 import serverSlice from '@libs/server/serverSlice';
+import { userApi } from '@libs/user/api';
 
 const authPersistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth'],
+  whitelist: ['auth', 'user'],
 };
 
 const reducers = combineReducers({
@@ -25,6 +26,7 @@ const reducers = combineReducers({
   channel: channelSlice,
   [memberApi.reducerPath]: memberApi.reducer,
   [messageApi.reducerPath]: messageApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,
 });
 
 const persistedReducer = persistReducer(authPersistConfig, reducers);
@@ -36,7 +38,9 @@ export const store = configureStore({
       .concat(serverApi.middleware)
       .concat(channelApi.middleware)
       .concat(memberApi.middleware)
-      .concat(messageApi.middleware),
+      .concat(memberApi.middleware)
+      .concat(messageApi.middleware)
+      .concat(userApi.middleware),
 });
 
 export const persistor = persistStore(store);

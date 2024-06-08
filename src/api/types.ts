@@ -3,7 +3,7 @@ export type GraphNode<T> = {
 };
 
 export type BaseApiResponse<T> = {
-  [key: string]: {
+  [collectionName: string]: {
     edges: GraphNode<T>[];
   };
 };
