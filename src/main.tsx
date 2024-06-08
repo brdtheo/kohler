@@ -9,6 +9,7 @@ import routes from '@routes';
 import { persistor, store } from '@store';
 
 import RealtimeProvider from '@api/RealtimeProvider';
+import UserProvider from '@api/UserProvider';
 
 import './styles.css';
 
@@ -18,15 +19,17 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <PersistGate loading={<p>loading !!!!!!!</p>} persistor={persistor}>
         <RealtimeProvider>
           <HashRouter>
-            <Routes>
-              {routes.map((route) => (
-                <Route
-                  key={route.path}
-                  path={route.path}
-                  element={route.element}
-                />
-              ))}
-            </Routes>
+            <UserProvider>
+              <Routes>
+                {routes.map((route) => (
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    element={route.element}
+                  />
+                ))}
+              </Routes>
+            </UserProvider>
           </HashRouter>
         </RealtimeProvider>
       </PersistGate>
