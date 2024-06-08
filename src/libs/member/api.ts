@@ -5,7 +5,7 @@ import { gql } from 'graphql-request';
 import { BaseApiResponse } from '@api/types';
 
 import getApiRequestHeaders from '@utils/getApiRequestHeaders';
-import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
+import { getCleanNodeArrayGraphQLResponse } from '@utils/getCleanGraphQLResponse';
 
 import { Member } from './types';
 
@@ -43,7 +43,7 @@ export const memberApi = createApi({
         `,
       }),
       transformResponse: (response: BaseApiResponse<Member>) =>
-        getCleanGraphQLResponse(response),
+        getCleanNodeArrayGraphQLResponse(response),
     }),
   }),
 });

@@ -5,7 +5,7 @@ import { gql } from 'graphql-request';
 import { BaseApiResponse } from '@api/types';
 
 import getApiRequestHeaders from '@utils/getApiRequestHeaders';
-import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
+import { getCleanNodeArrayGraphQLResponse } from '@utils/getCleanGraphQLResponse';
 
 import { MessageInput, SentMessage } from './types';
 
@@ -46,7 +46,7 @@ export const messageApi = createApi({
         `,
       }),
       transformResponse: (response: BaseApiResponse<SentMessage>) =>
-        getCleanGraphQLResponse(response),
+        getCleanNodeArrayGraphQLResponse(response),
     }),
     createMessage: builder.mutation<SentMessage, MessageInput>({
       query: (message) => ({

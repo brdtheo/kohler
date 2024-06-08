@@ -3,7 +3,10 @@ import { describe, expect, test } from '@jest/globals';
 
 import { BaseApiResponse } from '@api/types';
 
-import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
+import {
+  getCleanNodeArrayGraphQLResponse,
+  getCleanNodeGraphQLResponse,
+} from '@utils/getCleanGraphQLResponse';
 
 type FakeNodeObject = {
   node: FakeObject;
@@ -17,8 +20,8 @@ type FakeObject = {
 const FAKE_ID = faker.number.int(1000);
 const FAKE_DESCRIPTION = faker.lorem.sentences(5);
 
-describe('[hook]: getCleanGraphQLResponse', () => {
-  test('is returning a GraphQL response object without edges/node properties', () => {
+describe('[utils]: API response utils', () => {
+  test('is returning a GraphQL array of objects without edges/node properties', () => {
     const fakeGraphQLResponse: BaseApiResponse<FakeObject> = {
       myCollection: {
         edges: faker.helpers.multiple(
@@ -33,7 +36,8 @@ describe('[hook]: getCleanGraphQLResponse', () => {
       },
     };
 
-    const cleanGraphQLResponse = getCleanGraphQLResponse(fakeGraphQLResponse);
+    const cleanGraphQLResponse =
+      getCleanNodeArrayGraphQLResponse(fakeGraphQLResponse);
 
     expect(cleanGraphQLResponse).toHaveLength(3);
     expect(cleanGraphQLResponse).toStrictEqual(
@@ -45,5 +49,30 @@ describe('[hook]: getCleanGraphQLResponse', () => {
         { count: 3 },
       ),
     );
+  });
+
+  test('is returning a GraphQL object without edges/node properties', () => {
+    const fakeGraphQLResponse: BaseApiResponse<FakeObject> = {
+      myCollection: {
+        edges: faker.helpers.multiple(
+          () => ({
+            node: {
+              id: FAKE_ID,
+              description: FAKE_DESCRIPTION,
+            },
+          }),
+          { count: 3 },
+        ) as FakeNodeObject[],
+      },
+    };
+
+    const cleanGraphQLResponse =
+      getCleanNodeGraphQLResponse(fakeGraphQLResponse);
+
+    expect(cleanGraphQLResponse).toBeDefined();
+    expect(cleanGraphQLResponse).toStrictEqual({
+      id: FAKE_ID,
+      description: FAKE_DESCRIPTION,
+    });
   });
 });
