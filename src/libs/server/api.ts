@@ -5,7 +5,7 @@ import { gql } from 'graphql-request';
 import { BaseApiResponse } from '@api/types';
 
 import getApiRequestHeaders from '@utils/getApiRequestHeaders';
-import getCleanGraphQLResponse from '@utils/getCleanGraphQLResponse';
+import { getCleanNodeArrayGraphQLResponse } from '@utils/getCleanGraphQLResponse';
 
 import { Server } from '@libs/server/types';
 
@@ -36,7 +36,7 @@ export const serverApi = createApi({
         `,
       }),
       transformResponse: (response: BaseApiResponse<Server>) =>
-        getCleanGraphQLResponse(response),
+        getCleanNodeArrayGraphQLResponse(response),
     }),
   }),
 });
