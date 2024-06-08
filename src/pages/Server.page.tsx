@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker';
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -19,20 +18,6 @@ import ServerActivity from '@libs/server/ServerActivity';
 import ServerBrowser from '@libs/server/ServerBrowser';
 
 import { MessageInput } from '@libs/message/types';
-import { User } from '@libs/user/types';
-
-import { UserStatus } from '@libs/user/constants';
-
-const _TEMP_USER: User = {
-  id: faker.number.int(1000).toString(),
-  email: faker.internet.email(),
-  username: 'brdtheo',
-  status: UserStatus.DO_NOT_DISTURB,
-  thumbnail:
-    'https://cdn.discordapp.com/avatars/338044684423397376/3af412869d429758cb9782b7789c8d06.webp',
-  bio: undefined,
-  created_at: faker.date.recent().toDateString(),
-};
 
 const ServerPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -85,8 +70,6 @@ const ServerPage: React.FC = () => {
         <>
           {!!channelList && channelList.length > 0 && (
             <Sidebar
-              userStatus={_TEMP_USER.status}
-              userName={_TEMP_USER.username}
               channelName={channelList[0].name}
               serverName={selectedServer.name}
               serverChannels={channelList}
