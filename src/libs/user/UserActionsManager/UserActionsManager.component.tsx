@@ -1,4 +1,7 @@
 import { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '@store';
 
 import getMemberStatusText from '@utils/getMemberStatusText';
 
@@ -14,29 +17,30 @@ import Avatar from '@components/Avatar';
 
 import ConnectionStatus from '@libs/connection/ConnectionStatus';
 import UserActionsManagerButton from '@libs/user/UserActionsManagerButton';
+import { userApi } from '@libs/user/api';
 
-import { UserStatus } from '@libs/user/constants';
+import { User } from '@libs/user/types';
 
 type Props = {
-  /** The user status; used to display the color within the avatar */
-  userStatus: UserStatus;
-  /** User name displayed next to the avatar */
-  userName: string;
   /** The name of the server, displayed when active RTC */
   serverName: string;
   /** The name of the channel, displayed when active RTC */
   channelName: string;
 };
 
-const UserActionsManager: React.FC<Props> = ({
-  userStatus,
-  userName,
-  serverName,
-  channelName,
-}) => {
+const UserActionsManager: React.FC<Props> = ({ serverName, channelName }) => {
   const [isMuted, setIsMuted] = useState(false);
   const [isDeafen, setIsDeafen] = useState(false);
   const [hasCurrentConnection] = useState(false);
+
+  const currentUserEmail = useSelector((state: RootState) => state.auth.email);
+
+  const currentUser = userApi.endpoints.getUser.useQueryState(
+    currentUserEmail,
+    {
+      selectFromResult: (response) => response.data as User,
+    },
+  );
 
   const handleToggleMute = useCallback(() => {
     if (isDeafen && isMuted) {
@@ -92,16 +96,16 @@ const UserActionsManager: React.FC<Props> = ({
           className="flex items-center flex-1 mr-2 ml-[-2px] pl-[2px] hover:bg-smoke hover:bg-opacity-10 rounded"
         >
           <Avatar
-            thumbnail="https://cdn.discordapp.com/avatars/338044684423397376/3af412869d429758cb9782b7789c8d06.webp"
-            status={userStatus}
+            thumbnail={currentUser?.thumbnail}
+            status={currentUser?.status}
             isPreventTooltip
           />
           <div className="flex-1 overflow-hidden flex flex-col py-1 pl-2 max-w-[84px]">
             <span className="text-sm leading-[18px] gg-regular text-smoke flex-1 text-left whitespace-nowrap overflow-hidden text-ellipsis">
-              {userName}
+              {currentUser?.username}
             </span>
             <span className="text-crestline leading-4 gg-regular text-xs text-left whitespace-nowrap overflow-hidden text-ellipsis">
-              {getMemberStatusText(userStatus)}
+              {getMemberStatusText(currentUser?.status)}
             </span>
           </div>
         </button>

@@ -13,9 +13,12 @@ import Gift from '@icons/Gift';
 import Sticker from '@icons/Sticker';
 import TypingDots from '@icons/TypingDots';
 
+import { memberApi } from '@libs/member/api';
 import MessageInputButton from '@libs/message/MessageInputButton';
+import { userApi } from '@libs/user/api';
 
 import { MessageInput as MessageInputType } from '@libs/message/types';
+import { User } from '@libs/user/types';
 
 import { MessageType } from '@libs/message/constants';
 
@@ -36,6 +39,28 @@ const MessageInput: React.FC<Props> = ({
   const selectedChannel = useSelector(
     (state: RootState) => state.channel.selectedChannel,
   );
+
+  const currentUserEmail = useSelector((state: RootState) => state.auth.email);
+
+  const currentUser = userApi.endpoints.getUser.useQueryState(
+    currentUserEmail,
+    {
+      selectFromResult: (response) => response.data as User,
+    },
+  );
+
+  const selectedServerId = useSelector(
+    (state: RootState) => state.server.selectedServer?.id,
+  );
+
+  const serverMembers = memberApi.endpoints.getMemberList.useQueryState(
+    selectedServerId ?? '',
+  )?.data;
+
+  const currentMember = (serverMembers ?? []).find(
+    (member) => member.user_id === currentUser?.id,
+  );
+
   const [messageText, setMessageText] = useState<string>('');
   const [emojiBackgroundPosition, setEmojiBackgroundPosition] =
     useState<string>('');
@@ -57,19 +82,30 @@ const MessageInput: React.FC<Props> = ({
 
   const handleSendMessage = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === 'Enter') {
+      if (
+        event.key === 'Enter' &&
+        currentMember?.id &&
+        selectedChannel?.id &&
+        currentUser?.id
+      ) {
         onSendMessage?.({
           content: messageText,
           type: MessageType.TEXT,
           sent_at: dayjs().format(),
-          author_id: '1', // TEMP
-          channel_id: selectedChannel?.id ?? '',
-          member_id: '1', // TEMP
+          author_id: currentUser?.id,
+          channel_id: selectedChannel?.id,
+          member_id: currentMember?.id,
         });
         setMessageText('');
       }
     },
-    [onSendMessage, messageText, selectedChannel],
+    [
+      onSendMessage,
+      messageText,
+      currentUser?.id,
+      selectedChannel?.id,
+      currentMember?.id,
+    ],
   );
 
   return (
